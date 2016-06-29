@@ -33,6 +33,18 @@ public class Controller {
 			stage.show();
 	    }
 	 
+	 @FXML
+	    public void ShowDialogTask(ActionEvent actionEvent) throws IOException{
+		 	
+		 	Stage stage = new Stage();
+		 	Parent root = FXMLLoader.load(getClass().getResource("dialogTask.fxml"));
+			stage.setScene(new Scene(root));
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+			stage.setTitle("Создать задачу:");
+			stage.show();
+	    }
+	 
 	 public static void NewPaneTarget (Target target){
 		/*
 		   Parent root = FXMLLoader.load(getClass().getResource("scrollPaneNext.fxml"));

@@ -49,8 +49,9 @@ public class ControllerDialog1 {
 		Iterator<Target> itr = Main.TargetList.iterator();
 		while (itr.hasNext()) {
 			System.out.println(itr.next().toString()
-					+ ",\n");
+					+ ",");
 		}
+		System.out.println("\n");
 	}
 
 

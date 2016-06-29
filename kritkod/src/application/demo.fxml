@@ -88,5 +88,6 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Button layoutX="182.0" layoutY="44.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" text="(Test) Новая задача" textFill="#ff1500" />
    </children>
 </Pane>

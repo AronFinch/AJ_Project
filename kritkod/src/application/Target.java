@@ -1,18 +1,28 @@
 package application;
 
-
+import java.util.LinkedHashSet;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+//Цель
 public class Target {
 	
+	public static LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
 	private String label = "";
 	private String description = "";
 	LocalDate limitation1 = LocalDate.now();
 	LocalDate limitation2 = LocalDate.now();
+	
+	public void createTask(Task task) {
+		
+		TaskList.add(task);
+		
+	}
 	
 	public void setLabel(TextField addNameTarget) throws IOException {
 		
@@ -29,7 +39,7 @@ public class Target {
 		limitation1 = addDataTarget.getValue();
 	}
 	
-public void setLimitation2(DatePicker addDataTarget) {
+	public void setLimitation2(DatePicker addDataTarget) {
 		
 		limitation2 = addDataTarget.getValue();
 	}
@@ -49,7 +59,7 @@ public void setLimitation2(DatePicker addDataTarget) {
 		return limitation1;
 	}
 	
-public LocalDate getLimitation2() {
+	public LocalDate getLimitation2() {
 		
 		return limitation2;
 	}
