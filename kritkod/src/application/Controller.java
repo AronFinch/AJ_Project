@@ -48,13 +48,25 @@ public class Controller {
 			stage.show();
 	    }
 	 
+	 @FXML
+	    public void ShowDialogCreateUser(ActionEvent actionEvent) throws IOException{
+		 	
+		 	Stage stage = new Stage();
+		 	Parent root = FXMLLoader.load(getClass().getResource("dialogCreateUser.fxml"));
+			stage.setScene(new Scene(root));
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+			stage.setTitle("Создать пользователя:");
+			stage.show();
+	    }
+	 
 	 public static void NewPaneTarget (Target target){
-		/*
-		   Parent root = FXMLLoader.load(getClass().getResource("scrollPaneNext.fxml"));
+
+		  // Parent root = FXMLLoader.load(getClass().getResource("scrollPaneNext.fxml"));
 		 
-		 Controller.ScrollPane0.getChildrenUnmodifiable();
-		 */
+		 //Controller.ScrollPane0.getChildrenUnmodifiable();
 		 //ScrollPane0.contentProperty();
+		// Controller.ScrollPane0.getChildrenUnmodifiable(root);
 	 }
 
 }
