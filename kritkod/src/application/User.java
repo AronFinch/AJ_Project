@@ -1,5 +1,8 @@
 package application;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 import javafx.scene.control.DatePicker;
@@ -78,4 +81,22 @@ public class User {
 		
 	}
 	
+	//прогружает пользователя из бд с конкретным логином и паролем(пока нет обработки исключения)
+		public User() throws ClassNotFoundException, SQLException {
+			loadUser("admin", "admin");
+		}
+		
+		// загрузить пользователя из БД
+		private void loadUser(String login, String password) throws ClassNotFoundException, SQLException {
+			DataBaseManager.Connect();
+			ResultSet rs = DataBaseManager.GetUser(login, password);
+			if(rs.next()) {
+				id = rs.getInt("id_user");
+				name = rs.getString("name_user");
+				gender = rs.getString("gender").charAt(0);
+				birthDate = rs.getDate("date_of_birth").toLocalDate();
+			} else {
+				System.err.println("пользователь не найден");
+			}
+		}
 }

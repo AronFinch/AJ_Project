@@ -1,5 +1,7 @@
 package application;
 
+import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -29,7 +31,7 @@ public class ControllerDialogCreateUser {
 	private CheckBox addGenderFemale;
 	
 	@FXML
-    public void addNewUser(ActionEvent actionEvent){
+    public void addNewUser(ActionEvent actionEvent) throws ClassNotFoundException, SQLException{
 		User newUser = new User();
 		newUser.setId(User.idNew++);
 		newUser.setLogin(addUserLogin);
