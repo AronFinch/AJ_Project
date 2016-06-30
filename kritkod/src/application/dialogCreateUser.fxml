@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="113.0" layoutY="30.0" text="Регистрация" />
+      <Label layoutX="10.0" layoutY="151.0" text="Имя" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="addNameUser" layoutX="104.0" layoutY="147.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
+      <Label layoutX="11.0" layoutY="200.0" text="Пол" AnchorPane.leftAnchor="10.0" />
+      <CheckBox layoutX="104.0" layoutY="191.0" mnemonicParsing="false" text="муж" AnchorPane.leftAnchor="105.0" />
+      <CheckBox layoutX="211.0" layoutY="192.0" mnemonicParsing="false" text="жен" />
+      <Label layoutX="13.0" layoutY="250.0" text="Дата рождения" AnchorPane.leftAnchor="10.0" />
+      <DatePicker fx:id="addDataBirthDate" layoutX="104.0" layoutY="246.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
+      <Button layoutX="34.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Создать пользователя" />
+      <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" text="Отмена" />
+      <PasswordField fx:id="addUserPassword" layoutX="105.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" />
+      <Label layoutX="11.0" layoutY="103.0" text="Пароль" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="5.0" layoutY="68.0" text="Логин" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="addUserLogin" layoutX="105.0" layoutY="64.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
+   </children>
+</AnchorPane>

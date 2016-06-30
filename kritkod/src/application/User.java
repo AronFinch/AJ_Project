@@ -3,11 +3,16 @@ package application;
 import java.time.LocalDate;
 
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 
 //Пользователь
 public class User {
+	
+	static int idNew = 0;
 
 	private int id;
+	private String login = "";
+	private String password = "";
 	private String name = "";
 	private char gender = 'f';
 	private LocalDate birthDate = LocalDate.now();
@@ -18,10 +23,22 @@ public class User {
 		id = idNumber;
 		
 	}
-	//Назначить имя пользователя
-	public void setName(String fullName) {
+	//Назначить логин пользователя
+	public void setLogin(TextField log) {
 		
-		name = fullName;
+		login = log.getText();
+		
+	}
+	//Назначить пароль пользователя
+	public void setPassword(TextField pass) {
+		
+		password = pass.getText();
+		
+	}
+	//Назначить имя пользователя
+	public void setName(TextField fullName) {
+		
+		name = fullName.getText();
 		
 	}
 	//Назначить пол пользователя
