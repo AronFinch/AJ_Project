@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class ControllerDialog1 {
+public class ControllerDialogTarget {
 	
 	@FXML
     private DatePicker addDataTarget1;
@@ -35,8 +35,8 @@ public class ControllerDialog1 {
 		try {
 			newTarget.setDescription(addDiscriptionTarget);
 			newTarget.setLabel(addNameTarget);
-			newTarget.setLimitation1(addDataTarget1);
-			newTarget.setLimitation2(addDataTarget2);
+			newTarget.setStartDate(addDataTarget1);
+			newTarget.setEndDate(addDataTarget2);
 			Main.TargetList.add(newTarget);
 			labelAddTarget.setText("Цель " + addNameTarget.getText() + " добавлена!");
 			//Controller.NewPaneTarget(newTarget);

@@ -19,13 +19,16 @@ public class Controller {
 	    private Button buttonNewTask;
 	 
 	 @FXML
+	    private Button buttonTest;
+	 
+	 @FXML
 	static ScrollPane ScrollPane0;
 	 
 	 @FXML
 	    public void ShowDialog(ActionEvent actionEvent) throws IOException{
 		 	
 		 	Stage stage = new Stage();
-		 	Parent root = FXMLLoader.load(getClass().getResource("dialog1.fxml"));
+		 	Parent root = FXMLLoader.load(getClass().getResource("dialogTarget.fxml"));
 			stage.setScene(new Scene(root));
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
@@ -51,6 +54,7 @@ public class Controller {
 		 
 		 Controller.ScrollPane0.getChildrenUnmodifiable();
 		 */
+		 //ScrollPane0.contentProperty();
 	 }
 
 }

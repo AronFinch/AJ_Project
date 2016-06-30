@@ -1,40 +1,46 @@
 package application;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+
+import javafx.scene.control.TextField;
+
 //«‡‰‡˜‡
 public class Task {
+	
 	private String label = "";
 	private String description = "";
-	Date startDate = new Date();
-	SimpleDateFormat startDateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+	LocalDate startDate = LocalDate.now();
+	LocalDate endDate = LocalDate.now();
+	
+	public void setLabel(TextField addNameTask) throws IOException { 
 
-	public void setLabel() throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		label = br.readLine();
-	}
-	
-	public void setDescription() throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		description = br.readLine();
-	}
-	
-	public void setStartDate() {
-		
-		//»—œ–¿¬»“‹!!11
-		startDate = new Date();
-		
-	}
+		label = addNameTask.getText(); 
 
+	} 
+
+	public void setDescription(TextArea addDiscriptionTask) throws IOException { 
+
+		description = addDiscriptionTask.getText(); 
+
+	}
 	
-	public String getStartDate() {
+	public void setStartDate(DatePicker addDataTask) {
 		
-		return startDateFormat.format(startDate);
+		startDate = addDataTask.getValue();
+		
+	}
+	
+	public void setEndDate(DatePicker addDataTask) {
+		
+		endDate = addDataTask.getValue();
+		
 	}
 	
 	public String getLabel() {
@@ -45,5 +51,28 @@ public class Task {
 	public String getDescription() {
 		
 		return description;
+		
 	}
+	
+	public LocalDate getStartDate() {
+		
+		return startDate;
+		
+	}
+	
+	public LocalDate getEndDate() {
+		
+		return endDate;
+		
+	}
+	
+	@Override
+    public String toString() {
+        return "label=" + label 
+        		+ " Description=" + description 
+        		+ " Time_Start_Task =" + startDate.getDayOfMonth() + "." + startDate.getMonthValue() 
+        		+ " Time_Fail_Task =" + endDate.getDayOfMonth()+ "." + endDate.getMonthValue();
+        		
+    }
+		
 }
