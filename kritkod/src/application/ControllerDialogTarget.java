@@ -15,10 +15,10 @@ import javafx.scene.control.TextField;
 public class ControllerDialogTarget {
 	
 	@FXML
-    private DatePicker addDataTarget1;
+    private DatePicker addDataTargetStart;
 	
 	@FXML
-    private DatePicker addDataTarget2;
+    private DatePicker addDataTargetFail;
 	
 	@FXML
     private TextField addNameTarget;
@@ -35,10 +35,10 @@ public class ControllerDialogTarget {
 		try {
 			newTarget.setDescription(addDiscriptionTarget);
 			newTarget.setLabel(addNameTarget);
-			newTarget.setStartDate(addDataTarget1);
-			newTarget.setEndDate(addDataTarget2);
+			newTarget.setStartDate(addDataTargetStart);
+			newTarget.setEndDate(addDataTargetFail);
 			Main.TargetList.add(newTarget);
-			labelAddTarget.setText("Цель " + addNameTarget.getText() + " добавлена!");
+			//labelAddTarget.setText("Цель " + addNameTarget.getText() + " добавлена!");
 			//Controller.NewPaneTarget(newTarget);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

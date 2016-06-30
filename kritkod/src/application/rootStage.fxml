@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="420.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Pane layoutY="390.0" prefHeight="17.0" prefWidth="619.0" style="-fx-border-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane prefHeight="391.0" prefWidth="619.0" style="-fx-border-color: #000;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <tabs>
+                  <Tab text="Мои цели">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane prefHeight="37.0" prefWidth="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="183.0" layoutY="8.0" prefHeight="17.0" prefWidth="127.0" text="Сортировать цели по" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="83.0" layoutY="4.0" mnemonicParsing="false" onAction="#ShowDialog" text="Создать цель" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="5.0" />
+                                    <ComboBox layoutX="310.0" layoutY="5.0" prefHeight="26.0" prefWidth="123.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="5.0" />
+                                    <Button layoutX="456.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="456.0" AnchorPane.topAnchor="5.0" />
+                                    <Label layoutX="40.0" layoutY="6.0" text="Имя" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0" />
+                                    <TextField layoutX="501.0" layoutY="2.0" prefHeight="29.0" prefWidth="139.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="501.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="37.0" prefHeight="336.0" prefWidth="648.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+                                 <children>
+                                    <ScrollPane hbarPolicy="NEVER" layoutX="-1.0" layoutY="40.0" pannable="true" prefHeight="320.0" prefWidth="619.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <Accordion prefHeight="318.0" prefWidth="646.0">
+                                            <panes>
+                                              <TitledPane animated="false" text="Активные цели">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane hbarPolicy="NEVER" layoutX="7.0" layoutY="7.0" pannable="true" prefHeight="236.0" prefWidth="607.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="623.0">
+                                                                     <children>
+                                                                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="102.0" text="Новая цель" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="507.0" AnchorPane.topAnchor="14.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                              </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                </content>
+                                              </TitledPane>
+                                              <TitledPane animated="false" text="Выполненные цели">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="611.0" />
+                                                              </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                </content>
+                                              </TitledPane>
+                                              <TitledPane animated="false" text="Проваленные цели">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="218.0" prefWidth="623.0" />
+                                                              </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                </content>
+                                              </TitledPane>
+                                            </panes>
+                                          </Accordion>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Другие пользователи">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane prefHeight="37.0" prefWidth="650.0" AnchorPane.bottomAnchor="335.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="183.0" layoutY="8.0" prefHeight="17.0" prefWidth="127.0" text="Сортировать цели по" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="83.0" layoutY="4.0" mnemonicParsing="false" text="Создать цель" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="5.0" />
+                                    <ComboBox layoutX="310.0" layoutY="5.0" prefHeight="26.0" prefWidth="123.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="5.0" />
+                                    <Button layoutX="456.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="456.0" AnchorPane.topAnchor="5.0" />
+                                    <Label layoutX="40.0" layoutY="6.0" text="Пользователи" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="10.0" />
+                                    <TextField layoutX="501.0" layoutY="2.0" prefHeight="29.0" prefWidth="139.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="501.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Статистика">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
