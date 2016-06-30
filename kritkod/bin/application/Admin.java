@@ -1,7 +1,6 @@
 package application;
 
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
 
 import javafx.scene.control.DatePicker;
 
@@ -9,15 +8,28 @@ import javafx.scene.control.DatePicker;
 public class Admin {
 	
 	private int id;
+	private String login = "";
+	private String password = "";
 	private String name = "";
 	private char gender = 'f';
 	private LocalDate birthDate = LocalDate.now();
-	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
 	
 	//Назначить айди администаратора
 	public void setId(int idNumber) {
 		
 		id = idNumber;
+		
+	}
+	//Назначить логин администратора
+	public void setLogin(String log) {
+		
+		login = log;
+		
+	}
+	//Назначить пароль администратора
+	public void setPassword(String pass) {
+		
+		password = pass;
 		
 	}
 	//Назначить имя администратора
@@ -36,12 +48,6 @@ public class Admin {
 	public void setBirthDate(DatePicker addDataTarget) {
 		
 		birthDate = addDataTarget.getValue();
-		
-	}
-	//Создать цель
-	public void createTarget(Target target) {
-		
-		TargetList.add(target);
 		
 	}
 	//Получить дату рождения администратора
