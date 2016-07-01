@@ -31,15 +31,25 @@ public class ControllerDialogCreateUser {
 	private CheckBox addGenderFemale;
 	
 	@FXML
-    public void addNewUser(ActionEvent actionEvent) throws ClassNotFoundException, SQLException{
+    public void addNewUser(ActionEvent actionEvent) {
+		try {
 		User newUser = new User();
-		newUser.setId(User.idNew++);
-		newUser.setLogin(addUserLogin);
-		newUser.setPassword(addUserPassword);
-		newUser.setName(addNameUser);
-		newUser.setBirthDate(addDataBirthDate);
+//		newUser.setId(User.idNew++); id самому добавлять не нужно,
+//		при добавление в БД id автоматически генерится и инкеменируется
+// 
+//		newUser.setLogin(addUserLogin);
+//		newUser.setPassword(addUserPassword);
+		newUser.setName(addNameUser.getText());
+		newUser.setBirthDate(addDataBirthDate.getValue());
 		newUser.setGender('f');
-		
+		newUser.SeveUser(addUserLogin.getText(), addUserPassword.getText(), "Год крещения руси?", "988");
+		} catch(SQLException SQLex) {
+			System.err.println(SQLex.getMessage());
+			// тут обработать исключение 
+		} catch(ClassNotFoundException CNFex) {
+			// тут обработать исключение
+			System.err.println(CNFex.getMessage());
+		}
 
 		}
 }

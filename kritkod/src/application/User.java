@@ -11,14 +11,25 @@ import javafx.scene.control.TextField;
 //ѕользователь
 public class User {
 	
-	static int idNew = 0;
+//	static int idNew = 0;
 
 	private int id;
-	private String login = "";
-	private String password = "";
-	private String name = "";
-	private char gender = 'f';
-	private LocalDate birthDate = LocalDate.now();
+//	private String login;
+//	private String password;
+	private String name;
+	private char gender;
+	private LocalDate birthDate;
+	
+	//конструктор по умаолчанию 
+	// заносит в параметры нулевые значани€
+	public User() {
+		id = 0; 
+//		login = "";
+//		password = "";
+		name = "";
+		gender = 'n';
+		birthDate = null;
+	}
 	
 	//Ќазначить айди пользовател€
 	public void setId(int idNumber) {
@@ -27,21 +38,21 @@ public class User {
 		
 	}
 	//Ќазначить логин пользовател€
-	public void setLogin(TextField log) {
+//	public void setLogin(TextField log) {
 		
-		login = log.getText();
+//		login = log.getText();
 		
-	}
+//	}
 	//Ќазначить пароль пользовател€
-	public void setPassword(TextField pass) {
+//	public void setPassword(TextField pass) {
 		
-		password = pass.getText();
+//		password = pass.getText();
 		
-	}
+//	}
 	//Ќазначить им€ пользовател€
-	public void setName(TextField fullName) {
+	public void setName(String Name) {
 		
-		name = fullName.getText();
+		name = Name;
 		
 	}
 	//Ќазначить пол пользовател€
@@ -51,9 +62,9 @@ public class User {
 		
 	}
 	//Ќазначить дату рождени€ пользовател€
-	public void setBirthDate(DatePicker addDataTarget) {
+	public void setBirthDate(LocalDate date) {
 		
-		birthDate = addDataTarget.getValue();
+		birthDate = date;
 		
 	}
 	//ѕолучить дату рождени€ пользовател€
@@ -80,23 +91,25 @@ public class User {
 		return user.id;
 		
 	}
-	
-	//прогружает пользовател€ из бд с конкретным логином и паролем(пока нет обработки исключени€)
-		public User() throws ClassNotFoundException, SQLException {
-			loadUser("admin", "admin");
-		}
 		
 		// загрузить пользовател€ из Ѕƒ
-		private void loadUser(String login, String password) throws ClassNotFoundException, SQLException {
-			DataBaseManager.Connect();
-			ResultSet rs = DataBaseManager.GetUser(login, password);
-			if(rs.next()) {
-				id = rs.getInt("id_user");
-				name = rs.getString("name_user");
-				gender = rs.getString("gender").charAt(0);
-				birthDate = rs.getDate("date_of_birth").toLocalDate();
-			} else {
-				System.err.println("пользователь не найден");
-			}
+	public void LoadUser(String login, String password) throws ClassNotFoundException, SQLException {
+		DataBaseManager.Connect();
+		ResultSet rs = DataBaseManager.BDGetUser(login, password);
+		if(rs.next()) {
+			id = rs.getInt("id_user");
+			name = rs.getString("name_user");
+			gender = rs.getString("gender").charAt(0);
+			birthDate = rs.getDate("date_of_birth").toLocalDate();
+		} else {
+			System.err.println("пользователь не найден");
 		}
+		DataBaseManager.Disconnect();
+	}
+	//сохранение пользовател€ в базе данных
+	public void SeveUser(String login, String password, String secritQuestion, String answer) throws ClassNotFoundException, SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDAddUser(login, password, secritQuestion, answer, this);
+		DataBaseManager.Disconnect();
+	}
 }
