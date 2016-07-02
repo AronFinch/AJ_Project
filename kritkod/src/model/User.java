@@ -1,36 +1,34 @@
 package model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
 
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 
 //ѕользователь
 public class User {
-	
-//	static int idNew = 0;
 
 	private int id;
-//	private String login;
-//	private String password;
-	private String name;
-	private char gender;
-	private LocalDate birthDate;
+	private String login = "";
+	private String password = "";
+	private String name = "";
+	private char gender = 'f';
+	private LocalDate birthDate = LocalDate.now();
+	public static LinkedHashSet<Notice> NoticeList = new LinkedHashSet<Notice>();
+	public static LinkedHashSet<Statistics> StatisticsList = new LinkedHashSet<Statistics>();
 	
-	//конструктор по умаолчанию 
-	// заносит в параметры нулевые значани€
-	public User() {
-		id = 0; 
-//		login = "";
-//		password = "";
-		name = "";
-		gender = 'n';
-		birthDate = null;
+	//—оздать уведомление дл€ пользовател€
+	public void createNotice(Notice notice) {
+		
+		NoticeList.add(notice);
+		
 	}
-	
+	//—оздать пункт статистики дл€ пользовател€
+	public void createStatistics(Statistics statistics) {
+		
+		StatisticsList.add(statistics);
+		
+	}
 	//Ќазначить айди пользовател€
 	public void setId(int idNumber) {
 		
@@ -38,21 +36,21 @@ public class User {
 		
 	}
 	//Ќазначить логин пользовател€
-//	public void setLogin(TextField log) {
+	public void setLogin(String log) {
 		
-//		login = log.getText();
+		login = log;
 		
-//	}
+	}
 	//Ќазначить пароль пользовател€
-//	public void setPassword(TextField pass) {
+	public void setPassword(String pass) {
 		
-//		password = pass.getText();
+		password = pass;
 		
-//	}
+	}
 	//Ќазначить им€ пользовател€
-	public void setName(String Name) {
+	public void setName(String fullName) {
 		
-		name = Name;
+		name = fullName;
 		
 	}
 	//Ќазначить пол пользовател€
@@ -62,9 +60,9 @@ public class User {
 		
 	}
 	//Ќазначить дату рождени€ пользовател€
-	public void setBirthDate(LocalDate date) {
+	public void setBirthDate(DatePicker addDataTarget) {
 		
-		birthDate = date;
+		birthDate = addDataTarget.getValue();
 		
 	}
 	//ѕолучить дату рождени€ пользовател€
@@ -91,25 +89,5 @@ public class User {
 		return user.id;
 		
 	}
-		
-		// загрузить пользовател€ из Ѕƒ
-	public void LoadUser(String login, String password) throws ClassNotFoundException, SQLException {
-		DataBaseManager.Connect();
-		ResultSet rs = DataBaseManager.BDGetUser(login, password);
-		if(rs.next()) {
-			id = rs.getInt("id_user");
-			name = rs.getString("name_user");
-			gender = rs.getString("gender").charAt(0);
-			birthDate = rs.getDate("date_of_birth").toLocalDate();
-		} else {
-			System.err.println("пользователь не найден");
-		}
-		DataBaseManager.Disconnect();
-	}
-	//сохранение пользовател€ в базе данных
-	public void SeveUser(String login, String password, String secritQuestion, String answer) throws ClassNotFoundException, SQLException {
-		DataBaseManager.Connect();
-		DataBaseManager.BDAddUser(login, password, secritQuestion, answer, this);
-		DataBaseManager.Disconnect();
-	}
+	
 }

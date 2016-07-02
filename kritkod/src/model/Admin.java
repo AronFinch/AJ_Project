@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import javafx.scene.control.DatePicker;
 
 //Администратор
-public class Admin {
+public class Admin extends User {
 	
-	private int id;
+	/*private int id;
 	private String login = "";
 	private String password = "";
 	private String name = "";
@@ -73,5 +73,5 @@ public class Admin {
 		
 		return admin.id;
 		
-	}
+	}*/
 }

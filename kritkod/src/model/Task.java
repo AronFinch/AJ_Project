@@ -1,10 +1,8 @@
 package model;
 
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
 
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -19,6 +17,7 @@ public class Task {
 	private String description = "";
 	LocalDate startDate = LocalDate.now();
 	LocalDate endDate = LocalDate.now();
+	public static LinkedHashSet<Comment> CommentList = new LinkedHashSet<Comment>();
 	//Назначить айди задачи
 	public void setId(int idNumber) {
 		
@@ -47,6 +46,12 @@ public class Task {
 	public void setEndDate(DatePicker addDataTask) {
 		
 		endDate = addDataTask.getValue();
+		
+	}
+	//Создать комментарий для данной задачи
+	public void createComment(Comment comment) {
+		
+		CommentList.add(comment);
 		
 	}
 	//Получить айди задачи
