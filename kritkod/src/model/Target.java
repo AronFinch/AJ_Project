@@ -1,4 +1,4 @@
-package application;
+package model;
 
 import java.util.LinkedHashSet;
 import java.io.IOException;

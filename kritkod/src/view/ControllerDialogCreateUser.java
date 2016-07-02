@@ -1,4 +1,4 @@
-package application;
+package view;
 
 import java.sql.SQLException;
 
@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.User;
 
 public class ControllerDialogCreateUser {
 	

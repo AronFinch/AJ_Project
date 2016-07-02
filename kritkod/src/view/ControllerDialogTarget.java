@@ -1,16 +1,17 @@
-package application;
+package view;
 
 import java.io.IOException;
 import java.util.Iterator;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import model.Target;
 
 public class ControllerDialogTarget {
 	
@@ -29,6 +30,33 @@ public class ControllerDialogTarget {
 	@FXML
     private Label labelAddTarget;
 	
+	private Stage dialogStage;
+    private Target target;
+    private boolean okClicked = false;
+    
+    public void SetDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+    
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+    
+    public void SetTarget(Target target) {
+    	
+        this.target = target;
+        /*this.person = person;
+
+        firstNameField.setText(person.getFirstName());
+        lastNameField.setText(person.getLastName());
+        streetField.setText(person.getStreet());
+        postalCodeField.setText(Integer.toString(person.getPostalCode()));
+        cityField.setText(person.getCity());
+        birthdayField.setText(DateUtil.format(person.getBirthday()));
+        birthdayField.setPromptText("dd.mm.yyyy");
+        */
+    }
+	
 	@FXML
     public void addNewTarget(ActionEvent actionEvent){
 		Target newTarget = new Target();
@@ -37,9 +65,9 @@ public class ControllerDialogTarget {
 			newTarget.setLabel(addNameTarget);
 			newTarget.setStartDate(addDataTargetStart);
 			newTarget.setEndDate(addDataTargetFail);
-			Main.TargetList.add(newTarget);
-			//labelAddTarget.setText("Цель " + addNameTarget.getText() + " добавлена!");
-			//Controller.NewPaneTarget(newTarget);
+	        SetTarget(target);
+	        okClicked = true;
+	        dialogStage.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,5 +82,9 @@ public class ControllerDialogTarget {
 		System.out.println("\n");
 	}
 
+	@FXML
+    private void handleCancel() {
+        dialogStage.close();
+    }
 
 }

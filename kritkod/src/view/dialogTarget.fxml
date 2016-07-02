@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="700.0" maxWidth="350.0" minHeight="700.0" minWidth="350.0" prefHeight="700.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogTarget">
+<AnchorPane maxHeight="700.0" maxWidth="350.0" minHeight="700.0" minWidth="350.0" prefHeight="700.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTarget">
    <children>
       <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -53,7 +53,7 @@
                     </content>
                   </ScrollPane>
                   <Label layoutX="11.0" layoutY="533.0" text="Цель будет создана для:" />
-                  <Button layoutX="216.0" layoutY="666.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Отмена" />
+                  <Button fx:id="handleCancel" layoutX="216.0" layoutY="666.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Отмена" />
                   <Button layoutX="219.0" layoutY="632.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Создать цель" />
                </children>
             </AnchorPane>
