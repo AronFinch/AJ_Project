@@ -21,7 +21,7 @@ public class DataBaseManager {
 	}
 	
 	//методы получения пользователя из базы данных по логину и паролю 
-	public static void BDGetUser(String login, String password, User user) throws SQLException{
+	public static boolean BDGetUser(String login, String password, User user) throws SQLException{
 		Statement statmt = conn.createStatement();
 		String query = "SELECT id_user, name_user, date_of_birth, gender, rating "
 				+ "FROM users "
@@ -33,9 +33,12 @@ public class DataBaseManager {
 			user.setBirthDate(resSet.getDate("date_of_birth").toLocalDate());
 			user.setGender(resSet.getString("gender").charAt(0));
 			user.setRating(resSet.getInt("rating"));
+			return true;
+		} else {
+			return false;
 		}
 	}
-	public static void BDGetUser(String login, User user) throws SQLException {
+	public static boolean BDGetUser(String login, User user) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "SELECT id_user, name_user, date_of_birth, gender, rating "
 				+ "FROM users "
@@ -47,6 +50,9 @@ public class DataBaseManager {
 			user.setBirthDate(resSet.getDate("date_of_birth").toLocalDate());
 			user.setGender(resSet.getString("gender").charAt(0));
 			user.setRating(resSet.getInt("rating"));
+			return true;
+		} else {
+			return false;
 		}
 	}
 	//метод записи пользователя в базу данных
