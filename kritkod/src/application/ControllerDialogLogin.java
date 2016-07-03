@@ -30,16 +30,36 @@ public class ControllerDialogLogin {
 	@FXML
 	private void ClickedLogin() throws IOException{
 		
-		boolean loginNotNull, passwordNotNull;
-		loginNotNull = false;
-		passwordNotNull = !Password.getText().equals("");
-		
 		// проверка полей на пустоту
 		if(!Login.getText().equals("")) {
-			loginNotNull = true;
-			if(!Password.getText().equals(""))
-				passwordNotNull = true;
-			else {
+			if(!Password.getText().equals("")) {
+				try {
+					if(Main.mainUser.loadUser(Login.getText(), Password.getText())) {//Загружаем пользователя
+						Main.primaryStage.close();
+						
+						Stage stage = new Stage();
+						Main.primaryStage = stage;
+					 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+						stage.setScene(new Scene(root));
+						stage.setTitle("Главный экран:");
+						stage.show();
+					} else {
+						Login.clear();
+						Password.clear();
+						Alert alert = new Alert(Alert.AlertType.INFORMATION);
+						alert.setTitle("Information");
+					    alert.setHeaderText("Такого пользователя нет или пароль введён не верно!");
+					    alert.showAndWait();
+					}	
+				} catch (SQLException e) {
+					Main.mainUser.clear();
+					Alert alert = new Alert(Alert.AlertType.ERROR);
+					alert.setTitle("Information");
+				    alert.setHeaderText("Error!");
+				    alert.setContentText(e.getMessage());
+				    alert.showAndWait();
+				}
+			} else {
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Information");
 			    alert.setHeaderText("Поле Password не должно быть пустым!");
@@ -52,36 +72,6 @@ public class ControllerDialogLogin {
 		    alert.showAndWait();
 		}// конец проверки с выводом сообщения
 		
-		
-		//Это для теста переходов по экранам. Аналог правильному Логин+пароль.
-		if(loginNotNull && passwordNotNull){
-			//###Тут начало моего кода(Влад)
-			try {
-				if(Main.mainUser.loadUser(Login.getText(), Password.getText())) {//Загружаем пользователя
-					Main.primaryStage.close();
-					
-					Stage stage = new Stage();
-					Main.primaryStage = stage;
-				 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
-					stage.setScene(new Scene(root));
-					stage.setTitle("Главный экран:");
-					stage.show();
-				} else {
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("Information");
-				    alert.setHeaderText("Такого пользователя нет или пароль введён не верно!");
-				    alert.showAndWait();
-				}	
-			} catch (SQLException e) {
-				Main.mainUser.Clear();
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle("Information");
-			    alert.setHeaderText("Error!");
-			    alert.setContentText(e.getMessage());
-			    alert.showAndWait();
-			}
-			//###Тут конец моего кода(Влад)
-		}
 	}
 
 	@FXML

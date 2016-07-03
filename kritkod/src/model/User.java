@@ -13,27 +13,37 @@ public class User {
 	private char gender;
 	private int rating;
 	
-	public Statistics statistics = new Statistics();
-	public LinkedHashSet<Notice> NoticeList = new LinkedHashSet<Notice>();
-	public LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
+	public LinkedHashSet<Target> TargetList;
+	public LinkedHashSet<Notice> NoticeList;
+	public Statistics statistics;
 	/*
 	 * конструктор по умолчанию
 	 * создаЄт пользовател€ 
 	 * после зоздани€ нужно будет прогрузить из базы данных, или самому заполнить пол€
 	 */
 	public User() {
-		Clear();
+		id = 0; // нумераци€ в базе с 1
+		name = "пользователь не найден"; // 
+		birthDate = LocalDate.of(1000, 1, 1); // пусть будет така€ дата
+		gender = 'h'; //Genderfluid Helisexual
+		rating = 0; //дефолтное значение в базе 300		
+		TargetList = new LinkedHashSet<Target>();
+		NoticeList = new LinkedHashSet<Notice>();
+		statistics = new Statistics();
 	}
 	
 	/*
 	 * метод заполн€ющий класс дефолтными результатами
 	 */
-	public void Clear() {
+	public void clear() {
 		id = 0; // нумераци€ в базе с 1
 		name = "пользователь не найден"; // 
 		birthDate = LocalDate.of(1000, 1, 1); // пусть будет така€ дата
 		gender = 'h'; //Genderfluid Helisexual
-		rating = 0; //дефолтное значение в базе 300
+		rating = 0; //дефолтное значение в базе 300		
+		TargetList.clear();
+		NoticeList.clear();
+		Statistics.clear();
 	}
 	
 	/*

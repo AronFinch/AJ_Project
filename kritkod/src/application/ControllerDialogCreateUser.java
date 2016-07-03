@@ -81,14 +81,14 @@ public class ControllerDialogCreateUser {
 								stage.setTitle("Главный экран:");
 								stage.show();
 							} else {
-								Main.mainUser.Clear();
+								Main.mainUser.clear();
 								Alert alert = new Alert(Alert.AlertType.INFORMATION);
 								alert.setTitle("Information");
 					    	    alert.setHeaderText("Пользователь с таким логином уже существует!");
 					    	    alert.showAndWait();
 							}
 						} catch (SQLException e) {
-							Main.mainUser.Clear();
+							Main.mainUser.clear();
 							Alert alert = new Alert(Alert.AlertType.ERROR);
 							alert.setTitle("Information");
 				    	    alert.setHeaderText("Error!");

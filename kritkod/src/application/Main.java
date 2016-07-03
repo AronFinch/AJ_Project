@@ -29,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	public static Stage primaryStage;
 	public static User mainUser;
+	public static LinkedHashSet<User> otherUsers;
 
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
@@ -97,6 +98,7 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		mainUser = new User();
+		otherUsers = new LinkedHashSet<User>();
 		launch(args);
 	}
 
