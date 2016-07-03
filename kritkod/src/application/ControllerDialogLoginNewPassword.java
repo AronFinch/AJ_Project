@@ -1,9 +1,18 @@
 package application;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import view.Controller;
 
 public class ControllerDialogLoginNewPassword {
 	
@@ -14,8 +23,35 @@ public class ControllerDialogLoginNewPassword {
 	
 
 	@FXML
-    public void ButtonAction(ActionEvent actionEvent){
-		
+    public void ButtonAction(ActionEvent actionEvent) throws IOException{
+		if(NewPassword.getText().equals(NewPassword2.getText())) {
+			try {
+				Main.mainUser.changePassword(NewPassword.getText());
+				//на этом моменте выполнить переход
+				Main.primaryStage.close();
+				
+				Stage stage = new Stage();
+				Main.primaryStage = stage;
+			 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+				stage.setScene(new Scene(root));
+				stage.setTitle("Главный экран:");
+				stage.show();
+			} catch (SQLException e) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Information");
+	    	    alert.setHeaderText("Error!");
+	    	    alert.setContentText(e.getMessage());
+	    	    alert.showAndWait();
+			}
+		} else {
+			NewPassword.clear();
+			NewPassword2.clear();
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Information");
+    	    alert.setHeaderText("Неверныйе пароли!");
+    	    alert.setContentText("Попробуйте ещё раз.");
+    	    alert.showAndWait();
+		}
 	}
 
 }
