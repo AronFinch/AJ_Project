@@ -40,9 +40,14 @@ public class ControllerDialogCreateUser {
 //		newUser.setLogin(addUserLogin);
 //		newUser.setPassword(addUserPassword);
 		newUser.setName(addNameUser.getText());
-		newUser.setBirthDate(addDataBirthDate);
+		newUser.setBirthDate(addDataBirthDate.getValue());
 		newUser.setGender('f');
-		//newUser.SeveUser(addUserLogin.getText(), addUserPassword.getText(), "√од крещени€ руси?", "988");
+		try {
+			newUser.SaveUser(addUserLogin.getText(), addUserPassword.getText(), "√од крещени€ руси?", "988");
+		} catch (SQLException e) {
+			// если что-то пошло не так и пользователь не загрузилс€ из базы данных
+			e.printStackTrace();
+		}
 
 		}
 }
