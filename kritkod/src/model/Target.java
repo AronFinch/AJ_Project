@@ -1,12 +1,7 @@
 package model;
 
 import java.util.LinkedHashSet;
-import java.io.IOException;
 import java.time.LocalDate;
-
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 //Цель
 public class Target {
@@ -15,9 +10,11 @@ public class Target {
 	private String label;
 	private String description;
 	private String IMG;
-	LocalDate startDate = LocalDate.now();
-	LocalDate endDate = LocalDate.now();
-	public static LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private int level;
+	
+	public LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
 	//Назначить айди цели
 	public void setId(int idNumber) {
 		id = idNumber;	
@@ -34,6 +31,9 @@ public class Target {
 	public void setDescription(String Description) {
 		description = Description;
 	}
+	public void seеIMG(String IMGTrack) {
+		IMG = IMGTrack;
+	}
 	//Назначить начальную дату цели
 	public void setStartDate(LocalDate StartDate) {
 		startDate = StartDate;	
@@ -41,6 +41,9 @@ public class Target {
 	//Назначить конечную дату цели
 	public void setEndDate(LocalDate EndDate) {	
 		endDate = EndDate;
+	}
+	public void setLevel(int Level) {
+		level = Level;
 	}
 	//Получить айди цели
 	public int getId() {
@@ -54,6 +57,9 @@ public class Target {
 	public String getDescription() {
 		return description;	
 	}
+	public String getIMG() {
+		return IMG;
+	}
 	//Получить начальную дату цели
 	public LocalDate getStartDate() {
 		return startDate;
@@ -62,7 +68,9 @@ public class Target {
 	public LocalDate getEndDate() {
 		return endDate;	
 	}
-		
+	public int getLevel() {
+		return level;
+	}
 	@Override
     public String toString() {
         return "label=" + label 

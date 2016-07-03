@@ -4,14 +4,12 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
-import javafx.scene.control.DatePicker;
-
 //Пользователь
 public class User {
 
 	private int id;
 	private String name;
-	private LocalDate birthDate = LocalDate.now();
+	private LocalDate birthDate;
 	private char gender;
 	private int rating;
 	
