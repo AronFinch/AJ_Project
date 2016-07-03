@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogLoginReset">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogLoginReset">
    <children>
       <VBox alignment="TOP_CENTER" layoutY="100.0" prefHeight="300.0" prefWidth="250.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -22,7 +22,7 @@
                   <Label text="Логин" />
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <TextField />
+                        <TextField fx:id="Login" />
                         <Button mnemonicParsing="false" onAction="#btnChek" prefHeight="25.0" prefWidth="25.0">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -43,13 +43,13 @@
                <children>
                   <Label text="Секретный вопрос:" />
                   <Label fx:id="labelDisable" disable="true" text="Есть ли бог?" />
-                  <PasswordField fx:id="passwordFieldDisable" disable="true" />
+                  <PasswordField fx:id="passwordField" disable="true" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" />
                </padding>
             </VBox>
-            <Button fx:id="buttonDisable" disable="true" mnemonicParsing="false">
+            <Button fx:id="buttonNewPassword" disable="true" mnemonicParsing="false">
                <graphic>
                   <Label text="Сменить пароль">
                      <graphic>
@@ -62,7 +62,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false">
+            <Button mnemonicParsing="false" onAction="#handleCancel">
                <graphic>
                   <Label text="Отмена" textFill="BLUE" underline="true" />
                </graphic>

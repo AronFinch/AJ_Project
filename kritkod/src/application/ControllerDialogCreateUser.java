@@ -1,4 +1,4 @@
-package view;
+package application;
 
 import java.sql.SQLException;
 
@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.User;
 
 public class ControllerDialogCreateUser {
@@ -31,6 +32,8 @@ public class ControllerDialogCreateUser {
 	@FXML
 	private CheckBox addGenderFemale;
 	
+    private Stage dialogStage;
+	
 	@FXML
     public void addNewUser(ActionEvent actionEvent) {
 		User newUser = new User();
@@ -50,5 +53,10 @@ public class ControllerDialogCreateUser {
 		}
 
 		}
+	
+	@FXML
+    private void handleCancel() {
+        dialogStage.close();
+    }
 }
 	

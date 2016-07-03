@@ -19,21 +19,32 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-	private static Stage primaryStage;
-	private static Scene scene;
+	static Stage primaryStage;
+	static Scene scene;
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
 	@Override
 	public void start(Stage stage) {
 		try {
 			this.primaryStage = stage;
-			initRootLayout();
+			initLoginDialog();
+			//initRootLayout();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	private void initLoginDialog() throws IOException {
+		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+	 	Parent root = loader.load(Main.class.getResource("dialogLogin.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Авторизация");
+		primaryStage.show();
+	}
+
 	private void initRootLayout() throws IOException {
 		// TODO Auto-generated method stub
 		FXMLLoader loader = new FXMLLoader();

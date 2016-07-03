@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogCreateUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogCreateUser">
    <children>
       <Label layoutX="113.0" layoutY="30.0" text="Регистрация" />
       <Label layoutX="10.0" layoutY="151.0" text="Имя" AnchorPane.leftAnchor="10.0" />
@@ -14,8 +14,8 @@
       <CheckBox layoutX="211.0" layoutY="192.0" mnemonicParsing="false" text="жен" />
       <Label layoutX="13.0" layoutY="250.0" text="Дата рождения" AnchorPane.leftAnchor="10.0" />
       <DatePicker fx:id="addDataBirthDate" layoutX="104.0" layoutY="246.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
-      <Button layoutX="34.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Создать пользователя" />
-      <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" text="Отмена" />
+      <Button layoutX="34.0" layoutY="307.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="25.0" prefWidth="141.0" text="Создать пользователя" />
+      <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleCancel" text="Отмена" />
       <PasswordField fx:id="addUserPassword" layoutX="105.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" />
       <Label layoutX="11.0" layoutY="103.0" text="Пароль" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="5.0" layoutY="68.0" text="Логин" AnchorPane.leftAnchor="10.0" />

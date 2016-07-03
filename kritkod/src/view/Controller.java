@@ -1,7 +1,8 @@
-package application;
+package view;
 
 import java.io.IOException;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
-import view.ControllerDialogTarget;
 
 public class Controller {
 	
