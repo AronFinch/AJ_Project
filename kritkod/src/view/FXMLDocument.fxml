@@ -21,7 +21,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" layoutX="54.0" layoutY="40.0" prefHeight="50.0" prefWidth="800.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" text="Создать цель" />
+                                    <Button mnemonicParsing="false" onAction="#ShowDialogTargetNew" prefHeight="30.0" text="Создать цель" />
                                     <Label text="Сортировать по:" />
                                     <SplitMenuButton mnemonicParsing="false" prefHeight="30.0" text="Имени">
                                       <items>

@@ -29,11 +29,14 @@ public class ControllerDialogLogin {
 		
 		//Это для теста переходов по экранам. Аналог правильному Логин+пароль.
 		if(Login.getText() != null){
+			Main.primaryStage.close();
 			
-			Stage stage = Main.primaryStage;
+			Stage stage = new Stage();
+			Main.primaryStage = stage;
 		 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
 			stage.setScene(new Scene(root));
 			stage.setTitle("Главный экран:");
+			stage.show();
 			
 		}
 		

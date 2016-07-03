@@ -51,7 +51,7 @@ public class Controller {
 				Main.getTargetData().add(tempTarget);
 				if(newTargetOk){
 					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(Main.class.getResource("newTarget.fxml"));
+					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
 				 	Parent root = loader.load();
 					addTarget.getChildren().add(root);
 					//SetTargetSource(tempTarget);
