@@ -25,6 +25,9 @@ public class ControllerDialogTarget {
     private TextField addNameTarget;
 	
 	@FXML
+    private TextField addTargetReward;
+	
+	@FXML
 	private TextArea addDiscriptionTarget;
 	
 	@FXML
@@ -72,18 +75,11 @@ public class ControllerDialogTarget {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println(Main.TargetList.iterator().next());
-		
-		Iterator<Target> itr = Main.TargetList.iterator();
-		while (itr.hasNext()) {
-			System.out.println(itr.next().toString()
-					+ ",");
-		}
-		System.out.println("\n");
 	}
 
 	@FXML
     private void handleCancel() {
+		okClicked=false;
         dialogStage.close();
     }
 
