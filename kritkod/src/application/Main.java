@@ -31,6 +31,7 @@ public class Main extends Application {
 	public static User mainUser;
 
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
+	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -56,14 +57,14 @@ public class Main extends Application {
 		while(i!=0){
 		target = new Target();
 		text.setText("Имя цели " + i + " создано!");
-		target.setLabel(text);
+		target.setLabel(text.getText());
 		text1.setText("Описание цели " + i + " создано!");
-		target.setDescription(text1);
+		target.setDescription(text1.getText());
 		date.setValue(specificDate);
-		target.setStartDate(date);
+		target.setStartDate(date.getValue());
 		date.setValue(specificDate1.of(2016, 8, 15 + i));
-		target.setEndDate(date);
-		mainUser.TargetList.add(target);
+		target.setEndDate(date.getValue());
+		TargetList.add(target);
 		i--;
 		}
 		
@@ -101,7 +102,7 @@ public class Main extends Application {
 
 	public static LinkedHashSet<Target> getTargetData() {
 		// TODO Auto-generated method stub
-		return mainUser.TargetList;
+		return TargetList;
 	}
 
 	public static boolean showTargetEditDialog(Target tempTarget) throws IOException {

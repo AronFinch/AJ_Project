@@ -56,19 +56,14 @@ public class ControllerDialogTarget implements Initializable {
 	@FXML
     public void addNewTarget(ActionEvent actionEvent){
 		Target newTarget = new Target();
-		try {
-			newTarget.setDescription(addDiscriptionTarget);
-			newTarget.setLabel(addNameTarget);
-			newTarget.setStartDate(addDataTargetStart);
-			newTarget.setEndDate(addDataTargetFail);
-	        SetTarget(target);
-	        Main.mainUser.TargetList.add(newTarget);
-	        okClicked = true;
-	        dialogStage.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		newTarget.setDescription(addDiscriptionTarget.getText());
+		newTarget.setLabel(addNameTarget.getText());
+		newTarget.setStartDate(addDataTargetStart.getValue());
+		newTarget.setEndDate(addDataTargetFail.getValue());
+		SetTarget(target);
+		Main.mainUser.TargetList.add(newTarget);
+		okClicked = true;
+		dialogStage.close();
 	}
 
 	@FXML

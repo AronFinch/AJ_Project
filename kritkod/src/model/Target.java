@@ -12,8 +12,9 @@ import javafx.scene.control.TextField;
 public class Target {
 	
 	private int id;
-	private String label = "";
-	private String description = "";
+	private String label;
+	private String description;
+	private String IMG;
 	LocalDate startDate = LocalDate.now();
 	LocalDate endDate = LocalDate.now();
 	public static LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
