@@ -31,7 +31,7 @@ public class Target {
 	public void setDescription(String Description) {
 		description = Description;
 	}
-	public void seеIMG(String IMGTrack) {
+	public void setIMG(String IMGTrack) {
 		IMG = IMGTrack;
 	}
 	//Назначить начальную дату цели

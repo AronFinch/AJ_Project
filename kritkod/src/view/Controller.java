@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
@@ -33,6 +34,12 @@ public class Controller implements Initializable {
 	 
 	 @FXML
 	 	private FlowPane ActiveTargetFlowPane;
+	 @FXML
+	 	private FlowPane ActiveTargetFlowPane1;
+	 @FXML
+	 	private FlowPane ActiveTargetFlowPane2;
+	 @FXML
+	 	private FlowPane ActiveUserFlowPane;
 	 
 	 @FXML
 	    public void ShowDialogTargetNew(ActionEvent actionEvent) throws IOException{
@@ -99,7 +106,16 @@ public class Controller implements Initializable {
 					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
 				 	Parent root = loader.load();
-					ActiveTargetFlowPane.getChildren().add(root);
+				 	if(itr.next().getEndDate().isAfter(LocalDate.now())){
+				 		ActiveTargetFlowPane.getChildren().add(root);
+				 	}else if(false){
+				 		
+				 		ActiveTargetFlowPane1.getChildren().add(root);
+				 	}
+				 	else{
+				 		
+				 		ActiveTargetFlowPane2.getChildren().add(root);
+				 	}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -124,4 +140,28 @@ public class Controller implements Initializable {
 		stage.setTitle("Пользователь");
 		stage.show();
 	}
+	
+	 @FXML
+	    public void ShowTabUser(ActionEvent actionEvent) throws IOException{
+		 	
+		 //Тут будет вывод списка пользователей
+		 /*
+		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
+			while (itr.hasNext()) {
+				ControllerTargetPane.target = itr.next();
+					try {
+						FXMLLoader loader = new FXMLLoader();
+						loader.setLocation(Controller.class.getResource("newTarget.fxml"));
+					 	Parent root = loader.load();
+					 		ActiveTargetFlowPane.getChildren().add(root);
+					 	
+					 	
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+			*/	
+		 
+	    }
 }
