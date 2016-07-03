@@ -1,11 +1,14 @@
 package view;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
+import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Target;
 
-public class ControllerDialogTarget {
+public class ControllerDialogTarget implements Initializable {
 	
 	@FXML
     private DatePicker addDataTargetStart;
@@ -48,16 +51,6 @@ public class ControllerDialogTarget {
     public void SetTarget(Target target) {
     	
         this.target = target;
-        /*this.person = person;
-
-        firstNameField.setText(person.getFirstName());
-        lastNameField.setText(person.getLastName());
-        streetField.setText(person.getStreet());
-        postalCodeField.setText(Integer.toString(person.getPostalCode()));
-        cityField.setText(person.getCity());
-        birthdayField.setText(DateUtil.format(person.getBirthday()));
-        birthdayField.setPromptText("dd.mm.yyyy");
-        */
     }
 	
 	@FXML
@@ -69,6 +62,7 @@ public class ControllerDialogTarget {
 			newTarget.setStartDate(addDataTargetStart);
 			newTarget.setEndDate(addDataTargetFail);
 	        SetTarget(target);
+	        Main.TargetList.add(newTarget);
 	        okClicked = true;
 	        dialogStage.close();
 		} catch (IOException e) {
@@ -82,5 +76,11 @@ public class ControllerDialogTarget {
 		okClicked=false;
         dialogStage.close();
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

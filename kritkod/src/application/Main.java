@@ -1,6 +1,9 @@
 package application;
 	
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -10,22 +13,26 @@ import javafx.stage.Stage;
 import model.Target;
 import view.ControllerDialogTarget;
 import view.ControllerDialogTask;
+import view.ControllerTargetPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.fxml.FXMLLoader;
 
 
 
 public class Main extends Application {
-	static Stage primaryStage;
-	static Scene scene;
+	public static Stage primaryStage;
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
 	@Override
 	public void start(Stage stage) {
 		try {
+			TestData();
 			this.primaryStage = stage;
 			initLoginDialog();
 			//initRootLayout();
@@ -35,6 +42,31 @@ public class Main extends Application {
 		}
 	}
 	
+	private void TestData() throws IOException {
+		// TODO Auto-generated method stub
+		int i = 3;
+		Target target = new Target();
+		TextField text = new TextField();
+		TextArea text1 = new TextArea();
+		DatePicker date = new DatePicker();
+		LocalDate specificDate = LocalDate.now();
+		LocalDate specificDate1 = LocalDate.of(2016, 8, 15 + i);
+		while(i!=0){
+		target = new Target();
+		text.setText("Имя цели " + i + " создано!");
+		target.setLabel(text);
+		text1.setText("Описание цели " + i + " создано!");
+		target.setDescription(text1);
+		date.setValue(specificDate);
+		target.setStartDate(date);
+		date.setValue(specificDate1.of(2016, 8, 15 + i));
+		target.setEndDate(date);
+		TargetList.add(target);
+		i--;
+		}
+		
+	}
+
 	private void initLoginDialog() throws IOException {
 		// TODO Auto-generated method stub
 	 	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));

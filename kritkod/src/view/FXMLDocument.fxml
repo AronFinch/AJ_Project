@@ -47,17 +47,6 @@
                                                       <FlowPane fx:id="ActiveTargetFlowPane" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <children>
                                                             <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
                                                          </children>
                                                          <padding>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -78,17 +67,6 @@
                                                       <FlowPane fx:id="ActiveTargetFlowPane1" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <children>
                                                             <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
                                                          </children>
                                                          <padding>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -108,17 +86,6 @@
                                                    <content>
                                                       <FlowPane fx:id="ActiveTargetFlowPane11" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <children>
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
                                                             <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
                                                          </children>
                                                          <padding>

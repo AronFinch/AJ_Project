@@ -1,23 +1,25 @@
 package view;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
 
-public class Controller {
+public class Controller implements Initializable {
 	
 	public Controller children;  // Ссылка на контроллер поражаемой формы
 	public Controller parent;     // Ссылка на родительский контроллер (если таковой есть для данной формы)
@@ -30,16 +32,7 @@ public class Controller {
 	    private Button buttonTest;
 	 
 	 @FXML
-	 	private FlowPane addTarget;
-	 
-	 @FXML
-	    private Label LabelTargetName;
-	 @FXML
-	    private Label LabelTaskCount;
-	 @FXML
-	    private Label LabelDayCount;
-	 @FXML
-	    private ProgressBar TargetProgressBar;
+	 	private FlowPane ActiveTargetFlowPane;
 	 
 	 @FXML
 	    public void ShowDialogTargetNew(ActionEvent actionEvent) throws IOException{
@@ -48,32 +41,30 @@ public class Controller {
 			Target tempTarget = new Target();
 			boolean okClicked = Main.showTargetEditDialog(tempTarget);
 			if (okClicked) {
-				Main.getTargetData().add(tempTarget);
-				if(newTargetOk){
+				//Main.getTargetData().add(tempTarget);
+				Stage stage = Main.primaryStage;
+			 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+				stage.setScene(new Scene(root));
+				stage.setTitle("Главный экран:");
+				stage.show();
+				
+				}
+				newTargetOk = false;
+			}
+	 
+	  public void ShowTarget() throws IOException{
+		 
+		  Iterator<Target> itr = Main.TargetList.iterator();
+			while (itr.hasNext()) {
+				ControllerTargetPane.target = itr.next();
 					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
 				 	Parent root = loader.load();
-					addTarget.getChildren().add(root);
-					//SetTargetSource(tempTarget);
-				}
-				newTargetOk = false;
-				//SetTargetSource(tempTarget);
+					ActiveTargetFlowPane.getChildren().add(root);
 			}
-		 
-	    }
+					
+	 }
 	 
-	 private void SetTargetSource(Target tempTarget) {
-		// TODO Auto-generated method stub
-		 
-		 	LabelTargetName.setText("Hello Hell!");
-		 	LabelTargetName.setText(tempTarget.getLabel());
-			LabelTaskCount.setText("Число задач... Заглушка!");
-			int Month = tempTarget.getEndDate().getMonth().getValue() - tempTarget.getStartDate().getMonth().getValue();
-			int day = tempTarget.getEndDate().getDayOfMonth() - tempTarget.getEndDate().getDayOfMonth();
-			LabelDayCount.setText("Месяцев: " + Month + " Дней: " + day);
-		
-	}
-
 	@FXML
 	    public void ShowDialogTask(ActionEvent actionEvent) throws IOException{
 		 	
@@ -97,4 +88,22 @@ public class Controller {
 			stage.setTitle("Создать пользователя:");
 			stage.show();
 	    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources)  {
+		// TODO Auto-generated method stub
+		Iterator<Target> itr = Main.TargetList.iterator();
+		while (itr.hasNext()) {
+			ControllerTargetPane.target = itr.next();
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
+				 	Parent root = loader.load();
+					ActiveTargetFlowPane.getChildren().add(root);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+	}
 }
