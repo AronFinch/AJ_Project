@@ -27,14 +27,9 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-<<<<<<< HEAD
 	public static Stage primaryStage;
-=======
 	public static User mainUser;
-	
-	static Stage primaryStage;
-	static Scene scene;
->>>>>>> 87e6eb2435e43f38a06c53ba9cdaa76e646609e0
+
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
 	@Override
