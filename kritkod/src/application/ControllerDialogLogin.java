@@ -25,12 +25,15 @@ public class ControllerDialogLogin {
 	public Controller parent;     // Ссылка на родительский контроллер (если таковой есть для данной формы)
 	
 	@FXML
-	private void ClickedLogin(){
+	private void ClickedLogin() throws IOException{
 		
 		//Это для теста переходов по экранам. Аналог правильному Логин+пароль.
-		if((Login.getText()=="001")&&(Password.getText()=="001")){
+		if(Login.getText() != null){
 			
-			
+			Stage stage = Main.primaryStage;
+		 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+			stage.setScene(new Scene(root));
+			stage.setTitle("Главный экран:");
 			
 		}
 		
@@ -42,13 +45,10 @@ public class ControllerDialogLogin {
 		//Это для теста переходов по экранам. 
 		if(Login.getText() != null){
 					
-			Stage stage = new Stage();
+			Stage stage = Main.primaryStage;
 		 	Parent root = FXMLLoader.load(getClass().getResource("dialogCreateUser.fxml"));
 			stage.setScene(new Scene(root));
-			stage.initModality(Modality.WINDOW_MODAL);
-			stage.initOwner(Main.primaryStage);
 			stage.setTitle("Новый пользователь:");
-			stage.show();
 					
 		}
 		
@@ -56,17 +56,13 @@ public class ControllerDialogLogin {
 
 	@FXML
 	private void ClickedReset() throws IOException{
-		
 		//Это для теста переходов по экранам. 
 		if(Login.getText() != null){
 							
-			Stage stage = new Stage();
+			Stage stage = Main.primaryStage;
 		 	Parent root = FXMLLoader.load(getClass().getResource("dialogLoginReset.fxml"));
 			stage.setScene(new Scene(root));
-			stage.initModality(Modality.WINDOW_MODAL);
-			stage.initOwner(Main.primaryStage);
-			stage.setTitle("Новый пользователь:");
-			stage.show();				
+			stage.setTitle("Восстановление пароля:");			
 							
 		}
 		

@@ -37,8 +37,7 @@ public class Main extends Application {
 	
 	private void initLoginDialog() throws IOException {
 		// TODO Auto-generated method stub
-		FXMLLoader loader = new FXMLLoader();
-	 	Parent root = loader.load(Main.class.getResource("dialogLogin.fxml"));
+	 	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Авторизация");

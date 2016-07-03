@@ -49,7 +49,7 @@
                   <Insets left="30.0" right="30.0" />
                </padding>
             </VBox>
-            <Button fx:id="buttonNewPassword" disable="true" mnemonicParsing="false">
+            <Button fx:id="buttonNewPassword" disable="true" mnemonicParsing="false" onAction="#СheckNewPassword">
                <graphic>
                   <Label text="Сменить пароль">
                      <graphic>

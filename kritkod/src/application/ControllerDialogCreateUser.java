@@ -1,9 +1,13 @@
 package application;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
@@ -55,8 +59,11 @@ public class ControllerDialogCreateUser {
 		}
 	
 	@FXML
-    private void handleCancel() {
-        dialogStage.close();
+    private void handleCancel() throws IOException {
+		Stage stage = Main.primaryStage;
+    	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
+		stage.setScene(new Scene(root));
+		stage.setTitle("Авторизация");	
     }
 }
 	
