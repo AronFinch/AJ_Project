@@ -12,76 +12,54 @@ import javafx.scene.control.TextField;
 public class Target {
 	
 	private int id;
-	public static LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
 	private String label = "";
 	private String description = "";
 	LocalDate startDate = LocalDate.now();
 	LocalDate endDate = LocalDate.now();
+	public static LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
 	//Назначить айди цели
 	public void setId(int idNumber) {
-		
-		id = idNumber;
-		
+		id = idNumber;	
 	}
 	//Создать задачу для данной цели
 	public void createTask(Task task) {
-		
 		TaskList.add(task);
-		
 	}
 	//Назначить заголовок цели
-	public void setLabel(TextField addNameTarget) throws IOException {
-		
-		label = addNameTarget.getText();
-		
+	public void setLabel(String Label) {
+		label = Label;
 	}
 	//Назначить описание цели
-	public void setDescription(TextArea addDiscriptionTarget) throws IOException {
-		
-		description = addDiscriptionTarget.getText();
-		
+	public void setDescription(String Description) {
+		description = Description;
 	}
 	//Назначить начальную дату цели
-	public void setStartDate(DatePicker addDataTarget) {
-		
-		startDate = addDataTarget.getValue();
-		
+	public void setStartDate(LocalDate StartDate) {
+		startDate = StartDate;	
 	}
 	//Назначить конечную дату цели
-	public void setEndDate(DatePicker addDataTarget) {
-		
-		endDate = addDataTarget.getValue();
-		
+	public void setEndDate(LocalDate EndDate) {	
+		endDate = EndDate;
 	}
 	//Получить айди цели
-	public int getId(Target target) {
-		
-		return target.id;
-		
+	public int getId() {
+		return id;	
 	}
 	//Получить заголовок цели
 	public String getLabel() {
-		
-		return label;
-		
+		return label;	
 	}
 	//Получить описание цели
 	public String getDescription() {
-		
-		return description;
-		
+		return description;	
 	}
 	//Получить начальную дату цели
 	public LocalDate getStartDate() {
-		
 		return startDate;
-		
 	}
 	//Получить конечную дату цели
 	public LocalDate getEndDate() {
-		
-		return endDate;
-		
+		return endDate;	
 	}
 		
 	@Override
