@@ -11,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import model.User;
 
@@ -31,12 +33,15 @@ public class ControllerDialogCreateUser {
     private TextField addNameUser;
 	
 	@FXML
-	private CheckBox addGenderMale;
+	private RadioButton addGenderMale;
 	
 	@FXML
-	private CheckBox addGenderFemale;
+	private RadioButton addGenderFemale;
 	
     private Stage dialogStage;
+    
+	@FXML
+	private ToggleGroup gender;
 	
 	@FXML
     public void addNewUser(ActionEvent actionEvent) {
@@ -48,7 +53,12 @@ public class ControllerDialogCreateUser {
 //		newUser.setPassword(addUserPassword);
 		newUser.setName(addNameUser.getText());
 		newUser.setBirthDate(addDataBirthDate.getValue());
-		newUser.setGender('f');
+
+		if(gender.getSelectedToggle() == addGenderFemale)
+			newUser.setGender('f');
+		else newUser.setGender('m');
+		
+	
 		try {
 			newUser.SaveUser(addUserLogin.getText(), addUserPassword.getText(), "Год крещения руси?", "988");
 		} catch (SQLException e) {
