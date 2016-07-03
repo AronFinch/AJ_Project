@@ -56,14 +56,18 @@ public class DataBaseManager {
 		}
 	}
 	//метод записи пользовател€ в базу данных
-	public static void BDAddUser(String login,
+	public static boolean BDAddUser(String login,
 								 String password,
 								 String secriteQuestion,
 								 String answer,
 								 User user) throws SQLException{
-		
 		Statement statmt = conn.createStatement();
-		String query = "INSERT INTO 'users' "
+		String query = "SELECT * FROM users where login_user='" + login + "'";
+		resSet = statmt.executeQuery(query);
+		if(resSet.next())
+			return false; // такой пользователь уже есть
+		
+		query = "INSERT INTO 'users' "
 				+ "(login_user, "
 				+ "password_user, "
 				+ "name_user, "
@@ -88,6 +92,7 @@ public class DataBaseManager {
 		if(resSet.next()) {
 			user.setId(resSet.getInt("id_user")); // тут мы получаем id сохранЄнного пользовател€
 		}
+		return true;
 	}
 	// загрузка из Ѕƒ вопроса
 	public static String BDGetQuestion(int id_user) throws SQLException {

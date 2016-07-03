@@ -41,13 +41,15 @@ public class User {
 	/*
 	 * метод сохранения пользователя в базе данных
 	 */
-	public void SaveUser(String login,
+	public boolean SaveUser(String login,
 						 String password,
 						 String secriteQuestion,
 						 String answer) throws SQLException {
+		boolean res;
 		DataBaseManager.Connect();
-		DataBaseManager.BDAddUser(login, password, secriteQuestion, answer, this);
+		res = DataBaseManager.BDAddUser(login, password, secriteQuestion, answer, this);
 		DataBaseManager.Disconnect();
+		return res;
 	}
 	/*
 	 * методы загрузки пользователя из базы данных
