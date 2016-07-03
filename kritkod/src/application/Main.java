@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
+import model.User;
 import view.ControllerDialogTarget;
 import view.ControllerDialogTask;
 import javafx.scene.Node;
@@ -19,6 +20,8 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	public static User mainUser;
+	
 	static Stage primaryStage;
 	static Scene scene;
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
@@ -37,6 +40,8 @@ public class Main extends Application {
 	
 	private void initLoginDialog() throws IOException {
 		// TODO Auto-generated method stub
+		mainUser = new User();
+		
 	 	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);

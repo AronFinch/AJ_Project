@@ -52,15 +52,19 @@ public class User {
 	/*
 	 * методы загрузки пользователя из базы данных
 	 */
-	public void loadUser(String login, String password) throws SQLException {
+	public boolean loadUser(String login, String password) throws SQLException {
+		boolean res;
 		DataBaseManager.Connect();
-		DataBaseManager.BDGetUser(login, password, this);
+		res = DataBaseManager.BDGetUser(login, password, this);
 		DataBaseManager.Disconnect();
+		return res;
 	}
-	public void loadUser(String login) throws SQLException {
+	public boolean loadUser(String login) throws SQLException {
+		boolean res;
 		DataBaseManager.Connect();
-		DataBaseManager.BDGetUser(login, this);
+		res = DataBaseManager.BDGetUser(login, this);
 		DataBaseManager.Disconnect();
+		return res;
 	}
 	/*
 	 * метод изменения пароля
