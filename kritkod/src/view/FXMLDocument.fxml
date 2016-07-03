@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tasktracker.FXMLDocumentController">
+    <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TabPane prefHeight="550.0" prefWidth="861.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Мои цели">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" layoutX="54.0" layoutY="40.0" prefHeight="50.0" prefWidth="800.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="30.0" text="Создать цель" />
+                                    <Label text="Сортировать по:" />
+                                    <SplitMenuButton mnemonicParsing="false" prefHeight="30.0" text="Имени">
+                                      <items>
+                                          <Menu mnemonicParsing="false" text="Unspecified Menu">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Action 1" />
+                                            </items>
+                                          </Menu>
+                                      </items>
+                                    </SplitMenuButton>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding></HBox>
+                              <Accordion layoutY="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                <panes>
+                                  <TitledPane animated="false" text="untitled 1">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                                             <children>
+                                                <ScrollPane fx:id="ScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <FlowPane fx:id="ActiveTargetFlowPane" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
+                                                         <children>
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                      </FlowPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                  <TitledPane animated="false" text="untitled 2">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ScrollPane fx:id="ScrollPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <FlowPane fx:id="ActiveTargetFlowPane1" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
+                                                         <children>
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                      </FlowPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                  <TitledPane animated="false" text="untitled 3">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ScrollPane fx:id="ScrollPane11" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <FlowPane fx:id="ActiveTargetFlowPane11" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
+                                                         <children>
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                            <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                      </FlowPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                </panes>
+                              </Accordion>
+                              <Button layoutX="794.0" layoutY="13.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="14.0" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Другие пользователи">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                              <AnchorPane minHeight="0.0" minWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <ScrollPane fx:id="ScrollPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <FlowPane fx:id="ActiveTargetFlowPane1" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
+                                             <children>
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="30.0" text="Создать пользователя" />
+                                    <Label text="Сортировать по:" />
+                                    <SplitMenuButton mnemonicParsing="false" prefHeight="30.0" text="Имени">
+                                       <items>
+                                          <Menu mnemonicParsing="false" text="Unspecified Menu">
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                             </items>
+                                          </Menu>
+                                       </items>
+                                    </SplitMenuButton>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <bottom>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/info.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Здесь будут отображатся системные сообщения и подсказки" />
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+         </bottom>
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" depthTest="DISABLE" prefHeight="50.0" prefWidth="545.0" spacing="5.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <AnchorPane prefHeight="52.0" prefWidth="629.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="462.0" text="Это имя пользователя" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+                           <image>
+                              <Image url="@../icons/bell.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <image>
+                              <Image url="@../icons/man.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="350.0" spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../icons/TrackerPro_VECTOR_B-Card_Logo.png" />
+                           </image>
+                           <effect>
+                              <DropShadow color="#00000080" height="5.0" offsetY="3.0" radius="2.0" width="5.0" />
+                           </effect>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="30.0" promptText="Поиск по всему">
+                                    </TextField>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                 <effect>
+                                    <ImageInput>
+                                       <source>
+                                          <Image url="file:/C:/Users/Мария/Documents/NetBeansProjects/TaskTracker/src/icons/search.png" />
+                                       </source>
+                                    </ImageInput>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="19.0" layoutY="11.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/C:/Users/Мария/Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/antique-vase.png" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                  </Button>
+                  <ComboBox layoutX="35.0" layoutY="8.0" prefHeight="30.0" prefWidth="150.0" promptText="Сменить дизайн" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="100.0" prefHeight="250.0" prefWidth="190.0" spacing="5.0" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="30.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Дима" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="150" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="45.0" text="Рейтинг лучших" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="70.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="166.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/rank.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="354.0" pickOnBounds="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                     <image>
+                        <Image url="@../../../../../Pictures/7twuf4.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
