@@ -42,7 +42,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0">
                                              <children>
-                                                <ScrollPane fx:id="ScrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <content>
                                                       <FlowPane fx:id="ActiveTargetFlowPane" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <padding>
@@ -59,7 +59,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ScrollPane fx:id="ScrollPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <content>
                                                       <FlowPane fx:id="ActiveTargetFlowPane1" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <padding>
@@ -76,9 +76,9 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ScrollPane fx:id="ScrollPane11" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <content>
-                                                      <FlowPane fx:id="ActiveTargetFlowPane11" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
+                                                      <FlowPane fx:id="ActiveTargetFlowPane2" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <padding>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                          </padding>
@@ -94,30 +94,16 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Другие пользователи">
+                <Tab onSelectionChanged="#ShowTabUser" text="Другие пользователи">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                               <AnchorPane minHeight="0.0" minWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                                  <children>
-                                    <ScrollPane fx:id="ScrollPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <content>
-                                          <FlowPane fx:id="ActiveTargetFlowPane1" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
-                                             <children>
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                                <Pane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: red;" />
-                                             </children>
+                                          <FlowPane fx:id="ActiveUserFlowPane" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
