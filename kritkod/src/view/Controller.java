@@ -54,7 +54,7 @@ public class Controller implements Initializable {
 	 
 	  public void ShowTarget() throws IOException{
 		 
-		  Iterator<Target> itr = Main.TargetList.iterator();
+		  Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 			while (itr.hasNext()) {
 				ControllerTargetPane.target = itr.next();
 					FXMLLoader loader = new FXMLLoader();
@@ -92,7 +92,7 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
-		Iterator<Target> itr = Main.TargetList.iterator();
+		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 		while (itr.hasNext()) {
 			ControllerTargetPane.target = itr.next();
 				try {

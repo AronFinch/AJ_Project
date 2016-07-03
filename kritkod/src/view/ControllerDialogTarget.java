@@ -62,7 +62,7 @@ public class ControllerDialogTarget implements Initializable {
 			newTarget.setStartDate(addDataTargetStart);
 			newTarget.setEndDate(addDataTargetFail);
 	        SetTarget(target);
-	        Main.TargetList.add(newTarget);
+	        Main.mainUser.TargetList.add(newTarget);
 	        okClicked = true;
 	        dialogStage.close();
 		} catch (IOException e) {
