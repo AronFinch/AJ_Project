@@ -186,7 +186,7 @@
                            </padding>
                         </HBox>
                         <AnchorPane prefHeight="52.0" prefWidth="629.0" />
-                        <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="462.0" text="Это имя пользователя" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="5.0">
+                        <Label alignment="CENTER_RIGHT" onMouseClicked="#ShowDialogUserReset" prefHeight="40.0" prefWidth="462.0" text="Это имя пользователя" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="5.0">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -196,7 +196,7 @@
                               <Image url="@../icons/bell.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#ShowDialogUserReset" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <image>
                               <Image url="@../icons/man.png" />
                            </image>

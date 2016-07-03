@@ -106,4 +106,22 @@ public class Controller implements Initializable {
 				}
 		}
 	}
+	
+	@FXML
+    public void ShowDialogUserReset() throws IOException{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ControllerDialogTarget.class.getResource("dialogUserInfo.fxml"));
+	 	Parent root = loader.load();
+
+	 	Stage stage = new Stage();
+	 	
+	 	ControllerUserInfo controller = loader.getController();
+        controller.SetDialogStage(stage);
+	 	
+		stage.setScene(new Scene(root));
+		stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(Main.primaryStage);
+		stage.setTitle("Пользователь");
+		stage.show();
+	}
 }

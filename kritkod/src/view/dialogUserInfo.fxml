@@ -8,16 +8,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerUserInfo">
    <children>
-      <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: lightgreen;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="50.0" prefWidth="600.0" spacing="5.0" style="-fx-background-color: lightgreen;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label prefHeight="40.0" text="Это имя пользователя">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="40.0" text="Редактировать пользователя" />
+            <Button mnemonicParsing="false" onAction="#ResetPerson" prefHeight="40.0" text="Редактировать пользователя" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -28,19 +28,20 @@
       </HBox>
       <AnchorPane prefHeight="200.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="50.0">
          <children>
-            <TextField layoutX="134.0" layoutY="28.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
-            <DatePicker layoutX="134.0" layoutY="110.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="90.0" />
+            <TextField fx:id="user" disable="true" layoutX="134.0" layoutY="28.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+            <DatePicker fx:id="birthDate" disable="true" layoutX="134.0" layoutY="110.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="90.0" />
             <Label layoutX="57.0" layoutY="32.0" prefHeight="25.0" text="Имя" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
             <Label layoutX="57.0" layoutY="74.0" prefHeight="25.0" text="Пол" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="55.0" />
             <Label layoutX="57.0" layoutY="114.0" prefHeight="25.0" text="Дата рождения" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
-            <SplitMenuButton layoutX="120.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Мужской" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="55.0">
+            <SplitMenuButton fx:id="gender" layoutX="120.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Мужской" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="55.0">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" onAction="#SetMan" text="Мужской" />
+                <MenuItem mnemonicParsing="false" onAction="#SetWoman" text="Женский" />
               </items>
             </SplitMenuButton>
-            <Button layoutX="263.0" layoutY="311.0" mnemonicParsing="false" text="Сохранить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
-            <Button layoutX="198.0" layoutY="311.0" mnemonicParsing="false" text="Отмена" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="94.0" />
+            <Button fx:id="ButtonSave" layoutX="263.0" layoutY="311.0" mnemonicParsing="false" onAction="#Save" text="Сохранить" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
+            <Button fx:id="ButtonCancel" layoutX="198.0" layoutY="311.0" mnemonicParsing="false" onAction="#Cancel" text="Отмена" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="94.0" />
+            <Button layoutX="149.0" layoutY="311.0" mnemonicParsing="false" onAction="#Back" text="Назад" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
