@@ -43,7 +43,7 @@
                <children>
                   <Label text="Секретный вопрос:" />
                   <Label fx:id="labelDisable" disable="true" text="Есть ли бог?" />
-                  <PasswordField fx:id="passwordField" disable="true" />
+                  <TextField fx:id="answer" disable="true" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" />

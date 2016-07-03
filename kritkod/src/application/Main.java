@@ -72,7 +72,6 @@ public class Main extends Application {
 
 	private void initLoginDialog() throws IOException {
 		// TODO Auto-generated method stub
-		mainUser = new User();
 		
 	 	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
 		Scene scene = new Scene(root);
@@ -97,6 +96,7 @@ public class Main extends Application {
     }
 
 	public static void main(String[] args) {
+		mainUser = new User();
 		launch(args);
 	}
 
