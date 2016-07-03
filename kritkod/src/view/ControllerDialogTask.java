@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,8 @@ import model.Target;
 import model.Task;
 
 public class ControllerDialogTask {
+	
+	public LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
 	
 	@FXML
 	 private DatePicker addDataTaskStart;
@@ -33,20 +36,14 @@ public class ControllerDialogTask {
 	
 	  public void addNewTask(ActionEvent actionEvent){
 		  Task newTask = new Task();
-		  try {
-			  newTask.setDescription(addDiscriptionTask);
-			  newTask.setLabel(addNameTask);
-			  newTask.setStartDate(addDataTaskStart);
-			  newTask.setEndDate(addDataTaskEnd);
-			  
-			  Target.TaskList.add(newTask);
-	
-		  } catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-		  }
+		  newTask.setDescription(addDiscriptionTask.getText());
+		  newTask.setLabel(addNameTask.getText());
+		  newTask.setStartDate(addDataTaskStart.getValue());
+		  newTask.setEndDate(addDataTaskEnd.getValue());
 		  
-		  Iterator<Task> itr = Target.TaskList.iterator();
+		  TaskList.add(newTask);
+		  
+		  Iterator<Task> itr = TaskList.iterator();
 			while (itr.hasNext()) {
 				System.out.println(itr.next().toString()
 						+ ",");

@@ -7,8 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTargetInfo">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: lightgreen;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,7 +25,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutY="7.0" prefHeight="50.0" prefWidth="390.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label text="Название цели">
+                  <Label fx:id="infoLabelTarget" text="Название цели">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -39,18 +38,18 @@
             </HBox>
             <Label layoutX="8.0" layoutY="62.0" prefHeight="25.0" text="Дата старта" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="62.0" />
             <Label layoutX="8.0" layoutY="102.0" prefHeight="25.0" text="Дата окоончания" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="102.0" />
-            <DatePicker layoutX="118.0" layoutY="62.0" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="62.0" />
-            <DatePicker layoutX="118.0" layoutY="102.0" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="102.0" />
-            <ImageView fitHeight="81.0" fitWidth="80.0" layoutX="119.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="205.0">
+            <DatePicker fx:id="infoDataTargetStart" layoutX="118.0" layoutY="62.0" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="62.0" />
+            <DatePicker fx:id="infoDataTargetEnd" layoutX="118.0" layoutY="102.0" AnchorPane.leftAnchor="118.0" AnchorPane.topAnchor="102.0" />
+            <ImageView fx:id="infoImageTarget" fitHeight="81.0" fitWidth="80.0" layoutX="119.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="205.0">
                <image>
                   <Image url="@../../../../../Pictures/7twuf4.jpg" />
                </image>
             </ImageView>
-            <TextArea layoutX="118.0" layoutY="140.0" prefHeight="50.0" prefWidth="170.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="140.0" />
+            <TextArea fx:id="infoDiscriptionTarget" layoutX="118.0" layoutY="140.0" prefHeight="50.0" prefWidth="170.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="140.0" />
             <Label layoutX="8.0" layoutY="140.0" prefHeight="25.0" text="Описание цели" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="140.0" />
             <Label layoutX="9.0" layoutY="204.0" prefHeight="25.0" text="Изображение" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="205.0" />
-            <Button layoutX="40.0" layoutY="233.0" mnemonicParsing="false" prefWidth="80.0" text="Изменить" AnchorPane.leftAnchor="30.0" />
-            <Button layoutX="40.0" layoutY="258.0" mnemonicParsing="false" prefWidth="80.0" text="Удалить" AnchorPane.leftAnchor="30.0" />
+            <Button layoutX="40.0" layoutY="233.0" mnemonicParsing="false" onAction="#infoEditImage" prefWidth="80.0" text="Изменить" AnchorPane.leftAnchor="30.0" />
+            <Button layoutX="40.0" layoutY="258.0" mnemonicParsing="false" onAction="#infoDeleteImage" prefWidth="80.0" text="Удалить" AnchorPane.leftAnchor="30.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="300.0" layoutY="50.0" prefHeight="350.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
