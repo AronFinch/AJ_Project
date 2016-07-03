@@ -1,5 +1,6 @@
 package model;
 import java.sql.*;
+import java.util.LinkedHashSet;
 /*
  * Класс для работы с базой данных
  */
@@ -131,6 +132,27 @@ public class DataBaseManager {
 		} catch(SQLException SQLex) {
 			SQLex.printStackTrace();
 		}
+	}
+	// загрузка всех целей с id пользователя
+	public static void BDLoadAllTargets(int id_user, LinkedHashSet<Target> targetList) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "SELECT * FROM targets "
+				+ "WHERE id_user=" + id_user + " "
+				+ "ORDER BY date_begin_target ASC, date_end_target ASC";
+		resSet = statmt.executeQuery(query);
+		while(resSet.next()) {
+			Target target = new Target();
+			target.setId(resSet.getInt("id_target"));
+			target.setLabel(resSet.getString("name_target"));
+			target.setDescription(resSet.getString("description_target"));
+			target.setIMG(resSet.getString("img_target"));
+			target.setStartDate(resSet.getDate("date_begin_target").toLocalDate());
+			target.setEndDate(resSet.getDate("date_end_target").toLocalDate());
+			target.setLevel(resSet.getInt("level_target"));
+			// тут добавление целей
+			targetList.add(target);
+		}
+		resSet.close();
 	}
 }
 

@@ -72,6 +72,7 @@ public class ControllerDialogCreateUser {
 						try {
 							if(Main.mainUser.SaveUser(login, password, SQ.getText(), answer.getText())) {
 								// переход на главный экран
+								// прогрузить остальных пользователей
 								Main.primaryStage.close();
 								
 								Stage stage = new Stage();

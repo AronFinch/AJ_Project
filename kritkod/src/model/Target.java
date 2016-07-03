@@ -14,7 +14,28 @@ public class Target {
 	private LocalDate endDate;
 	private int level;
 	
-	public LinkedHashSet<Task> TaskList = new LinkedHashSet<Task>();
+	public LinkedHashSet<Task> TaskList;
+	
+	public Target() {
+		id = 0;
+		label = "название";
+		description = "описание";
+		IMG = "путь к изображениею";
+		startDate = LocalDate.of(1000, 1, 1);
+		endDate = LocalDate.of(1000, 1, 1);
+		level = 0;
+		TaskList = new LinkedHashSet<Task>();
+	}
+	public void clear() {
+		id = 0;
+		label = "название";
+		description = "описание";
+		IMG = "путь к изображениею";
+		startDate = LocalDate.of(1000, 1, 1);
+		endDate = LocalDate.of(1000, 1, 1);
+		level = 0;
+		TaskList.clear();
+	}
 	//Назначить айди цели
 	public void setId(int idNumber) {
 		id = idNumber;	

@@ -66,15 +66,29 @@ public class User {
 		boolean res;
 		DataBaseManager.Connect();
 		res = DataBaseManager.BDGetUser(login, password, this);
-		DataBaseManager.Disconnect();
-		return res;
+		if (res) {
+			//тут подгружвать цели
+			DataBaseManager.BDLoadAllTargets(id, TargetList);
+			DataBaseManager.Disconnect();
+			return res;
+		} else {
+			DataBaseManager.Disconnect();
+			return res;
+		}
 	}
 	public boolean loadUser(String login) throws SQLException {
 		boolean res;
 		DataBaseManager.Connect();
 		res = DataBaseManager.BDGetUser(login, this);
-		DataBaseManager.Disconnect();
-		return res;
+		if (res) {
+			//тут подгружвать цели
+//			DataBaseManager.BDLoadAllTargets(id, TargetList);
+			DataBaseManager.Disconnect();
+			return res;
+		} else {
+			DataBaseManager.Disconnect();
+			return res;
+		}
 	}
 	/*
 	 * метод изменения пароля
