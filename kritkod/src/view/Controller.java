@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -42,6 +43,9 @@ public class Controller implements Initializable {
 	 	private FlowPane ActiveTargetFlowPane2;
 	 @FXML
 	 	private FlowPane ActiveUserFlowPane;
+	 
+	 @FXML
+	    private Label NameUser;
 	 
 	 @FXML
 	    public void ShowDialogTargetNew(ActionEvent actionEvent) throws IOException{
@@ -101,6 +105,7 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
+		NameUser.setText(Main.mainUser.getName());
 		initializeTargetPane();
 		initializeUserPane();
 	}

@@ -163,7 +163,7 @@
                            </padding>
                         </HBox>
                         <AnchorPane prefHeight="52.0" prefWidth="629.0" />
-                        <Label alignment="CENTER_RIGHT" onMouseClicked="#ShowDialogUserReset" prefHeight="40.0" prefWidth="462.0" text="Это имя пользователя" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="5.0">
+                        <Label fx:id="NameUser" alignment="CENTER_RIGHT" onMouseClicked="#ShowDialogUserReset" prefHeight="40.0" prefWidth="462.0" text="Это имя пользователя" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="5.0">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>

@@ -36,8 +36,7 @@ public class ControllerTargetPane implements Initializable {
 			int Month = target.getEndDate().getMonth().getValue() - target.getStartDate().getMonth().getValue();
 			int day = target.getEndDate().getDayOfMonth() - target.getEndDate().getDayOfMonth();
 			//LocalDate day = target.getEndDate().minusDays(target.getStartDate().getDayOfMonth());
-			LabelDayCount.setText("Месяцев: " + Month + " Дней: " + day);
-			System.out.println(target.getStartDate().until(target.getEndDate()));
+			//LabelDayCount.setText("Месяцев: " + Month + " Дней: " + day);
 			LabelDayCount.setText("Осталось времени: " + target.getStartDate().until(target.getEndDate()).toString());
 			
 		}
