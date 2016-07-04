@@ -94,7 +94,7 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                <Tab onSelectionChanged="#ShowTabUser" text="Другие пользователи">
+                <Tab text="Другие пользователи">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>

@@ -101,31 +101,8 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
-		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
-		while (itr.hasNext()) {
-			ControllerTargetPane.target = itr.next();
-				try {
-					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
-				 	Parent root = loader.load();
-				 	ActiveTargetFlowPane.getChildren().add(root);
-				 	/*
-				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
-				 		ActiveTargetFlowPane.getChildren().add(root);
-				 	}else if(false){
-				 		
-				 		ActiveTargetFlowPane1.getChildren().add(root);
-				 	}
-				 	else{
-				 		
-				 		ActiveTargetFlowPane2.getChildren().add(root);
-				 	}
-				 	*/
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
+		initializeTargetPane();
+		initializeUserPane();
 	}
 	
 	@FXML
@@ -146,10 +123,38 @@ public class Controller implements Initializable {
 		stage.show();
 	}
 	
-	 @FXML
-	    public void ShowTabUser() throws IOException{
-		 	
-		 //Тут будет вывод списка пользователей
+	 
+	 public void initializeTargetPane(){
+		 
+		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
+			while (itr.hasNext()) {
+				ControllerTargetPane.target = itr.next();
+					try {
+						FXMLLoader loader = new FXMLLoader();
+						loader.setLocation(Controller.class.getResource("newTarget.fxml"));
+					 	Parent root = loader.load();
+					 	ActiveTargetFlowPane.getChildren().add(root);
+					 	/*
+					 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
+					 		ActiveTargetFlowPane.getChildren().add(root);
+					 	}else if(false){
+					 		
+					 		ActiveTargetFlowPane1.getChildren().add(root);
+					 	}
+					 	else{
+					 		
+					 		ActiveTargetFlowPane2.getChildren().add(root);
+					 	}
+					 	*/
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+		 
+	 }
+	 
+	 public void initializeUserPane(){
 		 
 		 Iterator<User> itr = Main.otherUsers.iterator();
 			while (itr.hasNext()) {
@@ -166,7 +171,6 @@ public class Controller implements Initializable {
 						e.printStackTrace();
 					}
 			}
-			
 		 
-	    }
+	 }
 }
