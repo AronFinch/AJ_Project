@@ -194,7 +194,7 @@ public class User {
 		Iterator<Target> itar = TargetList.iterator();
 		while(itar.hasNext()) {
 			Target tar = itar.next();
-			if(tar.isDone() == 1)
+			if(tar.numberAllTasks() == tar.numberDoteTasks())
 				res++;
 		}
 		return res;

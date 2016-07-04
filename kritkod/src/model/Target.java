@@ -37,16 +37,25 @@ public class Target {
 		level = 0;
 		TaskList.clear();
 	}
-	public double isDone() {
-		double res = 0;
-		int number = TaskList.size();
+	//метод посчёта количества всех задач
+	public int numberAllTasks() {
+		return TaskList.size();
+	}
+	//метод подсчётка количества выполненных задач
+	public int numberDoteTasks() {
+		int res = 0;
 		Iterator<Task> itas = TaskList.iterator();
 		while(itas.hasNext()) {
 			Task tas = itas.next();
 			if(tas.isDone())
-				res += 1;
+				res++;
 		}
-		return res/number;
+		return res;
+	}
+	public void CreatTarget(int id_user) {
+		DataBaseManager.Connect();
+//		DataBaseManager.BDAddTarget(id_user);
+		DataBaseManager.Connect();
 	}
 	//Назначить айди цели
 	public void setId(int idNumber) {
