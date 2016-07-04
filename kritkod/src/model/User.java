@@ -111,6 +111,16 @@ public class User {
 		DataBaseManager.BDUpdatePassword(newPassword, id);
 		DataBaseManager.Disconnect();	
 	}
+	
+	public boolean creatTarget(Target target) throws SQLException {
+		if(target.SaveTarget(id)) {
+			TargetList.add(target);
+			return true;
+		} else {
+			target.clear();
+			return false;
+		}
+	}
 	//Создать уведомление для пользователя
 	public void createNotice(Notice notice) {
 		NoticeList.add(notice);

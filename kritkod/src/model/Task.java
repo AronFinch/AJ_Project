@@ -1,6 +1,7 @@
 package model;
 
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
@@ -36,6 +37,13 @@ public class Task {
 		level = 0;
 		isDone = false;
 		CommentList.clear();
+	}
+	public boolean SaveTask(int id_target) throws SQLException {
+		boolean res;
+		DataBaseManager.Connect();
+		res = DataBaseManager.BDaddTask(id_target, this);
+		DataBaseManager.Disconnect();
+		return res;
 	}
 	//Назначить айди задачи
 	public void setId(int idNumber) {

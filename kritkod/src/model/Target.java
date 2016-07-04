@@ -2,6 +2,7 @@ package model;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 //Цель
@@ -52,10 +53,22 @@ public class Target {
 		}
 		return res;
 	}
-	public void CreatTarget(int id_user) {
+	// сохранение цели в базеданных
+	public boolean SaveTarget(int id_user) throws SQLException {
+		boolean res;
 		DataBaseManager.Connect();
-//		DataBaseManager.BDAddTarget(id_user);
+		res = DataBaseManager.BDAddTarget(id_user, this);
 		DataBaseManager.Connect();
+		return res;
+	}
+	public boolean creatTask(Task task) throws SQLException {
+		if(task.SaveTask(id)) {
+			TaskList.add(task);
+			return true;
+		} else {
+			task.clear();
+			return false;
+		}
 	}
 	//Назначить айди цели
 	public void setId(int idNumber) {

@@ -189,5 +189,61 @@ public class DataBaseManager {
 		resSet.close();
 		return res;
 	}
+
+	public static boolean BDAddTarget(int id_user, Target target) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "INSERT INTO 'targets' "
+				+ "(name_target, "
+				+ "description_target, "
+				+ "img_target, "
+				+ "date_begin_target, "
+				+ "date_end_target, "
+				+ "level_target, "
+				+ "id_user) "
+				+ "VALUES "
+				+ "('" + target.getLabel() + "', "
+				+ "'" + target.getDescription() + "', "
+				+ "'" + target.getIMG() + "', "
+				+ "'" + target.getStartDate() + "', "
+				+ "'" + target.getEndDate() + "', "
+				+ "" + id_user + ")";
+		statmt.execute(query);
+		query = "SELECT id_target FROM targets "
+				+ "where name_target='" + target.getLabel() + "'";
+		resSet = statmt.executeQuery(query);
+		if(resSet.next()) {
+			target.setId(resSet.getInt("id_target")); // тут мы получаем id 
+			return true;
+		} else 
+			return false;
+	}
+
+	public static boolean BDaddTask(int id_target, Task task) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "INSERT INTO 'tasks' "
+				+ "(name_task, "
+				+ "description_task, "
+				+ "date_begin_task, "
+				+ "date_end_task, "
+				+ "level_task, "
+				+ "done, "
+				+ "id_target) "
+				+ "VALUES "
+				+ "('" + task.getLabel() + "', "
+				+ "'" + task.getDescription() + "', "
+				+ "'" + task.getStartDate() + "', "
+				+ "'" + task.getEndDate() + "', "
+				+ "" + task.getLevel() + ", "
+				+ "" + id_target + ")";
+		statmt.execute(query);
+		query = "SELECT id_task FROM task "
+				+ "where name_task='" + task.getLabel() + "'";
+		resSet = statmt.executeQuery(query);
+		if(resSet.next()) {
+			task.setId(resSet.getInt("id_target")); // тут мы получаем id 
+			return true;
+		} else 
+			return false;
+	}
 }
 
