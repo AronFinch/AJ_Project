@@ -1,6 +1,7 @@
 package view;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
@@ -28,10 +29,16 @@ public class ControllerTargetPane implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         // TODO
 		 	LabelTargetName.setText(target.getLabel());
-			LabelTaskCount.setText("Число задач... Заглушка!");
+			LabelTaskCount.setText("Число задач = " + Integer.toString(target.numberDoteTasks()) 
+			+ "/" + Integer.toString(target.numberAllTasks()));
+			
+			//String time = 
 			int Month = target.getEndDate().getMonth().getValue() - target.getStartDate().getMonth().getValue();
 			int day = target.getEndDate().getDayOfMonth() - target.getEndDate().getDayOfMonth();
+			//LocalDate day = target.getEndDate().minusDays(target.getStartDate().getDayOfMonth());
 			LabelDayCount.setText("Месяцев: " + Month + " Дней: " + day);
+			System.out.println(target.getStartDate().until(target.getEndDate()));
+			LabelDayCount.setText("Осталось времени: " + target.getStartDate().until(target.getEndDate()).toString());
 			
 		}
 		
