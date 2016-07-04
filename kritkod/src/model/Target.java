@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.time.LocalDate;
 
@@ -35,6 +36,17 @@ public class Target {
 		endDate = LocalDate.of(1000, 1, 1);
 		level = 0;
 		TaskList.clear();
+	}
+	public double isDone() {
+		double res = 0;
+		int number = TaskList.size();
+		Iterator<Task> itas = TaskList.iterator();
+		while(itas.hasNext()) {
+			Task tas = itas.next();
+			if(tas.isDone())
+				res += 1;
+		}
+		return res/number;
 	}
 	//Назначить айди цели
 	public void setId(int idNumber) {
