@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Iterator;
@@ -24,6 +25,34 @@ public class ControllerTargetPane implements Initializable {
     private ProgressBar TargetProgressBar;
 	
 	static Target target = null;
+	
+	/**
+	 * ћетод удал€ющий цель. —овсем.
+	 */
+	@FXML
+	public void DeleteTarget (){
+		
+	}
+	
+	/**
+	 * ћетод вызывающий окно просмотра задач этой цели.
+	 */
+	@FXML
+	public void ShowTask (){
+		
+	}
+	
+	/**
+	 * ћетод открывающий окно с просмотром цели. ѕеределать.
+	 * @throws IOException 
+	 */
+	@FXML
+	public void ShowTargetInfo () throws IOException{
+		
+		Target target = new Target();
+		Main.showTargetEditDialog(target);
+		
+	}
 	
 	@Override
     public void initialize(URL location, ResourceBundle resources){

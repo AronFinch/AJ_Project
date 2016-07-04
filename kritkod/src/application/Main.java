@@ -106,16 +106,17 @@ public class Main extends Application {
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 	 	Parent root = loader.load();
 	 	
-	 	
 	 	Stage stage = new Stage();
-	 	
-	 	ControllerDialogTarget controller = loader.getController();
-        controller.SetDialogStage(stage);
 	 	
 		stage.setScene(new Scene(root));
 		stage.initModality(Modality.WINDOW_MODAL);
 		stage.initOwner(primaryStage);
 		stage.setTitle("Цель:");
+		
+	 	ControllerDialogTarget controller = loader.getController();
+        controller.SetDialogStage(stage);
+        controller.SetTarget(tempTarget);
+        
 		stage.showAndWait();
 		
 		return controller.isOkClicked();

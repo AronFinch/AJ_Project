@@ -23,8 +23,8 @@ public class Target {
 		label = "название";
 		description = "описание";
 		IMG = "путь к изображениею";
-		startDate = LocalDate.of(1000, 1, 1);
-		endDate = LocalDate.of(1000, 1, 1);
+		startDate = LocalDate.now();
+		endDate = LocalDate.now();
 		level = 0;
 		TaskList = new LinkedHashSet<Task>();
 	}

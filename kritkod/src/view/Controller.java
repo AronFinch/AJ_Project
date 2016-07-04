@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -25,28 +26,34 @@ import model.User;
 
 public class Controller implements Initializable {
 	
-	public Controller children;  // Ссылка на контроллер поражаемой формы
-	public Controller parent;     // Ссылка на родительский контроллер (если таковой есть для данной формы)
-    public static boolean newTargetOk = false;
+	public Controller children;  // Ссылка на контроллер поражаемой формы.
+	public Controller parent;     // Ссылка на родительский контроллер (если таковой есть для данной формы).
+    public static boolean newTargetOk = false; //Принимает значение совершённого в дочернем окне действия. 1-принять, 0-отмена.
 	
-	 @FXML
-	    private Button buttonNewTask;
 	 
 	 @FXML
-	    private Button buttonTest;
+	 	private FlowPane ActiveTargetFlowPane; // Панель для отображения фабрикой активных целей.
+	 @FXML
+	 	private FlowPane ActiveTargetFlowPane1; // Панель для отображения фабрикой выполненных целей.
+	 @FXML
+	 	private FlowPane ActiveTargetFlowPane2; // Панель для отображения фабрикой проваленных задач.
 	 
 	 @FXML
-	 	private FlowPane ActiveTargetFlowPane;
-	 @FXML
-	 	private FlowPane ActiveTargetFlowPane1;
-	 @FXML
-	 	private FlowPane ActiveTargetFlowPane2;
-	 @FXML
-	 	private FlowPane ActiveUserFlowPane;
+	 	private ListView ListTopUser; // Лист для отображения фабрикой Всех пользователей по рейтингу.
 	 
 	 @FXML
-	    private Label NameUser;
+	 	private FlowPane ActiveAchivePane; //Панель для отображения фабрикой Достижений.
+	 @FXML
+	 	private FlowPane ActiveClosestTaskPane; //Панель для отображения фабрикой ближайших задач.
 	 
+	 @FXML
+	    private Label NameUser; //Переменная отображающая имя пользователя на главном экране
+	 
+	 /**
+	  * Метод создания новой цели. Вызывается при нажатии на кнопку "Новая цель".
+	  * @param actionEvent
+	  * @throws IOException
+	  */
 	 @FXML
 	    public void ShowDialogTargetNew(ActionEvent actionEvent) throws IOException{
 		 
@@ -64,52 +71,25 @@ public class Controller implements Initializable {
 				}
 				newTargetOk = false;
 			}
-	 
-	  public void ShowTarget() throws IOException{
-		 
-		  Iterator<Target> itr = Main.mainUser.TargetList.iterator();
-			while (itr.hasNext()) {
-				ControllerTargetPane.target = itr.next();
-					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(Controller.class.getResource("newTarget.fxml"));
-				 	Parent root = loader.load();
-					ActiveTargetFlowPane.getChildren().add(root);
-			}
-					
-	 }
-	 
-	@FXML
-	    public void ShowDialogTask(ActionEvent actionEvent) throws IOException{
-		 	
-		 	Stage stage = new Stage();
-		 	Parent root = FXMLLoader.load(getClass().getResource("dialogTask.fxml"));
-			stage.setScene(new Scene(root));
-			stage.initModality(Modality.WINDOW_MODAL);
-			stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
-			stage.setTitle("Создать задачу:");
-			stage.show();
-	    }
-	 
-	 @FXML
-	    public void ShowDialogCreateUser(ActionEvent actionEvent) throws IOException{
-		 	
-		 	Stage stage = new Stage();
-		 	Parent root = FXMLLoader.load(getClass().getResource("dialogCreateUser.fxml"));
-			stage.setScene(new Scene(root));
-			stage.initModality(Modality.WINDOW_MODAL);
-			stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
-			stage.setTitle("Создать пользователя:");
-			stage.show();
-	    }
 
+	 /**
+	  * Метод инициализации всего окна.
+	  * Вся первичная инициализация идёт тут.
+	  */
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
-		NameUser.setText(Main.mainUser.getName());
-		initializeTargetPane();
-		initializeUserPane();
+		NameUser.setText(Main.mainUser.getName()); // Задали имя пользователя
+		//initializeListTopUser(); Переписать. // Инициализация топа
+		initializeStatisticPane();// Пусто //Метод инициализации Статистики
+		initializeTargetPane();	//Инициализация целей.
+		initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
+		initializeAchivePane();// Пусто // Инициализация Достижений
 	}
 	
+
+
+
 	@FXML
     public void ShowDialogUserReset() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
@@ -128,7 +108,9 @@ public class Controller implements Initializable {
 		stage.show();
 	}
 	
-	 
+	 /**
+	  * Инициализация вкладок с целями. Фабрика с условиями.
+	  */
 	 public void initializeTargetPane(){
 		 
 		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
@@ -159,7 +141,10 @@ public class Controller implements Initializable {
 		 
 	 }
 	 
-	 public void initializeUserPane(){
+	 /**
+	  * Инициализация Листа с топом. Фабрика.
+	  */
+	 public void initializeListTopUser(){
 		 
 		 Iterator<User> itr = Main.otherUsers.iterator();
 			while (itr.hasNext()) {
@@ -168,7 +153,7 @@ public class Controller implements Initializable {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("FormUser.fxml"));
 					 	Parent root = loader.load();
-					 		ActiveUserFlowPane.getChildren().add(root);
+					 	//ListTopUser.getChildren().add(root);
 					 	
 					 	
 					} catch (IOException e) {
@@ -178,4 +163,29 @@ public class Controller implements Initializable {
 			}
 		 
 	 }
+
+	 /**
+	  * Инициализация вкладки с ближайшими задачами.
+	  */
+	private void initializeClosestTaskPane() {
+		// TODO Auto-generated method stub
+			
+	}
+	
+	/**
+	 * Инициализация вкладки с Достижениями.
+	 */
+	private void initializeAchivePane() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * Инициализация Статистики на главной вкладке.
+	 */
+	private void initializeStatisticPane() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

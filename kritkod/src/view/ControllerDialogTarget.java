@@ -103,6 +103,11 @@ public class ControllerDialogTarget implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		Target target = new Target();
+		addDiscriptionTarget.setText(target.getDescription());
+		addNameTarget.setText(target.getLabel());
+		addDataTargetStart.setValue(target.getStartDate());
+		addDataTargetFail.setValue(target.getEndDate());
 		
 	}
 
