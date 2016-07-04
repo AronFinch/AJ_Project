@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 //Пользователь
@@ -69,6 +70,12 @@ public class User {
 		if (res) {
 			//тут подгружвать цели
 			DataBaseManager.BDLoadAllTargets(id, TargetList);
+			//потом подгрузить задачи
+			Iterator<Target> itar = TargetList.iterator();
+			while (itar.hasNext()) {
+				Target tar = itar.next();
+				DataBaseManager.BDloadAllTasks(tar.getId(), tar.TaskList);
+			}
 			DataBaseManager.Disconnect();
 			return res;
 		} else {
@@ -82,7 +89,13 @@ public class User {
 		res = DataBaseManager.BDGetUser(login, this);
 		if (res) {
 			//тут подгружвать цели
-//			DataBaseManager.BDLoadAllTargets(id, TargetList);
+			DataBaseManager.BDLoadAllTargets(id, TargetList);
+			//потом подгрузить задачи
+			Iterator<Target> itar = TargetList.iterator();
+			while (itar.hasNext()) {
+				Target tar = itar.next();
+				DataBaseManager.BDloadAllTasks(tar.getId(), tar.TaskList);
+			}
 			DataBaseManager.Disconnect();
 			return res;
 		} else {

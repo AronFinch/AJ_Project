@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
+import model.Task;
 import model.User;
 import view.ControllerDialogTarget;
 import view.ControllerDialogTask;

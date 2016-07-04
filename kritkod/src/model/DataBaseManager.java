@@ -154,5 +154,24 @@ public class DataBaseManager {
 		}
 		resSet.close();
 	}
+
+	public static void BDloadAllTasks(int id_target, LinkedHashSet<Task> taskList) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "SELECT * FROM tasks "
+				+ "WHERE id_target=" + id_target + " "
+				+ "ORDER BY date_begin_task ASC, date_end_task ASC";
+		resSet = statmt.executeQuery(query);
+		while(resSet.next()) {
+			Task task = new Task();
+			task.setId(resSet.getInt("id_task"));
+			task.setLabel(resSet.getString("name_task"));
+			task.setDescription(resSet.getString("description_task"));
+			task.setStartDate(resSet.getDate("date_begin_task").toLocalDate());
+			task.setEndDate(resSet.getDate("date_end_task").toLocalDate());
+			task.setLevel(resSet.getInt("level_task"));
+			task.Done(resSet.getBoolean("done"));
+			taskList.add(task);
+		}
+	}
 }
 

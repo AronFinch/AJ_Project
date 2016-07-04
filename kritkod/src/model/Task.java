@@ -14,7 +14,29 @@ public class Task {
 	private LocalDate endDate;
 	private int level;
 	private boolean isDone;
-	public static LinkedHashSet<Comment> CommentList = new LinkedHashSet<Comment>();
+	
+	public LinkedHashSet<Comment> CommentList;
+	
+	public Task() {
+		id = 0;
+		label = "Название";
+		description = "Описание";
+		startDate = LocalDate.of(1000, 1, 1);
+		endDate = LocalDate.of(1000, 1, 1);
+		level = 0;
+		isDone = false;
+		CommentList = new LinkedHashSet<Comment>();
+	}
+	public void clear() {
+		id = 0;
+		label = "Название";
+		description = "Описание";
+		startDate = LocalDate.of(1000, 1, 1);
+		endDate = LocalDate.of(1000, 1, 1);
+		level = 0;
+		isDone = false;
+		CommentList.clear();
+	}
 	//Назначить айди задачи
 	public void setId(int idNumber) {
 		id = idNumber;	
@@ -38,8 +60,8 @@ public class Task {
 	public void setLevel(int Level) {
 		level = Level;
 	}
-	public void Done() {
-		isDone = true;
+	public void Done(boolean done) {
+		isDone = done;
 	}
 	
 	//Получить айди задачи
