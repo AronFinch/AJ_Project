@@ -14,14 +14,14 @@
       <DatePicker fx:id="addDataTargetStart" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="65.0" />
       <DatePicker fx:id="addDataTargetFail" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="109.0" />
       <TextArea fx:id="addDiscriptionTarget" prefHeight="75.0" prefWidth="161.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0" />
-      <ImageView fitHeight="116.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="238.0">
+      <ImageView fx:id="targetImage" fitHeight="116.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="238.0">
          <image>
             <Image url="@fKWqVoyf7WU.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="addTargetReward" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="351.0" />
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="278.0" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="246.0" />
+      <Button mnemonicParsing="false" onAction="#addTargetImage" prefHeight="25.0" prefWidth="25.0" text="+" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="246.0" />
       <Button layoutX="110.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="114.0" text="Отмена" AnchorPane.bottomAnchor="14.0" />
       <Button layoutX="224.0" layoutY="415.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Создать цель" AnchorPane.bottomAnchor="14.0" />
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Дато окончания*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="112.0" />

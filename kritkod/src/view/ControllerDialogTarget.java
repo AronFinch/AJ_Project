@@ -1,8 +1,11 @@
 package view;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -13,6 +16,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Target;
 
@@ -35,6 +41,9 @@ public class ControllerDialogTarget implements Initializable {
 	
 	@FXML
     private Label labelAddTarget;
+	
+	@FXML
+	private ImageView targetImage;
 	
 	private Stage dialogStage;
     private Target target;
@@ -66,6 +75,25 @@ public class ControllerDialogTarget implements Initializable {
 		dialogStage.close();
 	}
 
+	@FXML
+	public void addTargetImage(ActionEvent actionEvent) {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Выберите картинку");
+		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+		List<String> listString = Arrays.asList("*.jpg", "*.jpeg", "*.png", "*.bmp", "*.gif");
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Picture", listString));
+		
+			File file = fileChooser.showOpenDialog(dialogStage);
+			
+			if(file != null) {
+				String fileURL = file.toURI().toString();
+				//Нужно перекидывать картинку в отдельную папку в проекте, а не просто брать откуда-нибудь
+				Image imgLoad = new Image(fileURL);
+				
+				targetImage.setImage(imgLoad);
+			}
+	}
+	
 	@FXML
     private void handleCancel() {
 		okClicked=false;
