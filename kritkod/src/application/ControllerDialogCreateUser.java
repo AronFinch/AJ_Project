@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import model.DataBaseManager;
+import model.User;
 import view.Controller;
 
 public class ControllerDialogCreateUser {
@@ -73,6 +76,17 @@ public class ControllerDialogCreateUser {
 							if(Main.mainUser.SaveUser(login, password, SQ.getText(), answer.getText())) {
 								// переход на главный экран
 								// прогрузить остальных пользователей
+								ArrayList<String> logins;
+								
+								DataBaseManager.Connect();
+								logins = DataBaseManager.BDGetOtherLogins(Main.mainUser.getId());
+								DataBaseManager.Disconnect();
+								
+								for(int i = 0; i < logins.size(); i++) {
+									User user = new User();
+									user.loadUser(logins.get(i));
+									Main.otherUsers.add(user);
+								}
 								Main.primaryStage.close();
 								
 								Stage stage = new Stage();

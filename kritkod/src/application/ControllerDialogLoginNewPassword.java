@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.DataBaseManager;
+import model.User;
 import view.Controller;
 
 public class ControllerDialogLoginNewPassword {
@@ -28,6 +31,18 @@ public class ControllerDialogLoginNewPassword {
 			try {
 				Main.mainUser.changePassword(NewPassword.getText());
 				//на этом моменте выполнить переход
+				//прогрузил других пользователей
+				ArrayList<String> logins;
+				
+				DataBaseManager.Connect();
+				logins = DataBaseManager.BDGetOtherLogins(Main.mainUser.getId());
+				DataBaseManager.Disconnect();
+				
+				for(int i = 0; i < logins.size(); i++) {
+					User user = new User();
+					user.loadUser(logins.get(i));
+					Main.otherUsers.add(user);
+				}
 				Main.primaryStage.close();
 				
 				Stage stage = new Stage();

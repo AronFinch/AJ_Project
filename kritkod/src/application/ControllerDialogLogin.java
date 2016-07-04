@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.DataBaseManager;
 import model.User;
 import view.Controller;
 
@@ -35,6 +37,19 @@ public class ControllerDialogLogin {
 			if(!Password.getText().equals("")) {
 				try {
 					if(Main.mainUser.loadUser(Login.getText(), Password.getText())) {//Загружаем пользователя
+						//тут загрузить список пользователей
+						ArrayList<String> logins;
+						
+						DataBaseManager.Connect();
+						logins = DataBaseManager.BDGetOtherLogins(Main.mainUser.getId());
+						DataBaseManager.Disconnect();
+						
+						for(int i = 0; i < logins.size(); i++) {
+							User user = new User();
+							user.loadUser(logins.get(i));
+							Main.otherUsers.add(user);
+						}
+						//загрузили список пользователей
 						Main.primaryStage.close();
 						
 						Stage stage = new Stage();

@@ -1,5 +1,6 @@
 package model;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 /*
  * Класс для работы с базой данных
@@ -172,6 +173,21 @@ public class DataBaseManager {
 			task.Done(resSet.getBoolean("done"));
 			taskList.add(task);
 		}
+		resSet.close();
+	}
+	//получение всех логинов кроме главного пользователя
+	public static ArrayList<String> BDGetOtherLogins(int id_mainUser) throws SQLException {
+		ArrayList<String> res = new ArrayList<String>();
+		Statement statmt = conn.createStatement();
+		String query = "SELECT login_user FROM users "
+				+ "WHERE id_user<>" + id_mainUser + " "
+				+ "ORDER BY rating ASC";
+		resSet = statmt.executeQuery(query);
+		while(resSet.next()) {
+			res.add(resSet.getString("login_user"));
+		}
+		resSet.close();
+		return res;
 	}
 }
 
