@@ -9,6 +9,16 @@ public class Notice {
 	private String text;
 	private LocalDate date;
 	
+	public Notice() {
+		id = 0;
+		text = "Важное сообщение!";
+		date = LocalDate.of(1000, 1, 1);
+	}
+	public void clear() {
+		id = 0;
+		text = "";
+		date = LocalDate.of(1000, 1, 1);
+	}
 	//Назначить текст уведомления
 	public void setId(int ID) {
 		id = ID;

@@ -76,6 +76,8 @@ public class User {
 				Target tar = itar.next();
 				DataBaseManager.BDloadAllTasks(tar.getId(), tar.TaskList);
 			}
+			// и ещё должны быть уведомления
+			DataBaseManager.BDLoadAllNotice(id, NoticeList);
 			DataBaseManager.Disconnect();
 			return res;
 		} else {
@@ -96,6 +98,8 @@ public class User {
 				Target tar = itar.next();
 				DataBaseManager.BDloadAllTasks(tar.getId(), tar.TaskList);
 			}
+			// и ещё должны быть уведомления
+			DataBaseManager.BDLoadAllNotice(id, NoticeList);
 			DataBaseManager.Disconnect();
 			return res;
 		} else {

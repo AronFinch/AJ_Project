@@ -245,5 +245,20 @@ public class DataBaseManager {
 		} else 
 			return false;
 	}
+
+	public static void BDLoadAllNotice(int id_user, LinkedHashSet<Notice> noticeList) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "SELECT * FROM notices "
+				+ "WHERE id_user=" + id_user + " "
+				+ "ORDER BY date_notice ASC";
+		resSet = statmt.executeQuery(query);
+		while(resSet.next()) {
+			Notice notice = new Notice();
+			notice.setId(resSet.getInt("id_notice"));
+			notice.setText(resSet.getString("text_notice"));
+			notice.setDate(resSet.getDate("date_notice").toLocalDate());
+			noticeList.add(notice);
+		}
+	}
 }
 
