@@ -1,23 +1,14 @@
 package application;
 	
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.List;
-
 import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
-import model.Task;
 import model.User;
 import view.ControllerDialogTarget;
-import view.ControllerDialogTask;
-import view.ControllerTargetPane;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
