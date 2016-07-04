@@ -188,4 +188,19 @@ public class User {
 		} else
 			return false;
 	}
+	//количество выполненных целей
+	public int numberDoneTarget() {
+		int res = 0;
+		Iterator<Target> itar = TargetList.iterator();
+		while(itar.hasNext()) {
+			Target tar = itar.next();
+			if(tar.isDone() == 1)
+				res++;
+		}
+		return res;
+	}
+	//количество всех целей
+	public int numberAllTarget() {
+		return TargetList.size();
+	}
 }
