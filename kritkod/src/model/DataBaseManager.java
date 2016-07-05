@@ -98,10 +98,10 @@ public class DataBaseManager {
 			return false;
 	}
 	// загрузка из БД вопроса
-	public static String BDGetQuestion(int id_user) throws SQLException {
+	public static String BDGetQuestion(String login) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "SELECT secrite_question FROM users "
-				+ "where id_user=" + id_user;
+				+ "where login_user='" + login + "'";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
 			return resSet.getString("secrite_question");
@@ -110,10 +110,10 @@ public class DataBaseManager {
 		}
 	}
 	//загрузка из БД ответа
-	public static String BDGetAnswer(int id_user) throws SQLException {
+	public static String BDGetAnswer(String login) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "SELECT answer FROM users "
-				+ "where id_user=" + id_user;
+				+ "where login_user='" + login + "'";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
 			return resSet.getString("answer");

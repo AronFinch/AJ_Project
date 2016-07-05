@@ -44,7 +44,7 @@ public class ControllerDialogLoginReset implements Initializable {
 		            labelDisable.setDisable(false);
 		            answer.setDisable(false);
 		            // загрузить вопрос
-		            labelDisable.setText(Main.mainUser.getQuestion());
+		            labelDisable.setText(Main.mainUser.getQuestion(Login.getText()));
 				} else {
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		    		alert.setTitle("Information");
@@ -71,7 +71,7 @@ public class ControllerDialogLoginReset implements Initializable {
     public void СheckNewPassword() throws IOException{  
     	//тут запрашивается ответ по нажатию кнопки
     	try {
-			if (Main.mainUser.checkAnswer(answer.getText())) {
+			if (Main.mainUser.checkAnswer(answer.getText(), Login.getText())) {
 				Main.mainUser.loadUser(Login.getText());
 				
 				Stage stage = Main.primaryStage;

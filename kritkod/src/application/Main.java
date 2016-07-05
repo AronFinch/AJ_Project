@@ -51,7 +51,7 @@ public class Main extends Application {
 		while(i!=0){
 		target = new Target();
 		text.setText("Имя цели " + i + " создано!");
-		target.setLabel(text.getText());
+//		target.setLabel(text.getText());
 		text1.setText("Описание цели " + i + " создано!");
 		target.setDescription(text1.getText());
 		date.setValue(specificDate);

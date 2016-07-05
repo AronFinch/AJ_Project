@@ -192,17 +192,17 @@ public class User {
 		return res;
 	}
 	//получить секретный вопрос
-	public String getQuestion () throws SQLException {
+	public String getQuestion (String Login) throws SQLException {
 		DataBaseManager.Connect();
 		String res = null;
-		res = DataBaseManager.BDGetQuestion(id);
+		res = DataBaseManager.BDGetQuestion(Login);
 		DataBaseManager.Disconnect();
 		return res;
 	}
-	public boolean checkAnswer(String answer) throws SQLException {
+	public boolean checkAnswer(String answer, String Login) throws SQLException {
 		DataBaseManager.Connect();
-		String answerBD = null;
-		answerBD = DataBaseManager.BDGetAnswer(id);
+		String answerBD;
+		answerBD = DataBaseManager.BDGetAnswer(Login);
 		
 		DataBaseManager.Disconnect();
 		if(answerBD.equals(answer)) {
