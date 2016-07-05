@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 
@@ -193,6 +194,26 @@ public class User {
 	}
 	public Statistics getStatistics() {
 		return statistics;
+	}
+	//
+	public ArrayList getNearTasks() {
+		ArrayList<Task> tasks = new ArrayList();
+		Iterator<Target> itar;
+		Iterator<Task> itas;
+		
+		itar = TargetList.iterator();
+		while(itar.hasNext()) {
+			itas = itar.next().TaskList.iterator();
+			while(itas.hasNext()) {
+				Task task = itas.next();
+				if(!task.isDone()) {
+					if(!task.getEndDate().isAfter(LocalDate.now()) && !task.getEndDate().isBefore(LocalDate.now().plusDays(3)))
+						tasks.add(task);
+				}
+			}
+		}
+		
+		return tasks;
 	}
 	public boolean userIsExist(String login) throws SQLException {
 		boolean res;
