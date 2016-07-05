@@ -53,7 +53,7 @@ public class Main extends Application {
 		text.setText("Имя цели " + i + " создано!");
 //		target.setLabel(text.getText());
 		text1.setText("Описание цели " + i + " создано!");
-		target.setDescription(text1.getText());
+		target.setLabel(text1.getText());
 		date.setValue(specificDate);
 		target.setStartDate(date.getValue());
 		date.setValue(specificDate1.of(2016, 8, 15 + i));

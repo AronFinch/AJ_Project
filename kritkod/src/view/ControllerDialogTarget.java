@@ -65,7 +65,7 @@ public class ControllerDialogTarget implements Initializable {
 	@FXML
     public void addNewTarget(ActionEvent actionEvent){
 		Target newTarget = new Target();
-		newTarget.setDescription(addDiscriptionTarget.getText());
+		newTarget.setLabel(addDiscriptionTarget.getText());
 		//newTarget.setLabel(addNameTarget.getText());
 		newTarget.setStartDate(addDataTargetStart.getValue());
 		newTarget.setEndDate(addDataTargetFail.getValue());

@@ -72,12 +72,17 @@ public class ControllerDialogLoginReset implements Initializable {
     	//тут запрашиваетс€ ответ по нажатию кнопки
     	try {
 			if (Main.mainUser.checkAnswer(answer.getText(), Login.getText())) {
-				Main.mainUser.loadUser(Login.getText());
-				
-				Stage stage = Main.primaryStage;
-				Parent root = FXMLLoader.load(getClass().getResource("dialogLoginNewPassword.fxml"));
-				stage.setScene(new Scene(root));
-				stage.setTitle("¬ведите новый пароль:");	
+				if(Main.mainUser.loadUser(Login.getText())) {
+					Stage stage = Main.primaryStage;
+					Parent root = FXMLLoader.load(getClass().getResource("dialogLoginNewPassword.fxml"));
+					stage.setScene(new Scene(root));
+					stage.setTitle("¬ведите новый пароль:");
+				} else {
+					Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		    		alert.setTitle("Information");
+		    	    alert.setHeaderText("”дивительно, ав правильно ответили, но пользователь не загрузилс€!");
+		    	    alert.showAndWait();
+				}
 			} else {
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 	    		alert.setTitle("Information");
