@@ -151,7 +151,7 @@ public class DataBaseManager {
 			target.setStartDate(resSet.getDate("date_begin_target").toLocalDate());
 			target.setEndDate(resSet.getDate("date_end_target").toLocalDate());
 			target.setReward(resSet.getString("reward"));
-			target.setApproved(resSet.getBoolean("approved"));
+			target.setApproved(resSet.getBoolean("approved_target"));
 			// тут добавление целей
 			targetList.add(target);
 		}
@@ -172,6 +172,7 @@ public class DataBaseManager {
 			task.setEndDate(resSet.getDate("date_end_task").toLocalDate());
 			task.setLevel(resSet.getInt("level_task"));
 			task.Done(resSet.getBoolean("done"));
+			task.setApproved(resSet.getBoolean("approved_task"));
 			taskList.add(task);
 		}
 		resSet.close();
@@ -199,7 +200,7 @@ public class DataBaseManager {
 				+ "date_begin_target, "
 				+ "date_end_target, "
 				+ "reward,"
-				+ "approwed, "
+				+ "approwed_target, "
 				+ "id_user) "
 				+ "VALUES "
 				+ "('" + target.getDescription() + "', "
@@ -229,12 +230,14 @@ public class DataBaseManager {
 				+ "date_end_task, "
 				+ "level_task, "
 				+ "done, "
+				+ "approved_task, "
 				+ "id_target) "
 				+ "VALUES "
 				+ "('" + task.getDescription() + "', "
 				+ "'" + task.getStartDate() + "', "
 				+ "'" + task.getEndDate() + "', "
 				+ "" + task.getLevel() + ", "
+				+ "" + task.getApproved() + ", "
 				+ "" + id_target + ")";
 		statmt.execute(query);
 		query = "SELECT id_task FROM task "

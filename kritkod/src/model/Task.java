@@ -14,6 +14,7 @@ public class Task {
 	private LocalDate endDate;
 	private int level;
 	private boolean isDone;
+	private boolean approved;
 	
 	public LinkedHashSet<Comment> CommentList;
 	
@@ -24,6 +25,7 @@ public class Task {
 		endDate = LocalDate.of(1000, 1, 1);
 		level = 0;
 		isDone = false;
+		approved = false;
 		CommentList = new LinkedHashSet<Comment>();
 	}
 	public void clear() {
@@ -33,6 +35,7 @@ public class Task {
 		endDate = LocalDate.of(1000, 1, 1);
 		level = 0;
 		isDone = false;
+		approved = false;
 		CommentList.clear();
 	}
 	public boolean SaveTask(int id_target) throws SQLException {
@@ -64,7 +67,9 @@ public class Task {
 	public void Done(boolean done) {
 		isDone = done;
 	}
-	
+	public void setApproved(boolean Approved) {
+		approved = Approved;
+	}
 	//Получить айди задачи
 	public int getId() {	
 		return id;	
@@ -86,6 +91,9 @@ public class Task {
 	}
 	public boolean isDone() {
 		return isDone;
+	}
+	public boolean getApproved() {
+		return approved;
 	}
 	//Создать комментарий для данной задачи
 	public void createComment(Comment comment) {	
