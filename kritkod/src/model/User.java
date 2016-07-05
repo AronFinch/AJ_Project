@@ -16,7 +16,7 @@ public class User {
 	
 	public LinkedHashSet<Target> TargetList;
 	public LinkedHashSet<Notice> NoticeList;
-	public Statistics statistics;
+	private Statistics statistics;
 	/*
 	 * конструктор по умолчанию
 	 * создаёт пользователя 
@@ -44,7 +44,7 @@ public class User {
 		rating = 0; //дефолтное значение в базе 300		
 		TargetList.clear();
 		NoticeList.clear();
-		Statistics.clear();
+		statistics.clear();
 	}
 	
 	/*
@@ -164,12 +164,14 @@ public class User {
 	public void setRating(int Rating) {
 		rating = Rating;
 	}
-	
+	public void countStatistics() {
+		statistics.clear();
+		statistics.update(this);
+	}
 	//Получить айди пользователя
 	public int getId() {	
 		return id;	
-	}
-	
+	} 
 	//Получить имя пользователя
 	public String getName() {	
 		return name;	
@@ -188,6 +190,9 @@ public class User {
 	//получить рейтинг пользователя
 	public int getRating() {
 		return rating;
+	}
+	public Statistics getStatistics() {
+		return statistics;
 	}
 	public boolean userIsExist(String login) throws SQLException {
 		boolean res;
