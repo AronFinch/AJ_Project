@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 public class Task {
 	
 	private int id;
-	private String label;
+	private String description;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private int level;
@@ -19,7 +19,7 @@ public class Task {
 	
 	public Task() {
 		id = 0;
-		label = "Название";
+		description = "описание";
 		startDate = LocalDate.of(1000, 1, 1);
 		endDate = LocalDate.of(1000, 1, 1);
 		level = 0;
@@ -28,7 +28,7 @@ public class Task {
 	}
 	public void clear() {
 		id = 0;
-		label = "Название";
+		description = "описание";
 		startDate = LocalDate.of(1000, 1, 1);
 		endDate = LocalDate.of(1000, 1, 1);
 		level = 0;
@@ -47,8 +47,8 @@ public class Task {
 		id = idNumber;	
 	}
 	//Назначить заголовок задачи
-	public void setLabel(String Label) { 
-		label = Label; 
+	public void setDescription(String Description) { 
+		description = Description; 
 	} 
 	//Назначить начальную дату задачи
 	public void setStartDate(LocalDate StartDate) {
@@ -70,8 +70,8 @@ public class Task {
 		return id;	
 	}
 	//Получить заголовок задачи
-	public String getLabel() {
-		return label;
+	public String getDescription() {
+		return description;
 	}
 	//Получить начальную дату задачи
 	public LocalDate getStartDate() {	

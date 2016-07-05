@@ -146,7 +146,7 @@ public class DataBaseManager {
 		while(resSet.next()) {
 			Target target = new Target();
 			target.setId(resSet.getInt("id_target"));
-			target.setDescription(resSet.getString("description_target"));
+			target.setLabel(resSet.getString("text_target"));
 			target.setIMG(resSet.getString("img_target"));
 			target.setStartDate(resSet.getDate("date_begin_target").toLocalDate());
 			target.setEndDate(resSet.getDate("date_end_target").toLocalDate());
@@ -167,7 +167,7 @@ public class DataBaseManager {
 		while(resSet.next()) {
 			Task task = new Task();
 			task.setId(resSet.getInt("id_task"));
-			task.setLabel(resSet.getString("name_task"));
+			task.setDescription(resSet.getString("text_task"));
 			task.setStartDate(resSet.getDate("date_begin_task").toLocalDate());
 			task.setEndDate(resSet.getDate("date_end_task").toLocalDate());
 			task.setLevel(resSet.getInt("level_task"));
@@ -231,7 +231,7 @@ public class DataBaseManager {
 				+ "done, "
 				+ "id_target) "
 				+ "VALUES "
-				+ "('" + task.getLabel() + "', "
+				+ "('" + task.getDescription() + "', "
 				+ "'" + task.getStartDate() + "', "
 				+ "'" + task.getEndDate() + "', "
 				+ "" + task.getLevel() + ", "

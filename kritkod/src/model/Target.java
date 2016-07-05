@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Target {
 	
 	private int id;
-	private String description;
+	private String label;
 	private String IMG;
 	private LocalDate startDate;
 	private LocalDate endDate;
@@ -19,7 +19,7 @@ public class Target {
 	
 	public Target() {
 		id = 0;
-		description = "описание";
+		label = "название";
 		IMG = "путь к изображениею";
 		startDate = LocalDate.now();
 		endDate = LocalDate.now();
@@ -29,7 +29,7 @@ public class Target {
 	}
 	public void clear() {
 		id = 0;
-		description = "цель";
+		label = "название";
 		IMG = "путь к изображениею";
 		startDate = LocalDate.of(1000, 1, 1);
 		endDate = LocalDate.of(1000, 1, 1);
@@ -79,8 +79,8 @@ public class Target {
 		TaskList.add(task);
 	}
 	//Назначить описание цели
-	public void setDescription(String Description) {
-		description = Description;
+	public void setLabel(String Label) {
+		label = Label;
 	}
 	public void setIMG(String IMGTrack) {
 		IMG = IMGTrack;
@@ -107,7 +107,7 @@ public class Target {
 	}
 	//Получить описание цели
 	public String getDescription() {
-		return description;	
+		return label;	
 	}
 	public String getIMG() {
 		return IMG;
