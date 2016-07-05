@@ -221,7 +221,7 @@
                         <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/rank.png" />
                      </image>
                   </ImageView>
-                  <ListView fx:id="ListTopUser" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                  <FlowPane fx:id="ListTopUser" alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                </children>
             </AnchorPane>
          </right>

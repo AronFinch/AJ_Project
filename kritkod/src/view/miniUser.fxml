@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="188.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerMiniUser">
+   <children>
+      <Label fx:id="Name" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="157.0" text="Имя" />
+      <Label fx:id="Level" layoutX="14.0" layoutY="45.0" prefHeight="17.0" prefWidth="157.0" text="Рейтинг" />
+   </children>
+</Pane>

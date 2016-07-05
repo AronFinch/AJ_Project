@@ -39,7 +39,7 @@ public class Controller implements Initializable {
 	 	private FlowPane ActiveTargetFlowPane2; // Панель для отображения фабрикой проваленных задач.
 	 
 	 @FXML
-	 	private ListView ListTopUser; // Лист для отображения фабрикой Всех пользователей по рейтингу.
+	 	private FlowPane ListTopUser; // Лист для отображения фабрикой Всех пользователей по рейтингу.
 	 
 	 @FXML
 	 	private FlowPane ActiveAchivePane; //Панель для отображения фабрикой Достижений.
@@ -80,7 +80,7 @@ public class Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
 		NameUser.setText(Main.mainUser.getName()); // Задали имя пользователя
-		//initializeListTopUser(); Переписать. // Инициализация топа
+		initializeListTopUser();  // Инициализация топа
 		initializeStatisticPane();// Пусто //Метод инициализации Статистики
 		initializeTargetPane();	//Инициализация целей.
 		initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
@@ -152,12 +152,12 @@ public class Controller implements Initializable {
 		 
 		 Iterator<User> itr = Main.otherUsers.iterator();
 			while (itr.hasNext()) {
-				ControllerUserPane.user = itr.next();
+				ControllerMiniUser.user = itr.next();
 					try {
 						FXMLLoader loader = new FXMLLoader();
-						loader.setLocation(Controller.class.getResource("FormUser.fxml"));
+						loader.setLocation(Controller.class.getResource("miniUser.fxml"));
 					 	Parent root = loader.load();
-					 	//ListTopUser.getChildren().add(root);
+					 	ListTopUser.getChildren().add(root);
 					 	
 					 	
 					} catch (IOException e) {
