@@ -60,6 +60,11 @@ public class User {
 		DataBaseManager.Disconnect();
 		return res;
 	}
+	public void saveChange() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDUpdateUser(this);
+		DataBaseManager.Disconnect();
+	}
 	/*
 	 * методы загрузки пользователя из базы данных
 	 */

@@ -38,6 +38,11 @@ public class Task {
 		approved = false;
 		CommentList.clear();
 	}
+	public void saveChange() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDUpdateTask(this);
+		DataBaseManager.Disconnect();
+	}
 	public boolean SaveTask(int id_target) throws SQLException {
 		boolean res;
 		DataBaseManager.Connect();

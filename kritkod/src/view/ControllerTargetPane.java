@@ -59,7 +59,7 @@ public class ControllerTargetPane implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         // TODO
 		 	//LabelTargetName.setText(target.getLabel());
-		LabelTargetName.setText(target.getDescription());
+		LabelTargetName.setText(target.getLabel());
 			LabelTaskCount.setText("Число задач = " + Integer.toString(target.numberDoneTasks()) 
 			+ "/" + Integer.toString(target.numberAllTasks()));
 			

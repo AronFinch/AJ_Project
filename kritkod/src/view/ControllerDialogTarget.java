@@ -104,7 +104,7 @@ public class ControllerDialogTarget implements Initializable {
 		// TODO Auto-generated method stub
 			target = Main.LocalTarget;
 		//Target target = new Target();
-		addDiscriptionTarget.setText(target.getDescription());
+		addDiscriptionTarget.setText(target.getLabel());
 		//addNameTarget.setText(target.getLabel());
 		addDataTargetStart.setValue(target.getStartDate());
 		addDataTargetFail.setValue(target.getEndDate());

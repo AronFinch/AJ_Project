@@ -47,7 +47,7 @@ public class ControllerDialogTargetInfo {
 		targetInfo.setEndDate(LocalDate.now());
 		
 		//infoLabelTarget.setText(targetInfo.getLabel());
-		infoDiscriptionTarget.setText(targetInfo.getDescription());
+		infoDiscriptionTarget.setText(targetInfo.getLabel());
 		infoDataTargetStart.setValue(targetInfo.getStartDate());
 		infoDataTargetEnd.setValue(targetInfo.getEndDate());
 	//	infoImageTarget.set
