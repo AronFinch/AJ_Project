@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 //Уведомление
@@ -39,5 +40,17 @@ public class Notice {
 	public LocalDate getDate() {
 		return date;
 	}
-	
+	public boolean saveNotice(int id_user) throws SQLException {
+		boolean res;
+		DataBaseManager.Connect();
+		res = DataBaseManager.BDAddNotice(id_user, this);
+		DataBaseManager.Disconnect();
+		return false;
+	}
+	public void delete() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDDeleteNotice(id);
+		DataBaseManager.Disconnect();
+		clear();
+	}
 }

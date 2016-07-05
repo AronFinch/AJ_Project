@@ -332,5 +332,34 @@ public class DataBaseManager {
 				+ "WHERE id_task=" + id;
 		statmt.executeUpdate(query);
 	}
+
+	public static boolean BDAddNotice(int id_user, Notice notice) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "INSERT INTO 'notices' "
+				+ "(text_notice, "
+				+ "date_notice, "
+				+ "id_user) "
+				+ "VALUES "
+				+ "('" + notice.getText() + "', "
+				+ "'" + notice.getDate() + "', "
+				+ "" + id_user + ") ";
+		statmt.execute(query);
+		
+		query = "SELECT id_notice FROM notices "
+				+ "ORDER BY id_notice DESC";
+		resSet = statmt.executeQuery(query);
+		if(resSet.next()) {
+			notice.setId(resSet.getInt("id_user")); // тут мы получаем id сохранённого пользователя
+				return true;
+		} else
+			return false;
+	}
+
+	public static void BDDeleteNotice(int id) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "DELETE FROM 'notices' "
+				+ "WHERE id_notice=" + id;
+		statmt.executeUpdate(query);
+	}
 }
 

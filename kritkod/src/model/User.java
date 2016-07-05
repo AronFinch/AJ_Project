@@ -132,8 +132,15 @@ public class User {
 		}
 	}
 	//Создать уведомление для пользователя
-	public void createNotice(Notice notice) {
-		NoticeList.add(notice);
+	public boolean createNotice(Notice notice) throws SQLException {
+		if(notice.saveNotice(id)) {
+			NoticeList.add(notice);
+			return true;
+		}
+		else {
+			notice.clear();
+			return false;
+		}
 	}
 	
 	//Создать пункт статистики для пользователя
