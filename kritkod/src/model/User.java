@@ -184,6 +184,7 @@ public class User {
 	public int getRating() {
 		return rating;
 	}
+	//получить секретный вопрос
 	public String getQuestion () throws SQLException {
 		DataBaseManager.Connect();
 		String res = null;
@@ -208,7 +209,7 @@ public class User {
 		Iterator<Target> itar = TargetList.iterator();
 		while(itar.hasNext()) {
 			Target tar = itar.next();
-			if(tar.numberAllTasks() == tar.numberDoteTasks())
+			if(tar.numberAllTasks() == tar.numberDoneTasks())
 				res++;
 		}
 		return res;

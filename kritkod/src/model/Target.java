@@ -9,33 +9,32 @@ import java.time.LocalDate;
 public class Target {
 	
 	private int id;
-	private String label;
 	private String description;
 	private String IMG;
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private int level;
-	
+	private String reward;
+	private boolean approved;
 	public LinkedHashSet<Task> TaskList;
 	
 	public Target() {
 		id = 0;
-		label = "название";
 		description = "описание";
 		IMG = "путь к изображениею";
 		startDate = LocalDate.now();
 		endDate = LocalDate.now();
-		level = 0;
+		reward = "награда";
+		approved = false;
 		TaskList = new LinkedHashSet<Task>();
 	}
 	public void clear() {
 		id = 0;
-		label = "название";
-		description = "описание";
+		description = "цель";
 		IMG = "путь к изображениею";
 		startDate = LocalDate.of(1000, 1, 1);
 		endDate = LocalDate.of(1000, 1, 1);
-		level = 0;
+		reward = "награда";
+		approved = false;
 		TaskList.clear();
 	}
 	//метод посчЄта количества всех задач
@@ -43,7 +42,7 @@ public class Target {
 		return TaskList.size();
 	}
 	//метод подсчЄтка количества выполненных задач
-	public int numberDoteTasks() {
+	public int numberDoneTasks() {
 		int res = 0;
 		Iterator<Task> itas = TaskList.iterator();
 		while(itas.hasNext()) {
@@ -61,6 +60,7 @@ public class Target {
 		DataBaseManager.Connect();
 		return res;
 	}
+	//это переделать
 	public boolean creatTask(Task task) throws SQLException {
 		if(task.SaveTask(id)) {
 			TaskList.add(task);
@@ -78,10 +78,6 @@ public class Target {
 	public void createTask(Task task) {
 		TaskList.add(task);
 	}
-	//Ќазначить заголовок цели
-	public void setLabel(String Label) {
-		label = Label;
-	}
 	//Ќазначить описание цели
 	public void setDescription(String Description) {
 		description = Description;
@@ -97,16 +93,17 @@ public class Target {
 	public void setEndDate(LocalDate EndDate) {	
 		endDate = EndDate;
 	}
-	public void setLevel(int Level) {
-		level = Level;
+	//назначить награду
+	public void setReward(String Reward) {
+		reward = Reward;
+	}
+	//одобрение цели
+	public void setApproved(boolean Approved) {
+		approved = Approved;
 	}
 	//ѕолучить айди цели
 	public int getId() {
 		return id;	
-	}
-	//ѕолучить заголовок цели
-	public String getLabel() {
-		return label;	
 	}
 	//ѕолучить описание цели
 	public String getDescription() {
@@ -123,15 +120,13 @@ public class Target {
 	public LocalDate getEndDate() {
 		return endDate;	
 	}
-	public int getLevel() {
-		return level;
+	//получить награду
+	public String getReward() {
+		return reward;
 	}
-	@Override
-    public String toString() {
-        return "label=" + label 
-        		+ " Description=" + description 
-        		+ " Time_Start_Target =" + startDate.getDayOfMonth() + "." + startDate.getMonthValue() 
-        		+ " Time_Fail_Target =" + endDate.getDayOfMonth()+ "." + endDate.getMonthValue();
-        		
-    }
+	//запросить о одобренности задачи
+	public boolean getApproved() {
+		return approved;
+	}
+   
 }

@@ -89,12 +89,13 @@ public class DataBaseManager {
 				+ "'" + answer + "')";
 		statmt.execute(query); // тут мы сохраняем бд 
 		query = "SELECT id_user FROM users "
-					+ "where login_user='" + login + "'";
+					+ "ORDER BY id_user DESC";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
 			user.setId(resSet.getInt("id_user")); // тут мы получаем id сохранённого пользователя
-		}
-		return true;
+			return true;
+		} else
+			return false;
 	}
 	// загрузка из БД вопроса
 	public static String BDGetQuestion(int id_user) throws SQLException {
@@ -105,7 +106,7 @@ public class DataBaseManager {
 		if(resSet.next()) {
 			return resSet.getString("secrite_question");
 		} else {
-			return "";
+			return "Вопрос не найден";
 		}
 	}
 	//загрузка из БД ответа
@@ -117,7 +118,7 @@ public class DataBaseManager {
 		if(resSet.next()) {
 			return resSet.getString("answer");
 		} else {
-			return "";
+			return null;
 		}
 	}
 	public static void BDUpdatePassword(String newPassword, int id_user) throws SQLException { 
@@ -127,6 +128,7 @@ public class DataBaseManager {
 				+ "WHERE id_user='" + id_user + "'";
 		statmt.executeUpdate(query);
 	}
+	
 	public static void Disconnect() {
 		try {
 			conn.close();
@@ -144,12 +146,12 @@ public class DataBaseManager {
 		while(resSet.next()) {
 			Target target = new Target();
 			target.setId(resSet.getInt("id_target"));
-			target.setLabel(resSet.getString("name_target"));
 			target.setDescription(resSet.getString("description_target"));
 			target.setIMG(resSet.getString("img_target"));
 			target.setStartDate(resSet.getDate("date_begin_target").toLocalDate());
 			target.setEndDate(resSet.getDate("date_end_target").toLocalDate());
-			target.setLevel(resSet.getInt("level_target"));
+			target.setReward(resSet.getString("reward"));
+			target.setApproved(resSet.getBoolean("approved"));
 			// тут добавление целей
 			targetList.add(target);
 		}
@@ -166,7 +168,6 @@ public class DataBaseManager {
 			Task task = new Task();
 			task.setId(resSet.getInt("id_task"));
 			task.setLabel(resSet.getString("name_task"));
-			task.setDescription(resSet.getString("description_task"));
 			task.setStartDate(resSet.getDate("date_begin_task").toLocalDate());
 			task.setEndDate(resSet.getDate("date_end_task").toLocalDate());
 			task.setLevel(resSet.getInt("level_task"));
@@ -181,7 +182,7 @@ public class DataBaseManager {
 		Statement statmt = conn.createStatement();
 		String query = "SELECT login_user FROM users "
 				+ "WHERE id_user<>" + id_mainUser + " "
-				+ "ORDER BY rating ASC";
+				+ "ORDER BY rating DESC";
 		resSet = statmt.executeQuery(query);
 		while(resSet.next()) {
 			res.add(resSet.getString("login_user"));
@@ -189,27 +190,29 @@ public class DataBaseManager {
 		resSet.close();
 		return res;
 	}
-
+//добавление цели в БД
 	public static boolean BDAddTarget(int id_user, Target target) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "INSERT INTO 'targets' "
-				+ "(name_target, "
-				+ "description_target, "
+				+ "(description_target, "
 				+ "img_target, "
 				+ "date_begin_target, "
 				+ "date_end_target, "
-				+ "level_target, "
+				+ "reward,"
+				+ "approwed, "
 				+ "id_user) "
 				+ "VALUES "
-				+ "('" + target.getLabel() + "', "
-				+ "'" + target.getDescription() + "', "
+				+ "('" + target.getDescription() + "', "
 				+ "'" + target.getIMG() + "', "
 				+ "'" + target.getStartDate() + "', "
 				+ "'" + target.getEndDate() + "', "
+				+ "'" + target.getReward() + "', "
+				+ "" + target.getApproved() + ", "
 				+ "" + id_user + ")";
 		statmt.execute(query);
+		
 		query = "SELECT id_target FROM targets "
-				+ "where name_target='" + target.getLabel() + "'";
+				+ "ORDER BY id_target DESC";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
 			target.setId(resSet.getInt("id_target")); // тут мы получаем id 
@@ -218,11 +221,10 @@ public class DataBaseManager {
 			return false;
 	}
 
-	public static boolean BDaddTask(int id_target, Task task) throws SQLException {
+	public static boolean BDAddTask(int id_target, Task task) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "INSERT INTO 'tasks' "
 				+ "(name_task, "
-				+ "description_task, "
 				+ "date_begin_task, "
 				+ "date_end_task, "
 				+ "level_task, "
@@ -230,14 +232,13 @@ public class DataBaseManager {
 				+ "id_target) "
 				+ "VALUES "
 				+ "('" + task.getLabel() + "', "
-				+ "'" + task.getDescription() + "', "
 				+ "'" + task.getStartDate() + "', "
 				+ "'" + task.getEndDate() + "', "
 				+ "" + task.getLevel() + ", "
 				+ "" + id_target + ")";
 		statmt.execute(query);
 		query = "SELECT id_task FROM task "
-				+ "where name_task='" + task.getLabel() + "'";
+				+ "ORDER BY id_task DESC";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
 			task.setId(resSet.getInt("id_target")); // тут мы получаем id 
@@ -250,7 +251,7 @@ public class DataBaseManager {
 		Statement statmt = conn.createStatement();
 		String query = "SELECT * FROM notices "
 				+ "WHERE id_user=" + id_user + " "
-				+ "ORDER BY date_notice ASC";
+				+ "ORDER BY date_notice DESC";
 		resSet = statmt.executeQuery(query);
 		while(resSet.next()) {
 			Notice notice = new Notice();
