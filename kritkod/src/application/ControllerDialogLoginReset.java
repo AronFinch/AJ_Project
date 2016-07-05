@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,7 +39,7 @@ public class ControllerDialogLoginReset implements Initializable {
     	// загрузка из логина
     	if(!Login.getText().equals("")) {
     		try {
-				if(Main.mainUser.loadUser(Login.getText())) {
+				if(Main.mainUser.userIsExist(Login.getText())) {
 					buttonNewPassword.setDisable(false);
 		            labelDisable.setDisable(false);
 		            answer.setDisable(false);
@@ -73,6 +72,8 @@ public class ControllerDialogLoginReset implements Initializable {
     	//тут запрашивается ответ по нажатию кнопки
     	try {
 			if (Main.mainUser.checkAnswer(answer.getText())) {
+				Main.mainUser.loadUser(Login.getText());
+				
 				Stage stage = Main.primaryStage;
 				Parent root = FXMLLoader.load(getClass().getResource("dialogLoginNewPassword.fxml"));
 				stage.setScene(new Scene(root));

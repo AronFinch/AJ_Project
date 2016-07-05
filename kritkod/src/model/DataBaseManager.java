@@ -261,5 +261,16 @@ public class DataBaseManager {
 			noticeList.add(notice);
 		}
 	}
+
+	public static boolean BDCheckUser(String login) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "SELECT * FROM users "
+				+ "WHERE login_user='" + login + "' ";
+		resSet = statmt.executeQuery(query);
+		if(resSet.next()) {
+			return true;
+		} else
+			return false;
+	}
 }
 

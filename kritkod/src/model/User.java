@@ -184,6 +184,13 @@ public class User {
 	public int getRating() {
 		return rating;
 	}
+	public boolean userIsExist(String login) throws SQLException {
+		boolean res;
+		DataBaseManager.Connect();
+		res = DataBaseManager.BDCheckUser(login);
+		DataBaseManager.Disconnect();
+		return res;
+	}
 	//получить секретный вопрос
 	public String getQuestion () throws SQLException {
 		DataBaseManager.Connect();
