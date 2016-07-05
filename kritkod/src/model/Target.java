@@ -144,5 +144,10 @@ public class Target {
 	public boolean getApproved() {
 		return approved;
 	}
-   
+	public void delete() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDDeleteTarget(id);
+		DataBaseManager.Disconnect();
+		clear();
+	}
 }

@@ -1,6 +1,5 @@
 package model;
 
-
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
@@ -111,5 +110,10 @@ public class Task {
 	public void createComment(Comment comment) {	
 		CommentList.add(comment);	
 	}
-		
+	public void delete() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDDeleteTask(id);
+		DataBaseManager.Disconnect();
+		clear();
+	}
 }

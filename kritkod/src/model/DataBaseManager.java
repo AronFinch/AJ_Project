@@ -310,7 +310,27 @@ public class DataBaseManager {
 //				+ "secrite_question=" + task.isDone() + ", "
 //				+ "answer=" + task.getApproved() + " ";
 		statmt.executeUpdate(query);
-		
+	}
+
+	public static void BDDeleteUser(int id) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "DELETE FROM 'users' "
+				+ "WHERE id_user=" + id;
+		statmt.executeUpdate(query);
+	}
+
+	public static void BDDeleteTarget(int id) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "DELETE FROM 'targets' "
+				+ "WHERE id_target=" + id;
+		statmt.executeUpdate(query);
+	}
+
+	public static void BDDeleteTask(int id) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "DELETE FROM 'tasks' "
+				+ "WHERE id_task=" + id;
+		statmt.executeUpdate(query);
 	}
 }
 

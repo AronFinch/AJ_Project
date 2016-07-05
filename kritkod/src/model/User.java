@@ -256,4 +256,10 @@ public class User {
 	public int numberAllTarget() {
 		return TargetList.size();
 	}
+	public void delete() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDDeleteUser(id);
+		DataBaseManager.Disconnect();
+		clear();
+	}
 }
