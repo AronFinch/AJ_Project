@@ -46,6 +46,8 @@ public class ControllerTargetPane implements Initializable {
 	@FXML
 	public void ShowTask () throws IOException{
 		
+		ControllerDialogTask.target = target; 
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("taskList.fxml"));
 	 	Parent root = loader.load();

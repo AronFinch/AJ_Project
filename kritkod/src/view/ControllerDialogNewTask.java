@@ -1,8 +1,12 @@
 package view;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -11,7 +15,7 @@ import javafx.stage.Stage;
 import model.Target;
 import model.Task;
 
-public class ControllerDialogNewTask {
+public class ControllerDialogNewTask implements Initializable {
 	
 	@FXML
     private DatePicker DataStart;
@@ -56,5 +60,11 @@ public class ControllerDialogNewTask {
     private void ActionExit() {
         dialogStage.close();
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

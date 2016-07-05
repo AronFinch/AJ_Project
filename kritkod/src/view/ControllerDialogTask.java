@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -14,7 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Target;	
+import model.Target;
+import model.Task;	
 
 	public class ControllerDialogTask implements Initializable {
 		
@@ -22,7 +24,7 @@ import model.Target;
 	private FlowPane PaneMiniTask;
 	
 	private Stage dialogStage;
-	Target target = null;
+	static Target target = null;
 	
 	@FXML
     public void NewTask(ActionEvent actionEvent) throws IOException{
@@ -61,6 +63,21 @@ import model.Target;
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
-	}
+		Iterator<Task> itr = target.TaskList.iterator();
+		while (itr.hasNext()) {
+			ControllerMiniTask.task = itr.next();
+					try {
+						FXMLLoader loader = new FXMLLoader();
+						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
+					 	Parent root = loader.load();
+					 	PaneMiniTask.getChildren().add(root);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}		 		 	
 
+		}
+	 
+	}
+		
 }
