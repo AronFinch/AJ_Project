@@ -21,8 +21,8 @@ public class Task {
 	public Task() {
 		id = 0;
 		description = "описание";
-		startDate = LocalDate.of(1000, 1, 1);
-		endDate = LocalDate.of(1000, 1, 1);
+		startDate = LocalDate.now();
+		endDate = LocalDate.now();
 		level = 0;
 		isDone = false;
 		approved = false;
@@ -31,8 +31,8 @@ public class Task {
 	public void clear() {
 		id = 0;
 		description = "описание";
-		startDate = LocalDate.of(1000, 1, 1);
-		endDate = LocalDate.of(1000, 1, 1);
+		startDate = LocalDate.now();
+		endDate = LocalDate.now();
 		level = 0;
 		isDone = false;
 		approved = false;

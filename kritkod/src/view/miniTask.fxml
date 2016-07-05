@@ -8,6 +8,6 @@
    <children>
       <Button layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onAction="#ActionOk" prefHeight="25.0" prefWidth="85.0" text="Выполнить" />
       <Button layoutX="103.0" layoutY="90.0" mnemonicParsing="false" onAction="#ActionDelete" prefHeight="25.0" prefWidth="85.0" text="Удалить" />
-      <Label fx:id="Description" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="64.0" prefWidth="179.0" text="Label" wrapText="true" />
+      <Label fx:id="Description" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="14.0" onMouseClicked="#ActionClick" prefHeight="64.0" prefWidth="179.0" text="Label" wrapText="true" />
    </children>
 </Pane>

@@ -62,11 +62,8 @@ public class Controller implements Initializable {
 			boolean okClicked = Main.showTargetEditDialog(tempTarget);
 			if (okClicked) {
 				//Main.getTargetData().add(tempTarget);
-				Stage stage = Main.primaryStage;
-			 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
-				stage.setScene(new Scene(root));
-				stage.setTitle("Главный экран:");
-				stage.show();
+				
+				initializeTargetPane();
 				
 				}
 				newTargetOk = false;
@@ -112,6 +109,9 @@ public class Controller implements Initializable {
 	  * Инициализация вкладок с целями. Фабрика с условиями.
 	  */
 	 public void initializeTargetPane(){
+		 ActiveTargetFlowPane.getChildren().clear();
+		 ActiveTargetFlowPane1.getChildren().clear();
+		 ActiveTargetFlowPane2.getChildren().clear();
 		 
 		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 			while (itr.hasNext()) {
@@ -149,6 +149,8 @@ public class Controller implements Initializable {
 	  * Инициализация Листа с топом. Фабрика.
 	  */
 	 public void initializeListTopUser(){
+		 
+		 ListTopUser.getChildren().clear();
 		 
 		 Iterator<User> itr = Main.otherUsers.iterator();
 			while (itr.hasNext()) {

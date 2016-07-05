@@ -30,30 +30,28 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0">
                                              <children>
-                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
                                                    <content>
                                                       <FlowPane fx:id="ActiveTargetFlowPane" hgap="5.0" prefHeight="200.0" prefWidth="800.0" prefWrapLength="0.0" vgap="5.0">
                                                          <padding>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                          </padding>
-                                                         <children>
-                                                            <SplitPane orientation="VERTICAL" prefHeight="122.0" prefWidth="171.0">
-                                                               <items>
-                                                                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                     <children>
-                                                                        <Button mnemonicParsing="false" onAction="#ShowDialogTargetNew" text="Новая цель" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                           <font>
-                                                                              <Font size="25.0" />
-                                                                           </font>
-                                                                        </Button>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </items>
-                                                            </SplitPane>
-                                                         </children>
                                                       </FlowPane>
                                                    </content>
                                                 </ScrollPane>
+                                                <SplitPane layoutX="29.6" layoutY="29.6" orientation="VERTICAL" prefHeight="98.0" prefWidth="192.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="486.0" AnchorPane.topAnchor="0.0">
+                                                   <items>
+                                                      <AnchorPane prefHeight="120.0" prefWidth="193.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#ShowDialogTargetNew" text="Новая цель" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <font>
+                                                                  <Font size="25.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </items>
+                                                </SplitPane>
                                              </children>
                                           </AnchorPane>
                                     </content>

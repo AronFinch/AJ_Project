@@ -32,6 +32,7 @@ public class ControllerDialogNewTask implements Initializable {
 	
 	private Stage dialogStage;
 	Target target = null;
+	Task task = null;
 	
     public void SetDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -52,7 +53,6 @@ public class ControllerDialogNewTask implements Initializable {
 		task.setEndDate(DataFail.getValue());
 		task.setLevel(Integer.parseUnsignedInt(Level.getText()));
 		target.TaskList.add(task);
-		//Main.mainUser.TargetList.add(newTarget);
 		dialogStage.close();
 	}
 	
@@ -64,7 +64,10 @@ public class ControllerDialogNewTask implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		task.setDescription(Discription.getText());
+		task.setStartDate(DataStart.getValue());
+		task.setEndDate(DataFail.getValue());
+		task.setLevel(Integer.parseUnsignedInt(Level.getText()));
 	}
 
 }

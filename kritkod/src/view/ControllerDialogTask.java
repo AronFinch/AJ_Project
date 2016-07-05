@@ -45,7 +45,8 @@ import model.Task;
 	 	controller.SetDialogStage(stage);
         controller.SetTarget(target);
         
-		stage.show();
+		stage.showAndWait();
+		Inic();
 	}
 
 	public void SetTarget(Target target) {
@@ -63,6 +64,14 @@ import model.Task;
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+		Inic();
+	 
+	}
+	
+	public void Inic(){
+		
+		PaneMiniTask.getChildren().clear();
+		
 		Iterator<Task> itr = target.TaskList.iterator();
 		while (itr.hasNext()) {
 			ControllerMiniTask.task = itr.next();
@@ -77,7 +86,7 @@ import model.Task;
 					}		 		 	
 
 		}
-	 
+		
 	}
 		
 }

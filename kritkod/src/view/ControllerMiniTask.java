@@ -24,6 +24,11 @@ public class ControllerMiniTask implements Initializable {
 	}
 	
 	@FXML
+    public void ActionClick(ActionEvent actionEvent){
+
+	}
+	
+	@FXML
     public void ActionOk(ActionEvent actionEvent){
 
 	}
