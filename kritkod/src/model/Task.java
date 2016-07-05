@@ -92,6 +92,13 @@ public class Task {
 	public boolean isDone() {
 		return isDone;
 	}
+	// сообщает провалена ли задача
+	public boolean isFaild() {
+		boolean res = false;
+		if(!isDone && endDate.isAfter(LocalDate.now()))
+			res = true;
+		return res;
+	}
 	public boolean getApproved() {
 		return approved;
 	}

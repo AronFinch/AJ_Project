@@ -52,6 +52,17 @@ public class Target {
 		}
 		return res;
 	}
+	//число проваленных задачь
+	public int numberFaildTask() {
+		int res = 0;
+		Iterator<Task> itas = TaskList.iterator();
+		while(itas.hasNext()) {
+			Task tas = itas.next();
+			if(tas.isFaild())
+				res++;
+		}
+		return res;
+	}
 	// сохранение цели в базеданных
 	public boolean SaveTarget(int id_user) throws SQLException {
 		boolean res;
