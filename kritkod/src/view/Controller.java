@@ -120,7 +120,11 @@ public class Controller implements Initializable {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("newTarget.fxml"));
 					 	Parent root = loader.load();
+					 	//ControllerTargetPane controller = loader.getController();
+					 	
 					 	ActiveTargetFlowPane.getChildren().add(root);
+					 	
+//				        controller.target = itr.next();
 					 	/*
 					 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
 					 		ActiveTargetFlowPane.getChildren().add(root);

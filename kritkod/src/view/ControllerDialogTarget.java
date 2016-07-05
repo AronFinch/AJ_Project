@@ -65,8 +65,7 @@ public class ControllerDialogTarget implements Initializable {
 	@FXML
     public void addNewTarget(ActionEvent actionEvent){
 		Target newTarget = new Target();
-		newTarget.setDescription(addDiscriptionTarget.getText());
-		//newTarget.setLabel(addNameTarget.getText());
+		newTarget.setLabel(addNameTarget.getText());
 		newTarget.setStartDate(addDataTargetStart.getValue());
 		newTarget.setEndDate(addDataTargetFail.getValue());
 		SetTarget(target);
@@ -103,7 +102,8 @@ public class ControllerDialogTarget implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		Target target = new Target();
+			target = Main.LocalTarget;
+		//Target target = new Target();
 		addDiscriptionTarget.setText(target.getDescription());
 		//addNameTarget.setText(target.getLabel());
 		addDataTargetStart.setValue(target.getStartDate());

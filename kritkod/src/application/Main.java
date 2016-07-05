@@ -26,10 +26,10 @@ public class Main extends Application {
 
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
+	public static Target LocalTarget = null;
 	@Override
 	public void start(Stage stage) {
 		try {
-			TestData();
 			this.primaryStage = stage;
 			initLoginDialog();
 			//initRootLayout();
@@ -37,31 +37,6 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	private void TestData() throws IOException {
-		// TODO Auto-generated method stub
-		int i = 3;
-		Target target = new Target();
-		TextField text = new TextField();
-		TextArea text1 = new TextArea();
-		DatePicker date = new DatePicker();
-		LocalDate specificDate = LocalDate.now();
-		LocalDate specificDate1 = LocalDate.of(2016, 8, 15 + i);
-		while(i!=0){
-		target = new Target();
-		text.setText("Имя цели " + i + " создано!");
-//		target.setLabel(text.getText());
-		text1.setText("Описание цели " + i + " создано!");
-		target.setDescription(text1.getText());
-		date.setValue(specificDate);
-		target.setStartDate(date.getValue());
-		date.setValue(specificDate1.of(2016, 8, 15 + i));
-		target.setEndDate(date.getValue());
-		TargetList.add(target);
-		i--;
-		}
-		
 	}
 
 	private void initLoginDialog() throws IOException {
@@ -74,16 +49,6 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 
-	private void initRootLayout() throws IOException {
-		// TODO Auto-generated method stub
-		FXMLLoader loader = new FXMLLoader();
-	 	Parent root = loader.load(Main.class.getResource("rootStage1.fxml"));
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("demo");
-		primaryStage.show();
-		
-	}
 	
     public Stage getPrimaryStage() {
     	return primaryStage;
@@ -102,6 +67,7 @@ public class Main extends Application {
 
 	public static boolean showTargetEditDialog(Target tempTarget) throws IOException {
 		// TODO Auto-generated method stub
+		LocalTarget = tempTarget;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 	 	Parent root = loader.load();

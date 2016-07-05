@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import model.Target;
@@ -23,7 +24,7 @@ public class ControllerTargetPane implements Initializable {
     private Label LabelDayCount;
 	@FXML
     private ProgressBar TargetProgressBar;
-	
+
 	static Target target = null;
 	
 	/**
@@ -49,7 +50,7 @@ public class ControllerTargetPane implements Initializable {
 	@FXML
 	public void ShowTargetInfo () throws IOException{
 		
-		Target target = new Target();
+		//Target target = new Target();
 		Main.showTargetEditDialog(target);
 		
 	}
@@ -62,7 +63,6 @@ public class ControllerTargetPane implements Initializable {
 			LabelTaskCount.setText("Число задач = " + Integer.toString(target.numberDoneTasks()) 
 			+ "/" + Integer.toString(target.numberAllTasks()));
 			
-			//String time = 
 			int Month = target.getEndDate().getMonth().getValue() - target.getStartDate().getMonth().getValue();
 			int day = target.getEndDate().getDayOfMonth() - target.getEndDate().getDayOfMonth();
 			//LocalDate day = target.getEndDate().minusDays(target.getStartDate().getDayOfMonth());
