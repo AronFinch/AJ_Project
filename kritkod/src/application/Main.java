@@ -26,7 +26,6 @@ public class Main extends Application {
 
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();
-	public static Target LocalTarget = null;
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -63,28 +62,5 @@ public class Main extends Application {
 	public static LinkedHashSet<Target> getTargetData() {
 		// TODO Auto-generated method stub
 		return TargetList;
-	}
-
-	public static boolean showTargetEditDialog(Target tempTarget) throws IOException {
-		// TODO Auto-generated method stub
-		LocalTarget = tempTarget;
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
-	 	Parent root = loader.load();
-	 	
-	 	Stage stage = new Stage();
-	 	
-		stage.setScene(new Scene(root));
-		stage.initModality(Modality.WINDOW_MODAL);
-		stage.initOwner(primaryStage);
-		stage.setTitle("Цель:");
-		
-	 	ControllerDialogTarget controller = loader.getController();
-        controller.SetDialogStage(stage);
-        controller.SetTarget(tempTarget);
-        
-		stage.showAndWait();
-		
-		return controller.isOkClicked();
 	}
 }

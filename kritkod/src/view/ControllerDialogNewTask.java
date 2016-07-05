@@ -32,7 +32,7 @@ public class ControllerDialogNewTask implements Initializable {
 	
 	private Stage dialogStage;
 	Target target = null;
-	Task task = null;
+	static Task task = new Task();
 	
     public void SetDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -47,6 +47,7 @@ public class ControllerDialogNewTask implements Initializable {
 	
 	@FXML
     public void ActionOk(ActionEvent actionEvent){
+		target.TaskList.remove(task);
 		Task task = new Task();
 		task.setDescription(Discription.getText());
 		task.setStartDate(DataStart.getValue());
@@ -64,10 +65,10 @@ public class ControllerDialogNewTask implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		task.setDescription(Discription.getText());
-		task.setStartDate(DataStart.getValue());
-		task.setEndDate(DataFail.getValue());
-		task.setLevel(Integer.parseUnsignedInt(Level.getText()));
+		Discription.setText(task.getDescription());
+		DataStart.setValue(task.getStartDate());
+		DataFail.setValue(task.getEndDate());
+		Level.setText(Integer.toString(task.getLevel()));
 	}
 
 }

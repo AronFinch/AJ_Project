@@ -28,7 +28,6 @@ public class Controller implements Initializable {
 	
 	public Controller children;  // Ссылка на контроллер поражаемой формы.
 	public Controller parent;     // Ссылка на родительский контроллер (если таковой есть для данной формы).
-    public static boolean newTargetOk = false; //Принимает значение совершённого в дочернем окне действия. 1-принять, 0-отмена.
 	
 	 
 	 @FXML
@@ -57,16 +56,26 @@ public class Controller implements Initializable {
 	 @FXML
 	    public void ShowDialogTargetNew(ActionEvent actionEvent) throws IOException{
 		 
-		 newTargetOk = true;
 			Target tempTarget = new Target();
-			boolean okClicked = Main.showTargetEditDialog(tempTarget);
-			if (okClicked) {
-				//Main.getTargetData().add(tempTarget);
-				
-				initializeTargetPane();
-				
-				}
-				newTargetOk = false;
+			ControllerDialogTarget.target = tempTarget;
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
+		 	Parent root = loader.load();
+		 	
+		 	Stage stage = new Stage();
+		 	
+			stage.setScene(new Scene(root));
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(Main.primaryStage);
+			stage.setTitle("Цель:");
+			
+		 	ControllerDialogTarget controller = loader.getController();
+	        controller.SetDialogStage(stage);
+	        controller.SetTarget(tempTarget);
+	        
+			stage.showAndWait();
+			
+			initializeTargetPane();
 			}
 
 	 /**
@@ -118,13 +127,15 @@ public class Controller implements Initializable {
 				ControllerTargetPane.target = itr.next();
 					try {
 						FXMLLoader loader = new FXMLLoader();
-						loader.setLocation(Controller.class.getResource("newTarget.fxml"));
+						loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 					 	Parent root = loader.load();
 					 	//ControllerTargetPane controller = loader.getController();
+					 	//controller.target = itr.next();
 					 	
 					 	ActiveTargetFlowPane.getChildren().add(root);
+					 	ControllerTargetPane.root = root;
+					 	ControllerTargetPane.pane = ActiveTargetFlowPane;
 					 	
-//				        controller.target = itr.next();
 					 	/*
 					 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
 					 		ActiveTargetFlowPane.getChildren().add(root);

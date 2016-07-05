@@ -6,27 +6,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="600.0" maxWidth="350.0" minHeight="454.0" minWidth="350.0" prefHeight="454.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTarget">
+<AnchorPane maxHeight="600.0" maxWidth="350.0" minHeight="360.0" minWidth="350.0" prefHeight="366.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTarget">
    <children>
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Назовите цель*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="29.0" />
-      <TextField fx:id="addNameTarget" layoutX="131.0" layoutY="27.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" />
+      <TextField fx:id="Name" layoutX="131.0" layoutY="27.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" />
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Дата начала*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="68.0" />
-      <DatePicker fx:id="addDataTargetStart" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="65.0" />
-      <DatePicker fx:id="addDataTargetFail" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="109.0" />
-      <TextArea fx:id="addDiscriptionTarget" prefHeight="75.0" prefWidth="161.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0" />
-      <ImageView fx:id="targetImage" fitHeight="116.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="238.0">
+      <DatePicker fx:id="DataStart" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="65.0" />
+      <DatePicker fx:id="DataFail" prefHeight="25.0" prefWidth="161.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="109.0" />
+      <ImageView fx:id="targetImage" fitHeight="116.0" fitWidth="130.0" layoutX="131.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="124.52577209472656" AnchorPane.topAnchor="149.0">
          <image>
             <Image url="@fKWqVoyf7WU.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="addTargetReward" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="351.0" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="278.0" />
-      <Button mnemonicParsing="false" onAction="#addTargetImage" prefHeight="25.0" prefWidth="25.0" text="+" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="246.0" />
-      <Button layoutX="110.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="114.0" text="Отмена" AnchorPane.bottomAnchor="14.0" />
-      <Button layoutX="224.0" layoutY="415.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Создать цель" AnchorPane.bottomAnchor="14.0" />
+      <TextField fx:id="Reward" layoutX="131.0" layoutY="283.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="283.0" />
+      <Button layoutX="275.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="195.0" />
+      <Button layoutX="275.0" layoutY="156.0" mnemonicParsing="false" onAction="#addTargetImage" prefHeight="25.0" prefWidth="25.0" text="+" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="156.0" />
+      <Button layoutX="63.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="114.0" text="Отмена" AnchorPane.bottomAnchor="14.0" />
+      <Button layoutX="190.0" layoutY="321.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Принять" AnchorPane.bottomAnchor="14.0" />
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Дато окончания*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="112.0" />
-      <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Описание" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="154.0" />
-      <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Изображение" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="246.0" />
-      <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Награда" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="354.0" />
+      <Label alignment="CENTER_RIGHT" layoutY="158.0" prefHeight="20.0" prefWidth="120.0" text="Изображение" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="158.0" />
+      <Label alignment="CENTER_RIGHT" layoutY="285.0" prefHeight="20.0" prefWidth="120.0" text="Награда" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="285.0" />
    </children>
 </AnchorPane>

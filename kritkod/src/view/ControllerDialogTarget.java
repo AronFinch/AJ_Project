@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Target;
@@ -25,36 +26,26 @@ import model.Target;
 public class ControllerDialogTarget implements Initializable {
 	
 	@FXML
-    private DatePicker addDataTargetStart;
+    private DatePicker DataStart;
 	
 	@FXML
-    private DatePicker addDataTargetFail;
+    private DatePicker DataFail;
 	
 	@FXML
-    private TextField addNameTarget;
+    private TextField Name;
 	
 	@FXML
-    private TextField addTargetReward;
-	
-	@FXML
-	private TextArea addDiscriptionTarget;
-	
-	@FXML
-    private Label labelAddTarget;
+    private TextField Reward;
 	
 	@FXML
 	private ImageView targetImage;
 	
 	private Stage dialogStage;
-    private Target target;
-    private boolean okClicked = false;
+    public static Target target = new Target();
+
     
     public void SetDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-    }
-    
-    public boolean isOkClicked() {
-        return okClicked;
     }
     
     public void SetTarget(Target target) {
@@ -64,13 +55,13 @@ public class ControllerDialogTarget implements Initializable {
 	
 	@FXML
     public void addNewTarget(ActionEvent actionEvent){
+		Main.mainUser.TargetList.remove(target);
 		Target newTarget = new Target();
-		newTarget.setLabel(addNameTarget.getText());
-		newTarget.setStartDate(addDataTargetStart.getValue());
-		newTarget.setEndDate(addDataTargetFail.getValue());
+		newTarget.setLabel(Name.getText());
+		newTarget.setStartDate(DataStart.getValue());
+		newTarget.setEndDate(DataFail.getValue());
 		SetTarget(target);
 		Main.mainUser.TargetList.add(newTarget);
-		okClicked = true;
 		dialogStage.close();
 	}
 
@@ -95,19 +86,16 @@ public class ControllerDialogTarget implements Initializable {
 	
 	@FXML
     private void handleCancel() {
-		okClicked=false;
         dialogStage.close();
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-			target = Main.LocalTarget;
-		//Target target = new Target();
-		addDiscriptionTarget.setText(target.getLabel());
-		//addNameTarget.setText(target.getLabel());
-		addDataTargetStart.setValue(target.getStartDate());
-		addDataTargetFail.setValue(target.getEndDate());
+		Name.setText(target.getLabel());
+		DataStart.setValue(target.getStartDate());
+		DataFail.setValue(target.getEndDate());
+		Reward.setText(target.getReward());
 		
 	}
 

@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
@@ -30,12 +31,53 @@ public class ControllerTargetPane implements Initializable {
     private ProgressBar TargetProgressBar;
 
 	static Target target = null;
+	public static Parent root;
+	public static FlowPane pane;
 	
 	/**
 	 * ћетод удал€ющий цель. —овсем.
+	 * @throws IOException 
 	 */
 	@FXML
-	public void DeleteTarget (){
+	public void DeleteTarget () throws IOException{
+		
+		Main.mainUser.TargetList.remove(target);
+		
+		pane.getChildren().clear();
+		
+		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
+		while (itr.hasNext()) {
+			ControllerTargetPane.target = itr.next();
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
+				 	Parent root = loader.load();
+				 	//ControllerTargetPane controller = loader.getController();
+				 	//controller.target = itr.next();
+				 	
+				 	pane.getChildren().add(root);
+				 	ControllerTargetPane.root = root;
+				 	ControllerTargetPane.pane = pane;
+				 	
+				 	/*
+				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
+				 		ActiveTargetFlowPane.getChildren().add(root);
+				 	}else if(false){
+				 		
+				 		ActiveTargetFlowPane1.getChildren().add(root);
+				 	}
+				 	else{
+				 		
+				 		ActiveTargetFlowPane2.getChildren().add(root);
+				 	}
+				 	*/
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+	 
+		
 		
 	}
 	
@@ -63,7 +105,9 @@ public class ControllerTargetPane implements Initializable {
 	 	controller.SetDialogStage(stage);
         controller.SetTarget(target);
         
-		stage.show();
+		stage.showAndWait();
+		
+		
 		
 	}
 	
@@ -74,9 +118,58 @@ public class ControllerTargetPane implements Initializable {
 	@FXML
 	public void ShowTargetInfo () throws IOException{
 		
-		//Target target = new Target();
-		Main.showTargetEditDialog(target);
+		Target tempTarget = target;
+		ControllerDialogTarget.target = tempTarget;
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
+	 	Parent root = loader.load();
+	 	
+	 	Stage stage = new Stage();
+	 	
+		stage.setScene(new Scene(root));
+		stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(Main.primaryStage);
+		stage.setTitle("÷ель:");
 		
+	 	ControllerDialogTarget controller = loader.getController();
+        controller.SetDialogStage(stage);
+        controller.SetTarget(tempTarget);
+        
+		stage.showAndWait();
+		
+		pane.getChildren().clear();
+		
+		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
+		while (itr.hasNext()) {
+			ControllerTargetPane.target = itr.next();
+				try {
+					loader = new FXMLLoader();
+					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
+				 	root = loader.load();
+				 	//ControllerTargetPane controller = loader.getController();
+				 	//controller.target = itr.next();
+				 	
+				 	pane.getChildren().add(root);
+				 	ControllerTargetPane.root = root;
+				 	ControllerTargetPane.pane = pane;
+				 	
+				 	/*
+				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
+				 		ActiveTargetFlowPane.getChildren().add(root);
+				 	}else if(false){
+				 		
+				 		ActiveTargetFlowPane1.getChildren().add(root);
+				 	}
+				 	else{
+				 		
+				 		ActiveTargetFlowPane2.getChildren().add(root);
+				 	}
+				 	*/
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
 	}
 	
 	@Override

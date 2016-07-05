@@ -23,12 +23,11 @@ import model.Task;
 	@FXML
 	private FlowPane PaneMiniTask;
 	
-	private Stage dialogStage;
+	private static Stage dialogStage;
 	static Target target = null;
 	
 	@FXML
     public void NewTask(ActionEvent actionEvent) throws IOException{
-		
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("task.fxml"));
@@ -72,6 +71,8 @@ import model.Task;
 		
 		PaneMiniTask.getChildren().clear();
 		
+		ControllerMiniTask.target = target;
+		ControllerMiniTask.dialogStage = dialogStage;
 		Iterator<Task> itr = target.TaskList.iterator();
 		while (itr.hasNext()) {
 			ControllerMiniTask.task = itr.next();
