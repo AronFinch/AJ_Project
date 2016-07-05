@@ -192,4 +192,16 @@ public class Controller implements Initializable {
 		
 	}
 	
+	 @FXML
+	public void exit() throws IOException
+	{
+		Main.primaryStage.close();
+		Stage stage = new Stage();
+		Main.primaryStage = stage;
+	 	Parent root = FXMLLoader.load(getClass().getResource("../application/dialogLogin.fxml"));
+		stage.setScene(new Scene(root));
+		stage.setTitle("Авторизация:");
+		stage.show();
+	}
+	
 }
