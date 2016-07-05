@@ -35,7 +35,7 @@
                   <Insets left="30.0" right="30.0" />
                </padding>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#ClickedLogin">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#ClickedLogin">
                <graphic>
                   <Label text="Войти">
                      <graphic>

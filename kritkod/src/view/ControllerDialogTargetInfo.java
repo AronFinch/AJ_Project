@@ -42,12 +42,12 @@ public class ControllerDialogTargetInfo {
         // TODO
 		
 		//тестовый таргер.
-		targetInfo.setLabel("test");
+		//targetInfo.setLabel("test");
 		targetInfo.setDescription("bom");
 		targetInfo.setStartDate(LocalDate.now());
 		targetInfo.setEndDate(LocalDate.now());
 		
-		infoLabelTarget.setText(targetInfo.getLabel());
+		//infoLabelTarget.setText(targetInfo.getLabel());
 		infoDiscriptionTarget.setText(targetInfo.getDescription());
 		infoDataTargetStart.setValue(targetInfo.getStartDate());
 		infoDataTargetEnd.setValue(targetInfo.getEndDate());

@@ -66,7 +66,7 @@ public class ControllerDialogTarget implements Initializable {
     public void addNewTarget(ActionEvent actionEvent){
 		Target newTarget = new Target();
 		newTarget.setDescription(addDiscriptionTarget.getText());
-		newTarget.setLabel(addNameTarget.getText());
+		//newTarget.setLabel(addNameTarget.getText());
 		newTarget.setStartDate(addDataTargetStart.getValue());
 		newTarget.setEndDate(addDataTargetFail.getValue());
 		SetTarget(target);
@@ -105,7 +105,7 @@ public class ControllerDialogTarget implements Initializable {
 		// TODO Auto-generated method stub
 		Target target = new Target();
 		addDiscriptionTarget.setText(target.getDescription());
-		addNameTarget.setText(target.getLabel());
+		//addNameTarget.setText(target.getLabel());
 		addDataTargetStart.setValue(target.getStartDate());
 		addDataTargetFail.setValue(target.getEndDate());
 		

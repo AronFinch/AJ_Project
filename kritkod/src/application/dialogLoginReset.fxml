@@ -62,7 +62,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleCancel">
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#handleCancel">
                <graphic>
                   <Label text="Отмена" textFill="BLUE" underline="true" />
                </graphic>

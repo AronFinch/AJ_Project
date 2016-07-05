@@ -36,7 +36,7 @@ public class ControllerDialogTask {
 	
 	  public void addNewTask(ActionEvent actionEvent){
 		  Task newTask = new Task();
-		  newTask.setDescription(addDiscriptionTask.getText());
+		  //newTask.setDescription(addDiscriptionTask.getText());
 		  newTask.setLabel(addNameTask.getText());
 		  newTask.setStartDate(addDataTaskStart.getValue());
 		  newTask.setEndDate(addDataTaskEnd.getValue());
