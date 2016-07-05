@@ -203,7 +203,7 @@ public class DataBaseManager {
 				+ "approwed_target, "
 				+ "id_user) "
 				+ "VALUES "
-				+ "('" + target.getDescription() + "', "
+				+ "('" + target.getLabel() + "', "
 				+ "'" + target.getIMG() + "', "
 				+ "'" + target.getStartDate() + "', "
 				+ "'" + target.getEndDate() + "', "
@@ -274,6 +274,43 @@ public class DataBaseManager {
 			return true;
 		} else
 			return false;
+	}
+
+	public static void BDUpdateTarget(Target target) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "UPDATE 'targets' SET "
+				+ "text_target='" + target.getLabel() + "', "
+				+ "img_target='" + target.getIMG() + "', "
+				+ "date_begin_target='" + target.getStartDate() + "', "
+				+ "date_end_target='" + target.getEndDate() + "', "
+				+ "reward='" + target.getReward() + "', "
+				+ "approved_target=" + target.getApproved() + " ";
+		statmt.executeUpdate(query);
+	}
+
+	public static void BDUpdateTask(Task task) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "UPDATE 'tasks' SET "
+				+ "text_task='" + task.getDescription() + "', "
+				+ "date_begin_task='" + task.getStartDate() + "', "
+				+ "date_end_task='" + task.getEndDate() + "', "
+				+ "level_task=" + task.getLevel() + ", "
+				+ "done=" + task.isDone() + ", "
+				+ "approwed_task=" + task.getApproved() + " ";
+		statmt.executeUpdate(query);
+	}
+
+	public static void BDUpdateUser(User user) throws SQLException {
+		Statement statmt = conn.createStatement();
+		String query = "UPDATE 'users' SET "
+				+ "name_user='" + user.getName() + "', "
+				+ "date_of_birth='" + user.getBirthDate() + "', "
+				+ "gender='" + user.getGender() + "', "
+				+ "rating=" + user.getRating() + ", ";
+//				+ "secrite_question=" + task.isDone() + ", "
+//				+ "answer=" + task.getApproved() + " ";
+		statmt.executeUpdate(query);
+		
 	}
 }
 

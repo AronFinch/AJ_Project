@@ -57,7 +57,7 @@ public class ControllerTargetPane implements Initializable {
 		stage.setScene(new Scene(root));
 		stage.initModality(Modality.WINDOW_MODAL);
 		stage.initOwner(Main.primaryStage);
-		stage.setTitle("Задачи цели " + target.getDescription());
+		stage.setTitle("Задачи цели " + target.getLabel());
 		
 	 	ControllerDialogTask controller = loader.getController();
 	 	controller.SetDialogStage(stage);
@@ -82,8 +82,7 @@ public class ControllerTargetPane implements Initializable {
 	@Override
     public void initialize(URL location, ResourceBundle resources){
         // TODO
-		 	//LabelTargetName.setText(target.getLabel());
-			LabelTargetName.setText(target.getDescription());
+			LabelTargetName.setText(target.getLabel());
 			LabelTaskCount.setText("Число задач = " + Integer.toString(target.numberDoneTasks()) 
 			+ "/" + Integer.toString(target.numberAllTasks()));
 			

@@ -63,12 +63,17 @@ public class Target {
 		}
 		return res;
 	}
-	// сохранение цели в базеданных
+	public void saveChange() throws SQLException {
+		DataBaseManager.Connect();
+		DataBaseManager.BDUpdateTarget(this);
+		DataBaseManager.Disconnect();
+	}
+	// сохранение новой цели в базеданных
 	public boolean SaveTarget(int id_user) throws SQLException {
 		boolean res;
 		DataBaseManager.Connect();
 		res = DataBaseManager.BDAddTarget(id_user, this);
-		DataBaseManager.Connect();
+		DataBaseManager.Disconnect();
 		return res;
 	}
 	//это переделать
@@ -117,7 +122,7 @@ public class Target {
 		return id;	
 	}
 	//Получить описание цели
-	public String getDescription() {
+	public String getLabel() {
 		return label;	
 	}
 	public String getIMG() {
