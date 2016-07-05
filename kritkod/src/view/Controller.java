@@ -195,6 +195,9 @@ public class Controller implements Initializable {
 	 @FXML
 	public void exit() throws IOException
 	{
+		Main.mainUser.clear();
+		Main.otherUsers.clear();
+		//отчистили главного пользователя и списки других пользователей
 		Main.primaryStage.close();
 		Stage stage = new Stage();
 		Main.primaryStage = stage;
