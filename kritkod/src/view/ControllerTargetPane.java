@@ -8,10 +8,14 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Target;
 
 public class ControllerTargetPane implements Initializable {
@@ -37,9 +41,27 @@ public class ControllerTargetPane implements Initializable {
 	
 	/**
 	 * Метод вызывающий окно просмотра задач этой цели.
+	 * @throws IOException 
 	 */
 	@FXML
-	public void ShowTask (){
+	public void ShowTask () throws IOException{
+		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ControllerTargetPane.class.getResource("taskList.fxml"));
+	 	Parent root = loader.load();
+	 	
+	 	Stage stage = new Stage();
+	 	
+		stage.setScene(new Scene(root));
+		stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(Main.primaryStage);
+		stage.setTitle("Задачи цели " + target.getDescription());
+		
+	 	ControllerDialogTask controller = loader.getController();
+	 	controller.SetDialogStage(stage);
+        controller.SetTarget(target);
+        
+		stage.show();
 		
 	}
 	
@@ -59,7 +81,7 @@ public class ControllerTargetPane implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         // TODO
 		 	//LabelTargetName.setText(target.getLabel());
-		LabelTargetName.setText(target.getDescription());
+			LabelTargetName.setText(target.getDescription());
 			LabelTaskCount.setText("Число задач = " + Integer.toString(target.numberDoneTasks()) 
 			+ "/" + Integer.toString(target.numberAllTasks()));
 			
