@@ -6,6 +6,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.SplitMenuButton;
@@ -24,6 +27,8 @@ public class ControllerUserInfo implements Initializable {
 	private Button ButtonSave;
 	@FXML
 	private Button ButtonCancel;
+	@FXML
+	private AreaChart<String, Integer> StatisticsChart;
 	
 	Stage stage;
 	
@@ -79,6 +84,14 @@ public class ControllerUserInfo implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+		XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+		series.getData().add(new XYChart.Data<>("1", 15)); //Строка == номер отображаемой статистики (это цель, выполненные, не выполненные или что-то ещё). Число == её числовое значение
+		series.getData().add(new XYChart.Data<>("2", 23));
+		series.getData().add(new XYChart.Data<>("3", 34));
+		series.getData().add(new XYChart.Data<>("4", 45));
+		series.getData().add(new XYChart.Data<>("5", 19));
+		
+		StatisticsChart.getData().add(series);
 	}
 
 	public void SetDialogStage(Stage stage) {

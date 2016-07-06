@@ -47,7 +47,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Когда нибудь тут будет статистика" />
-            <AreaChart layoutX="25.0" layoutY="175.0" prefHeight="156.0" prefWidth="94.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0">
+            <AreaChart fx:id="StatisticsChart" layoutX="25.0" layoutY="175.0" prefHeight="156.0" prefWidth="94.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -55,12 +55,12 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </AreaChart>
-            <Label layoutX="14.0" layoutY="42.0" text="Целей всего:" />
-            <Label layoutX="14.0" layoutY="59.0" text="Целей выполнено" />
-            <Label layoutX="14.0" layoutY="76.0" text="Целей просрочено" />
-            <Label layoutX="15.0" layoutY="93.0" text="Баллы" />
-            <Label layoutX="15.0" layoutY="110.0" text="Дата регистрации" />
-            <Label layoutX="14.0" layoutY="127.0" text="Место в топе" />
+            <Label layoutX="14.0" layoutY="42.0" text="1. Целей всего:" />
+            <Label layoutX="14.0" layoutY="59.0" text="2. Целей выполнено" />
+            <Label layoutX="14.0" layoutY="76.0" text="3. Целей просрочено" />
+            <Label layoutX="15.0" layoutY="93.0" text="4. Баллы" />
+            <Label layoutX="13.0" layoutY="127.0" text="Дата регистрации" />
+            <Label layoutX="13.0" layoutY="110.0" text="5. Место в топе" />
          </children>
       </AnchorPane>
    </children>
