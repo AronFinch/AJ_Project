@@ -47,9 +47,10 @@ public class ControllerTargetPane implements Initializable {
 		try {
 			target.delete();
 		} catch (SQLException e1) {
-			Alert alert = new Alert(Alert.AlertType.INFORMATION);
-			alert.setTitle("Information");
-    	    alert.setHeaderText("Почему-то не удалось удалить цель!");
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+    	    alert.setHeaderText("SQLERROR");
+    	    alert.setContentText(e1.getMessage());
     	    alert.showAndWait();
 		}
 		
