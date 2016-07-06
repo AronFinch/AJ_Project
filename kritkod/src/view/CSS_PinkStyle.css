@@ -1,0 +1,141 @@
+.header{
+    -fx-text-fill: white;
+}
+.background{
+    -fx-background-color: #ffcccc;
+}
+
+.label{
+	-fx-text-fill: black;
+        -fx-font-family: "Segoe UI";
+}
+
+.button{
+    -fx-cursor: hand;
+    -fx-background-color: #ff33cc;
+    -fx-background-radius: 3;
+     -fx-effect:dropshadow(three-pass-box,#00000088,10,0,0,0);
+}
+
+.button:hover{
+     -fx-effect:dropshadow(three-pass-box,#FFFFFF,10,0,0,0);
+}
+
+.button:armed{
+    -fx-effect:innershadow(one-pass-box,#00000077,10,0,0,0);
+}
+
+
+.text-field{
+    -fx-background-color:#FFFFFF;
+    -fx-prompt-text-fill:#000;
+    -fx-text-fill:#000;
+    -fx-background-radius: 0;
+    -fx-effect:innershadow(three-pass-box,#00000077,10,0,0,0);
+}
+
+.head{
+    -fx-background-color:#ff33cc;
+    -fx-effect:dropshadow(three-pass-box,#00000077,10,0,0,0);
+}
+
+.tab-pane {
+    -fx-background-color: #FFF;
+}
+
+.tab-content-area{
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane .tab {
+    -fx-text-fill: #FFF;
+    -fx-background-color: #ff99ff;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.tab *.tab-label{
+    -fx-text-fill: #000;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #ff33cc;
+}
+.tab:hover{
+    -fx-cursor: hand;
+}
+
+.combo-box-base{
+    -fx-effect: dropshadow(three-pass-box,#00000077,10,0.5,0,0);
+    -fx-background-color: #ff99ff;
+    -fx-background-radius: 0;
+}
+.combo-box-base:hover{
+    -fx-effect: innershadow(two-pass-box,#00000077,10,0,0,0);
+}
+
+
+.lowPane{
+    -fx-background-color: #ff99ff;
+    -fx-effect: innershadow(two-pass-box,#00000077,10,0,0,0); 
+}
+
+.btnOK{
+    -fx-background-color: greenyellow;
+}
+.btnOK .label{
+    -fx-text-fill: #000;
+}
+
+.btnExtra{
+    -fx-background-color: #ff33cc;
+    -fx-text-fill: #000;
+}
+
+.progress-bar{
+    -fx-background-color: #ff6666;
+    -fx-effect:innershadow(three-pass-box,#000000,10,0,0,0);
+    -fx-background-radius: 0;
+}
+.progress-bar .bar{
+    -fx-background-radius: 0;
+    -fx-background-color: #ff0000;
+    -fx-background-insets: 0;
+}
+.progress-bar .track{
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 0;
+}
+.btnCancel{
+    -fx-background-color: lightcoral;
+}
+.btnCancel .label{
+    -fx-text-fill: #000;
+}
+.radio-button{
+    -fx-text-fill: #FFF;
+}
+
+.titled-pane{
+    -fx-animated: true;
+    -fx-text-fill: #FFFFFF;
+}
+
+.titled-pane > .title {
+    -fx-body-color: #ff33cc;
+    -fx-focus-color:#333;
+    -fx-color: -fx-focus-color;
+    -fx-background-color: -fx-box-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 1, 0.2, 1;
+}
+
+.titled-pane > .title .arrow-button .arrow {
+    -fx-background-color: greenyellow;
+}
+
+.titled-pane:focused > .title 
+{
+    -fx-focus-color: #999;
+    -fx-color: -fx-focus-color;
+}
