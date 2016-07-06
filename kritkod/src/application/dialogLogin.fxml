@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="background" stylesheets="@../view/CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogLogin">
    <children>
       <VBox alignment="TOP_CENTER" layoutY="118.0" prefHeight="300.0" prefWidth="250.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -35,7 +35,7 @@
                   <Insets left="30.0" right="30.0" />
                </padding>
             </VBox>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#ClickedLogin">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#ClickedLogin" styleClass="btnOK">
                <graphic>
                   <Label text="Войти">
                      <graphic>
@@ -48,7 +48,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#ClickedRegistry">
+            <Button mnemonicParsing="false" onAction="#ClickedRegistry" styleClass="btnExtra">
                <graphic>
                   <Label text="Новый пользователь">
                      <graphic>
@@ -61,7 +61,7 @@
                   </Label>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#ClickedReset">
+            <Button mnemonicParsing="false" onAction="#ClickedReset" styleClass="btnExtra">
                <graphic>
                   <Label text="Восстановить пароль">
                      <graphic>
@@ -79,7 +79,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <AnchorPane layoutY="-17.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.0">
+      <AnchorPane layoutY="-17.0" prefHeight="100.0" prefWidth="200.0" styleClass="head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.0">
          <effect>
             <DropShadow />
          </effect>
