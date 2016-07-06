@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.FlowPane;
@@ -40,6 +42,16 @@ public class ControllerTargetPane implements Initializable {
 	 */
 	@FXML
 	public void DeleteTarget () throws IOException{
+		
+		
+		try {
+			target.delete();
+		} catch (SQLException e1) {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Information");
+    	    alert.setHeaderText("Почему-то не удалось удалить цель!");
+    	    alert.showAndWait();
+		}
 		
 		Main.mainUser.TargetList.remove(target);
 		
