@@ -25,6 +25,6 @@
       <Button layoutX="190.0" layoutY="321.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Принять" AnchorPane.bottomAnchor="14.0" />
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Дато окончания*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="112.0" />
       <Label alignment="CENTER_RIGHT" layoutY="158.0" prefHeight="20.0" prefWidth="120.0" text="Изображение" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="158.0" />
-      <Label alignment="CENTER_RIGHT" layoutY="285.0" prefHeight="20.0" prefWidth="120.0" text="Награда" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="285.0" />
+      <Label alignment="CENTER_RIGHT" layoutY="285.0" prefHeight="20.0" prefWidth="120.0" text="Бонус" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="285.0" />
    </children>
 </AnchorPane>
