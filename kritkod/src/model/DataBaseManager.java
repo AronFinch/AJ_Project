@@ -195,12 +195,12 @@ public class DataBaseManager {
 	public static boolean BDAddTarget(int id_user, Target target) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "INSERT INTO 'targets' "
-				+ "(description_target, "
+				+ "(text_target, "
 				+ "img_target, "
 				+ "date_begin_target, "
 				+ "date_end_target, "
 				+ "reward,"
-				+ "approwed_target, "
+				+ "approved_target, "
 				+ "id_user) "
 				+ "VALUES "
 				+ "('" + target.getLabel() + "', "
@@ -208,7 +208,7 @@ public class DataBaseManager {
 				+ "'" + target.getStartDate() + "', "
 				+ "'" + target.getEndDate() + "', "
 				+ "'" + target.getReward() + "', "
-				+ "" + target.getApproved() + ", "
+				+ "'" + target.getApproved() + "', "
 				+ "" + id_user + ")";
 		statmt.execute(query);
 		
@@ -225,7 +225,7 @@ public class DataBaseManager {
 	public static boolean BDAddTask(int id_target, Task task) throws SQLException {
 		Statement statmt = conn.createStatement();
 		String query = "INSERT INTO 'tasks' "
-				+ "(name_task, "
+				+ "(text_task, "
 				+ "date_begin_task, "
 				+ "date_end_task, "
 				+ "level_task, "
@@ -237,14 +237,15 @@ public class DataBaseManager {
 				+ "'" + task.getStartDate() + "', "
 				+ "'" + task.getEndDate() + "', "
 				+ "" + task.getLevel() + ", "
-				+ "" + task.getApproved() + ", "
+				+ "'" + task.isDone() + "', "
+				+ "'" + task.getApproved() + "', "
 				+ "" + id_target + ")";
 		statmt.execute(query);
-		query = "SELECT id_task FROM task "
+		query = "SELECT id_task FROM tasks "
 				+ "ORDER BY id_task DESC";
 		resSet = statmt.executeQuery(query);
 		if(resSet.next()) {
-			task.setId(resSet.getInt("id_target")); // тут мы получаем id 
+			task.setId(resSet.getInt("id_task")); // тут мы получаем id 
 			return true;
 		} else 
 			return false;

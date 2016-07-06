@@ -77,7 +77,7 @@ public class Target {
 		return res;
 	}
 	//это переделать
-	public boolean creatTask(Task task) throws SQLException {
+	public boolean createTask(Task task) throws SQLException {
 		if(task.SaveTask(id)) {
 			TaskList.add(task);
 			return true;
@@ -91,9 +91,6 @@ public class Target {
 		id = idNumber;	
 	}
 	//Создать задачу для данной цели
-	public void createTask(Task task) {
-		TaskList.add(task);
-	}
 	//Назначить описание цели
 	public void setLabel(String Label) {
 		label = Label;

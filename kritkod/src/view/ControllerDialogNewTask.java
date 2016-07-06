@@ -1,12 +1,14 @@
 package view;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -53,7 +55,23 @@ public class ControllerDialogNewTask implements Initializable {
 		task.setStartDate(DataStart.getValue());
 		task.setEndDate(DataFail.getValue());
 		task.setLevel(Integer.parseUnsignedInt(Level.getText()));
-		target.TaskList.add(task);
+		try {
+			if(target.createTask(task)) {
+				// задача успешно создана
+			} else {
+				Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Information");
+	    	    alert.setHeaderText("Почему-то не удалось создать задачу!");
+	    	    alert.showAndWait();
+			}
+		} catch (SQLException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+    	    alert.setHeaderText("SQLERROR!");
+    	    alert.setContentText(e.getMessage());
+    	    alert.showAndWait();
+		}
+//		target.TaskList.add(task);
 		dialogStage.close();
 	}
 	

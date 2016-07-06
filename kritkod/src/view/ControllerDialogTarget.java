@@ -3,6 +3,7 @@ package view;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +13,7 @@ import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -60,8 +62,23 @@ public class ControllerDialogTarget implements Initializable {
 		newTarget.setLabel(Name.getText());
 		newTarget.setStartDate(DataStart.getValue());
 		newTarget.setEndDate(DataFail.getValue());
+		try {
+			if(Main.mainUser.creatTarget(newTarget)) {
+				// цель успешно создалась
+			} else {
+				Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Information");
+	    	    alert.setHeaderText("Почему-то не удалось создать цель!");
+	    	    alert.showAndWait();
+			}
+		} catch (SQLException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+    	    alert.setHeaderText("SQLERROR!");
+    	    alert.setContentText(e.getMessage());
+    	    alert.showAndWait();
+		}
 		SetTarget(target);
-		Main.mainUser.TargetList.add(newTarget);
 		dialogStage.close();
 	}
 
