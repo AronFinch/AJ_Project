@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="600.0" maxWidth="350.0" minHeight="360.0" minWidth="350.0" prefHeight="366.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTarget">
+<AnchorPane maxHeight="600.0" maxWidth="350.0" minHeight="360.0" minWidth="350.0" prefHeight="366.0" prefWidth="350.0" styleClass="background" stylesheets="@CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTarget">
    <children>
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Назовите цель*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="29.0" />
       <TextField fx:id="Name" layoutX="131.0" layoutY="27.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="50.0" />
@@ -21,8 +21,8 @@
       <TextField fx:id="Reward" layoutX="131.0" layoutY="283.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="283.0" />
       <Button layoutX="275.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="195.0" />
       <Button layoutX="275.0" layoutY="156.0" mnemonicParsing="false" onAction="#addTargetImage" prefHeight="25.0" prefWidth="25.0" text="+" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="156.0" />
-      <Button layoutX="63.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="114.0" text="Отмена" AnchorPane.bottomAnchor="14.0" />
-      <Button layoutX="190.0" layoutY="321.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" text="Принять" AnchorPane.bottomAnchor="14.0" />
+      <Button layoutX="63.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="114.0" styleClass="btnCancel" text="Отмена" AnchorPane.bottomAnchor="14.0" />
+      <Button layoutX="190.0" layoutY="321.0" mnemonicParsing="false" onAction="#addNewTarget" prefHeight="25.0" prefWidth="110.0" styleClass="btnOK" text="Принять" AnchorPane.bottomAnchor="14.0" />
       <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Дато окончания*" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="112.0" />
       <Label alignment="CENTER_RIGHT" layoutY="158.0" prefHeight="20.0" prefWidth="120.0" text="Изображение" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="158.0" />
       <Label alignment="CENTER_RIGHT" layoutY="285.0" prefHeight="20.0" prefWidth="120.0" text="Бонус" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="285.0" />

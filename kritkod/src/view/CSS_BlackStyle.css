@@ -1,0 +1,136 @@
+.header{
+    -fx-text-fill: white;
+}
+.background{
+    -fx-background-color: #1d1d1d;
+}
+
+.label{
+	-fx-text-fill: white;
+}
+
+.button{
+    -fx-cursor: hand;
+    -fx-background-color: #666;
+    -fx-background-radius: 10;
+}
+
+.button:hover{
+    -fx-effect:dropshadow(three-pass-box,#FFF,10,0,0,0);
+}
+
+.button:armed{
+    -fx-effect:innershadow(one-pass-box,#000,20,0.1,2,2);
+    -fx-effect:dropshadow(three-pass-box,#FFF,0,0,0,0);
+}
+
+
+.text-field{
+    -fx-background-color:#333;
+    -fx-prompt-text-fill:#000;
+    -fx-text-fill:#FFF;
+    -fx-background-radius: 10;
+    -fx-effect: innershadow( one-pass-box , #000 , 20 , 0.1 , 2 , 2 );
+}
+
+.head{
+    -fx-background-color:#666;
+    -fx-effect:dropshadow(three-pass-box,#000,10,0,0,0);
+}
+
+.tab-pane {
+    -fx-background-color: #999;
+}
+
+.tab-content-area{
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane .tab {
+    -fx-text-fill: #FFF;
+    -fx-background-color: #333;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.tab *.tab-label{
+    -fx-text-fill: #FFF;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #666;
+}
+.tab:hover{
+    -fx-cursor: hand;
+}
+
+.combo-box-base{
+    -fx-background-color: #DDD;
+    -fx-background-radius: 10;
+}
+.combo-box-base:hover{
+    -fx-effect: dropshadow(three-pass-box,#FFF,10,0,0,0);
+}
+
+
+.lowPane{
+    -fx-background-color: #999;
+    -fx-effect: innershadow(three-pass-box,#000,20,0.1,0,0); 
+}
+
+.btnOK{
+    -fx-background-color: greenyellow;
+}
+.btnOK .label{
+    -fx-text-fill: #000;
+}
+
+.btnExtra{
+    -fx-background-color: #55c4fe;
+    -fx-text-fill: #000;
+}
+
+.progress-bar{    
+    -fx-effect: innershadow(three-pass-box,#000,15,0.1,0,0);
+}
+.progress-bar .bar{
+    -fx-background-radius: 0;
+    -fx-background-color: #55c4fe;
+    -fx-background-insets: 0;
+}
+.progress-bar .track{
+    -fx-background-color: #FFF;
+}
+.btnCancel{
+    -fx-background-color: lightcoral;
+}
+.btnCancel .label{
+    -fx-text-fill: #000;
+}
+.radio-button{
+    -fx-text-fill: #FFF;
+}
+
+.titled-pane{
+    -fx-animated: true;
+    -fx-text-fill: #FFFFFF;
+}
+
+.titled-pane > .title {
+    -fx-body-color: #666;
+    -fx-focus-color:#333;
+    -fx-color: -fx-focus-color;
+    -fx-background-color: -fx-box-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 1, 0.2, 1;
+}
+
+.titled-pane > .title .arrow-button .arrow {
+    -fx-background-color: greenyellow;
+}
+
+.titled-pane:focused > .title 
+{
+    -fx-focus-color: #999;
+    -fx-color: -fx-focus-color;
+}

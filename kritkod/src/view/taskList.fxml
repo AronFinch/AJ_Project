@@ -4,16 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTask">
+<Pane styleClass="background" stylesheets="@CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTask">
    <children>
       <ScrollPane layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="352.0" prefWidth="477.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="475.0">
                <children>
-                  <FlowPane fx:id="PaneMiniTask" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <FlowPane fx:id="PaneMiniTask" prefHeight="200.0" prefWidth="200.0" styleClass="lowPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
         </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#NewTask" text="Создать задачу" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#NewTask" styleClass="btnOK" text="Создать задачу" />
    </children>
 </Pane>

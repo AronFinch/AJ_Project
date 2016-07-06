@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.TilePane?>
 
-<SplitPane dividerPositions="0.21739130434782608" orientation="VERTICAL" prefHeight="163.0" prefWidth="190.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerTargetPane">
+<SplitPane dividerPositions="0.21739130434782608" orientation="VERTICAL" prefHeight="163.0" prefWidth="190.0" styleClass="background" stylesheets="@CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerTargetPane">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#ShowTargetInfo" prefHeight="39.0" prefWidth="169.0">
          <children>
             <Label fx:id="LabelTargetName" alignment="CENTER" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="146.0" text="Цель" textAlignment="CENTER" textFill="#2f00ff" />
-            <Button layoutX="162.0" layoutY="2.0" mnemonicParsing="false" onAction="#DeleteTarget" prefHeight="17.0" prefWidth="20.0" text="Х" />
+            <Button layoutX="162.0" layoutY="2.0" mnemonicParsing="false" onAction="#DeleteTarget" prefHeight="17.0" prefWidth="20.0" styleClass="btnCancel" text="Х" />
          </children>
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -18,7 +18,7 @@
             <Label fx:id="LabelTaskCount" layoutX="13.0" layoutY="37.0" prefHeight="17.0" prefWidth="146.0" text="Выполнено задач: " />
             <Label fx:id="LabelDayCount" layoutX="12.0" layoutY="14.0" prefHeight="17.0" prefWidth="149.0" text="Осталось дней: " />
             <ProgressBar fx:id="TargetProgressBar" layoutX="14.0" layoutY="60.0" prefHeight="17.0" prefWidth="144.0" progress="0.0" />
-            <Button layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#ShowTask" prefHeight="25.0" prefWidth="144.0" text="Посмотреть задачи" />
+            <Button layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#ShowTask" prefHeight="25.0" prefWidth="144.0" styleClass="btnExtra" text="Посмотреть задачи" />
          </children>
       </AnchorPane>
    </items>

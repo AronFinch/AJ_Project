@@ -7,9 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTargetInfo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerDialogTargetInfo">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: lightgreen;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="5.0" styleClass="head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Окно просмотра цели">
                <font>
@@ -149,7 +149,7 @@
                </padding>
             </ScrollPane>
             <Label layoutX="10.0" layoutY="45.0" prefHeight="25.0" text="Задачи:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-            <Button layoutX="90.0" layoutY="40.0" mnemonicParsing="false" text="Создать задачу" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="40.0" />
+            <Button layoutX="90.0" layoutY="40.0" mnemonicParsing="false" styleClass="btnOK" text="Создать задачу" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="40.0" />
          </children>
       </AnchorPane>
    </children>
