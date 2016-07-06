@@ -41,7 +41,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/key.png" />
+                              <Image url="@../icons/iconbeast%20lite%20300%20-%20png/key.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -54,7 +54,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/key.png" />
+                              <Image url="@../icons/iconbeast%20lite%20300%20-%20png/plus-sign.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -67,7 +67,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/key.png" />
+                              <Image url="@../icons/iconbeast%20lite%20300%20-%20png/gear.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -86,7 +86,7 @@
       </AnchorPane>
       <ImageView fitHeight="90.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
          <image>
-            <Image url="@../../../../../Pictures/TrackerPro_VECTOR_B-Card_Logo.png" />
+            <Image url="@../icons/TrackerPro_VECTOR_B-Card_Logo.png" />
          </image>
       </ImageView>
    </children>

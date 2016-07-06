@@ -27,7 +27,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/arrow-big-02.png" />
+                                    <Image url="@../icons/iconbeast%20lite%20300%20-%20png/arrow-big-02.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -55,7 +55,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/spanner.png" />
+                              <Image url="@../icons/iconbeast%20lite%20300%20-%20png/swap.png" />
                            </image>
                         </ImageView>
                      </graphic>
