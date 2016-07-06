@@ -216,7 +216,7 @@
                   </Label>
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="166.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="5.0">
                      <image>
-                        <Image url="@../../../../../Downloads/iconbeast-lite-300/iconbeast-lite-300/iconbeast%20lite%20300%20-%20png/rank.png" />
+                        <Image url="@../icons/iconbeast%20lite%20300%20-%20png/rank.png" />
                      </image>
                   </ImageView>
                   <FlowPane fx:id="ListTopUser" alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
