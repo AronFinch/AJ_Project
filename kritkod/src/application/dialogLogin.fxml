@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="background" stylesheets="@../view/CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="250.0" styleClass="background" stylesheets="@../view/CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogLogin">
    <children>
       <VBox alignment="TOP_CENTER" layoutY="118.0" prefHeight="300.0" prefWidth="250.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -20,7 +20,12 @@
             <VBox prefWidth="230.0" spacing="5.0">
                <children>
                   <Label text="Логин" />
-                  <TextField fx:id="Login" />
+                  <Label fx:id="LoginHelp" alignment="TOP_CENTER" opacity="0.0" text="Подсказка">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Login" onKeyReleased="#LoginKeyPress" promptText="login" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" />
@@ -29,13 +34,18 @@
             <VBox prefWidth="230.0" spacing="5.0">
                <children>
                   <Label text="Пароль" />
-                  <PasswordField fx:id="Password" />
+                  <Label fx:id="PasswordHelp" disable="true" opacity="0.0" text="Подсказка">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="Password" onKeyReleased="#PasswordKeyPress" promptText="password" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" />
                </padding>
             </VBox>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#ClickedLogin" styleClass="btnOK">
+            <Button defaultButton="false" mnemonicParsing="false" onAction="#ClickedLogin" styleClass="btnOK">
                <graphic>
                   <Label text="Войти">
                      <graphic>
