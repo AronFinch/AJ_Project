@@ -83,7 +83,6 @@ public class ControllerDialogLogin {
 	private void PasswordKeyPress(KeyEvent kf) throws IOException {
 		String key = kf.getCode().getName();
 		String pass = Password.getText();
-		System.out.println(pass);
 		if(key.equals("Enter") && passwordOk) {
 			if(pass.length() > 0) {
 				ClickedLogin();

@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -26,6 +27,9 @@ public class ControllerDialogLoginReset implements Initializable {
     private Button buttonNewPassword;
     
     @FXML
+    private Button buttonGetQuestion;
+    
+    @FXML
     private Label labelDisable;
             
     @FXML
@@ -34,22 +38,86 @@ public class ControllerDialogLoginReset implements Initializable {
     private Stage dialogStage;
     
     @FXML
+    private Label LoginHelp;
+    
+    private boolean LoginOk;
+    
+    @FXML
+    private void LoginKeyPress(KeyEvent kf) {
+    	String key = kf.getCode().getName();
+		String log = Login.getText();
+		if(LoginOk && key.equals("Enter")) {
+			if(log.length() > 0) {
+				btnChek();
+			} else {
+				LoginOk = false;
+	        	LoginHelp.setText("Логин не должен быть пустым!");
+	        	LoginHelp.setOpacity(1);
+	        	LoginHelp.setDisable(false);
+			}
+		} else {
+			if(log.length() <= 20) {
+				LoginOk = true;
+				LoginHelp.setOpacity(0);
+				LoginHelp.setDisable(true);
+				for(int i = 0; i < log.length(); i++) {
+					if(log.charAt(i) == ' ') {
+						LoginOk = false;
+						LoginHelp.setText("Логин не должен содержать пробелы!");
+						LoginHelp.setOpacity(1);
+						LoginHelp.setDisable(false);
+						break;
+					}
+				}
+			} else {
+				LoginOk = false;
+	        	LoginHelp.setText("Логин не должен превышать 20 символов!");
+	        	LoginHelp.setOpacity(1);
+	        	LoginHelp.setDisable(false);
+			}
+		}
+    }
+    
+    @FXML
+    private void AnswerKeyPress(KeyEvent kf) throws IOException {
+    	String key = kf.getCode().getName();
+		String ans = answer.getText();
+		if(key.equals("Enter")) {
+			СheckNewPassword();
+		}
+    }
+    
+    @FXML
     public void btnChek(){
         String login = Login.getText();
     	// загрузка из логина
-    	if(!login.equals("")) {
-    		try {
-				if(Main.mainUser.userIsExist(Login.getText())) {
+        if(!login.equals("")) {
+        	LoginOk = true;
+        } else {
+        	LoginOk = false;
+        	LoginHelp.setText("Логин не должен быть пустым!");
+        	LoginHelp.setOpacity(1);
+        	LoginHelp.setDisable(false);
+        }
+        if(LoginOk) {
+        	try {
+				if(Main.mainUser.userIsExist(login)) {
 					buttonNewPassword.setDisable(false);
-		            labelDisable.setDisable(false);
+					
 		            answer.setDisable(false);
-		            // загрузить вопрос
-		            labelDisable.setText(Main.mainUser.getQuestion(Login.getText()));
+		            
+		            labelDisable.setText(Main.mainUser.getQuestion(login));
+		            labelDisable.setDisable(false);
+		            labelDisable.setOpacity(1);
+		            
+		            buttonGetQuestion.setDisable(true);
+		            Login.setDisable(true);
+		            answer.requestFocus();
 				} else {
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		    		alert.setTitle("Information");
-		    	    alert.setHeaderText("Пользователя с таким логином не существует!");
-		    	    alert.showAndWait();
+					LoginOk = false;
+					LoginHelp.setText("Такого пользователя не существует!");
+					LoginHelp.setOpacity(1);
+					LoginHelp.setDisable(false);
 				}
 			} catch (SQLException e) {
 				Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -58,13 +126,7 @@ public class ControllerDialogLoginReset implements Initializable {
 	    	    alert.setContentText(e.getMessage());
 	    	    alert.showAndWait();
 			}
-    		
-    	} else {
-    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    		alert.setTitle("Information");
-    	    alert.setHeaderText("Поле Login не должно быть пустым!");
-    	    alert.showAndWait();
-    	}
+        }
     }
     
     @FXML
@@ -86,10 +148,17 @@ public class ControllerDialogLoginReset implements Initializable {
 		    	    alert.showAndWait();
 				}
 			} else {
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-	    		alert.setTitle("Information");
-	    	    alert.setHeaderText("Неверный ответ!");
-	    	    alert.showAndWait();
+				labelDisable.setText("Неверный ответ!");
+				
+				buttonNewPassword.setDisable(true);
+	            answer.setDisable(true);
+	            
+	            
+	            buttonGetQuestion.setDisable(false);
+	            Login.setDisable(false);
+	            answer.clear();
+	            
+	            Login.requestFocus();
 			}
 		} catch (SQLException e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
