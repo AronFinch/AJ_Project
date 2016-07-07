@@ -68,12 +68,12 @@ public class Controller implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 		 	Parent root = loader.load();
-		 	root.setStyle(Main.style);
+		 	root.getStylesheets().clear();
+		 	root.getStylesheets().add(Main.style);
 		 	
 		 	Stage stage = new Stage();
 		 	Scene scene = new Scene(root);
-		 	scene.getStylesheets().clear();
-		 	scene.getStylesheets().add(this.getClass().getResource("CSS_PinkStyle.css").toExternalForm());
+		 	//scene.getStylesheets().get(2);
 		 	
 			stage.setScene(scene);
 			stage.initModality(Modality.WINDOW_MODAL);
@@ -107,6 +107,7 @@ public class Controller implements Initializable {
 	
 	@FXML
     public void ShowDialogUserReset() throws IOException{
+		
 		ControllerUserInfo.newUser = Main.mainUser;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogUserInfo.fxml"));
@@ -235,13 +236,12 @@ public class Controller implements Initializable {
 	 public void chooseStyle()
 	 {
 		 if(NameStyle.getValue().equals("Черный")) {
-			 Main.style ="@CSS_BlackStyle.css";
-			 //Main.style = Controller.class.getResource(CSS_BlackStyle.css);
+			 Main.style = this.getClass().getResource("CSS_BlackStyle.css").toString();
 			 
 		 } else if(NameStyle.getValue().equals("Розовый")) {
-			 Main.style = "@CSS_PinkStyle.css";
+			 Main.style = this.getClass().getResource("CSS_PinkStyle.css").toString();
 		 } else {
-			 Main.style = "@CSS_PurpurekStyle.css";
+			 Main.style = this.getClass().getResource("CSS_PurpurekStyle.css").toString();
 		 }
 		 
 	 }
