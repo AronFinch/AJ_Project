@@ -12,7 +12,7 @@
    <children>
       <HBox prefHeight="50.0" prefWidth="600.0" spacing="5.0" styleClass="head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefHeight="40.0" text="Это имя пользователя">
+            <Label fx:id="name" prefHeight="40.0" text="Это имя пользователя">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -28,7 +28,7 @@
       </HBox>
       <AnchorPane prefHeight="200.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="50.0">
          <children>
-            <TextField fx:id="user" disable="true" layoutX="134.0" layoutY="28.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+            <TextField fx:id="userName" disable="true" layoutX="134.0" layoutY="28.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
             <DatePicker fx:id="birthDate" disable="true" layoutX="134.0" layoutY="110.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="90.0" />
             <Label layoutX="57.0" layoutY="32.0" prefHeight="25.0" text="Имя" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
             <Label layoutX="57.0" layoutY="74.0" prefHeight="25.0" text="Пол" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="55.0" />

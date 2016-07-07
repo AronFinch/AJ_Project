@@ -3,6 +3,7 @@ package view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,16 +12,20 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.User;
 
 public class ControllerUserInfo implements Initializable {
 	
 	@FXML
+    private Label name;
+	@FXML
     private DatePicker birthDate;
 	@FXML
-    private TextField user;
+    private TextField userName;
 	@FXML
     private SplitMenuButton gender;
 	@FXML
@@ -32,13 +37,18 @@ public class ControllerUserInfo implements Initializable {
 	
 	Stage stage;
 	
+	static User newUser = Main.mainUser;
+	User user;
+	
 	
 	@FXML
     public void ResetPerson(ActionEvent actionEvent) {
+		if(user.getId() == 0){
 		ButtonCancel.setVisible(true);
 		ButtonSave.setVisible(true);
 		birthDate.setDisable(false);
-		user.setDisable(false);
+		userName.setDisable(false);
+		}
 		
 	}
 
@@ -49,7 +59,7 @@ public class ControllerUserInfo implements Initializable {
 		ButtonCancel.setVisible(false);
 		ButtonSave.setVisible(false);
 		birthDate.setDisable(true);
-		user.setDisable(true);
+		userName.setDisable(true);
 		
 	}
 	
@@ -70,7 +80,7 @@ public class ControllerUserInfo implements Initializable {
 		ButtonCancel.setVisible(false);
 		ButtonSave.setVisible(false);
 		birthDate.setDisable(true);
-		user.setDisable(true);
+		userName.setDisable(true);
 		
 	}
 	
@@ -83,6 +93,12 @@ public class ControllerUserInfo implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		userName.setText(newUser.getName());
+		birthDate.setValue(newUser.getBirthDate());
+		//gender.setText(value);
+		name.setText(newUser.getName());
+		
+		user = newUser;
 		
 		XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
 		series.getData().add(new XYChart.Data<>("1", 15)); //Строка == номер отображаемой статистики (это цель, выполненные, не выполненные или что-то ещё). Число == её числовое значение

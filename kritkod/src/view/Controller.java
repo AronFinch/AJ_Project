@@ -93,11 +93,9 @@ public class Controller implements Initializable {
 		initializeAchivePane();// Пусто // Инициализация Достижений
 	}
 	
-
-
-
 	@FXML
     public void ShowDialogUserReset() throws IOException{
+		ControllerUserInfo.newUser = Main.mainUser;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogUserInfo.fxml"));
 	 	Parent root = loader.load();
@@ -166,7 +164,7 @@ public class Controller implements Initializable {
 		 
 		 Iterator<User> itr = Main.otherUsers.iterator();
 			while (itr.hasNext()) {
-				ControllerMiniUser.user = itr.next();
+				ControllerMiniUser.newUser = itr.next();
 					try {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniUser.fxml"));
