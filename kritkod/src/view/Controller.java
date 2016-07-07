@@ -68,11 +68,12 @@ public class Controller implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 		 	Parent root = loader.load();
+		 	root.setStyle(Main.style);
 		 	
 		 	Stage stage = new Stage();
 		 	Scene scene = new Scene(root);
 		 	scene.getStylesheets().clear();
-		 	scene.getStylesheets().add(Controller.class.getResource("CSS_PinkStyle.css").toString());
+		 	scene.getStylesheets().add(this.getClass().getResource("CSS_PinkStyle.css").toExternalForm());
 		 	
 			stage.setScene(scene);
 			stage.initModality(Modality.WINDOW_MODAL);
@@ -234,15 +235,14 @@ public class Controller implements Initializable {
 	 public void chooseStyle()
 	 {
 		 if(NameStyle.getValue().equals("Черный")) {
-			 Main.style = "view/CSS_BlackStyle.css";
+			 Main.style ="@CSS_BlackStyle.css";
+			 //Main.style = Controller.class.getResource(CSS_BlackStyle.css);
 			 
 		 } else if(NameStyle.getValue().equals("Розовый")) {
-			 //Main.style = "view/CSS_PinkStyle.css";
-			 Main.style = Controller.class.getResource("CSS_PinkStyle.css").toString();
+			 Main.style = "@CSS_PinkStyle.css";
 		 } else {
-			 Main.style = "view/CSS_PurpurekStyle.css";
+			 Main.style = "@CSS_PurpurekStyle.css";
 		 }
-		 System.out.println(Main.style);
 		 
 	 }
 	
