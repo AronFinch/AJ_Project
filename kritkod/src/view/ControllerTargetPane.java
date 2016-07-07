@@ -45,6 +45,7 @@ public class ControllerTargetPane implements Initializable {
 		
 		
 		try {
+			Main.mainUser.TargetList.remove(target);
 			target.delete();
 		} catch (SQLException e1) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -53,8 +54,6 @@ public class ControllerTargetPane implements Initializable {
     	    alert.setContentText(e1.getMessage());
     	    alert.showAndWait();
 		}
-		
-		Main.mainUser.TargetList.remove(target);
 		
 		pane.getChildren().clear();
 		
@@ -118,7 +117,7 @@ public class ControllerTargetPane implements Initializable {
 	 	controller.SetDialogStage(stage);
         controller.SetTarget(target);
         
-		stage.showAndWait();
+		stage.show();
 		
 		
 		

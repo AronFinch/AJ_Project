@@ -56,12 +56,14 @@ public class ControllerDialogTarget implements Initializable {
     }
 	
 	@FXML
-    public void addNewTarget(ActionEvent actionEvent){
+    public void addNewTarget(ActionEvent actionEvent) throws SQLException{
 		Main.mainUser.TargetList.remove(target);
+		target.delete();
 		Target newTarget = new Target();
 		newTarget.setLabel(Name.getText());
 		newTarget.setStartDate(DataStart.getValue());
 		newTarget.setEndDate(DataFail.getValue());
+		newTarget.setIMG(targetImage.getImage().impl_getUrl());
 		try {
 			if(Main.mainUser.creatTarget(newTarget)) {
 				// цель успешно создалась
@@ -113,6 +115,7 @@ public class ControllerDialogTarget implements Initializable {
 		DataStart.setValue(target.getStartDate());
 		DataFail.setValue(target.getEndDate());
 		Reward.setText(target.getReward());
+		//targetImage.setImage(target.getIMG());;
 		
 	}
 

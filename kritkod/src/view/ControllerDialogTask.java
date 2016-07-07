@@ -80,7 +80,13 @@ import model.Task;
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
 					 	Parent root = loader.load();
+					 	
+					 	ControllerMiniTask controller = loader.getController();
+					 	controller.dialogStage = dialogStage;
+				        controller.target = target;
+					 	
 					 	PaneMiniTask.getChildren().add(root);
+					 	
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

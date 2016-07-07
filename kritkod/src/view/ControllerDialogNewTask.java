@@ -48,8 +48,9 @@ public class ControllerDialogNewTask implements Initializable {
 	
 	
 	@FXML
-    public void ActionOk(ActionEvent actionEvent){
+    public void ActionOk(ActionEvent actionEvent) throws SQLException{
 		target.TaskList.remove(task);
+		task.delete();
 		Task task = new Task();
 		task.setDescription(Discription.getText());
 		task.setStartDate(DataStart.getValue());

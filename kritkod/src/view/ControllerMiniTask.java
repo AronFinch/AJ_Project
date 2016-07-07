@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -27,8 +28,8 @@ public class ControllerMiniTask implements Initializable {
 	private Button ButtonOk;
 
 	public static Stage dialogStage;
-	public static Target target = null;
-	public static Task task = null;
+	public static Target target = new Target();
+	public static Task task = new Task();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -43,7 +44,7 @@ public class ControllerMiniTask implements Initializable {
 	@FXML
     public void ActionClick(ActionEvent actionEvent) throws IOException {
 
-		dialogStage.close();
+		//dialogStage.close();
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("task.fxml"));
@@ -59,6 +60,7 @@ public class ControllerMiniTask implements Initializable {
 	 	ControllerDialogNewTask controller = loader.getController();
 	 	controller.SetDialogStage(stage);
         controller.SetTarget(target);
+        controller.task = task;
         
 		stage.showAndWait();
 		InicDialog();
@@ -73,9 +75,10 @@ public class ControllerMiniTask implements Initializable {
 	}
 	
 	@FXML
-    private void ActionDelete() throws IOException {
+    private void ActionDelete() throws IOException, SQLException {
 		
 		target.TaskList.remove(task);
+		task.delete();
 		InicDialog();
 
     }
