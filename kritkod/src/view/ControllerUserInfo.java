@@ -109,11 +109,11 @@ public class ControllerUserInfo implements Initializable {
 		user = newUser;
 		
 		XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
-		series.getData().add(new XYChart.Data<>("1", 15)); //Строка == номер отображаемой статистики (это цель, выполненные, не выполненные или что-то ещё). Число == её числовое значение
-		series.getData().add(new XYChart.Data<>("2", 23));
-		series.getData().add(new XYChart.Data<>("3", 34));
-		series.getData().add(new XYChart.Data<>("4", 45));
-		series.getData().add(new XYChart.Data<>("5", 19));
+		series.getData().add(new XYChart.Data<>("1", user.TargetList.size())); //Целей всего
+		series.getData().add(new XYChart.Data<>("2", user.getStatistics().getNumberDoneTarget())); //Целей выполнено
+		series.getData().add(new XYChart.Data<>("3", user.getStatistics().getNumberFaildTarget())); //Целей просрочено
+		series.getData().add(new XYChart.Data<>("4", user.getStatistics().getAllBalls())); //Баллы
+		series.getData().add(new XYChart.Data<>("5", user.getRating())); //Место в топе
 		
 		StatisticsChart.getData().add(series);
 	}
