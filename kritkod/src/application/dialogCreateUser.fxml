@@ -1,33 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="295.0" styleClass="background" stylesheets="@../view/CSS_BlackStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerDialogCreateUser">
    <children>
-      <Label layoutX="113.0" layoutY="14.0" text="Регистрация" />
-      <TextField fx:id="addUserLogin" layoutX="105.0" layoutY="43.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
-      <Label layoutX="16.0" layoutY="116.0" text="Имя" AnchorPane.leftAnchor="16.0" />
-      <TextField fx:id="addNameUser" layoutX="105.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
-      <Label layoutX="17.0" layoutY="147.0" text="Пол" AnchorPane.leftAnchor="17.0" />
-      <Label layoutX="13.0" layoutY="183.0" text="Дата рождения" AnchorPane.leftAnchor="13.0" />
-      <DatePicker fx:id="addDataBirthDate" layoutX="105.0" layoutY="179.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="105.0" />
-      <Button defaultButton="true" layoutX="28.0" layoutY="361.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="25.0" prefWidth="141.0" styleClass="btnOK" text="Создать пользователя" />
-      <Button cancelButton="true" layoutX="204.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleCancel" styleClass="btnCancel" text="Отмена" />
-      <PasswordField fx:id="addUserPassword" layoutX="105.0" layoutY="78.0" prefHeight="25.0" prefWidth="160.0" />
-      <Label layoutX="10.0" layoutY="82.0" text="Пароль" AnchorPane.leftAnchor="10.0" />
-      <Label layoutX="11.0" layoutY="47.0" text="Логин" AnchorPane.leftAnchor="11.0" />
-      <RadioButton fx:id="addGenderFemale" layoutX="113.0" layoutY="147.0" mnemonicParsing="false" text="жен">
+      <Label layoutX="113.0" layoutY="14.0" text="Регистрация" AnchorPane.topAnchor="10.0" />
+      <TextField fx:id="addUserLogin" layoutX="105.0" layoutY="43.0" onKeyReleased="#LoginKeyPress" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="45.0" />
+      <Label layoutX="14.0" layoutY="129.0" text="Имя*" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="addNameUser" layoutX="105.0" layoutY="112.0" onKeyReleased="#NameKeyPress" prefHeight="25.0" prefWidth="170.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="125.0" />
+      <Label layoutX="13.0" layoutY="165.0" text="Пол*" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="9.0" layoutY="209.0" text="Дата рождения*" AnchorPane.leftAnchor="10.0" />
+      <DatePicker fx:id="addDataBirthDate" layoutX="115.0" layoutY="200.0" onKeyPressed="#DateKeyPress" prefHeight="25.0" prefWidth="160.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="205.0" />
+      <Button defaultButton="false" layoutX="28.0" layoutY="361.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="25.0" prefWidth="141.0" styleClass="btnOK" text="Создать пользователя" AnchorPane.leftAnchor="20.0" />
+      <Button cancelButton="true" layoutX="204.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleCancel" styleClass="btnCancel" text="Отмена" AnchorPane.rightAnchor="20.0" />
+      <PasswordField fx:id="addUserPassword" layoutX="105.0" layoutY="78.0" onKeyReleased="#PasswordKeyPress" prefHeight="25.0" prefWidth="170.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="85.0" />
+      <Label layoutX="13.0" layoutY="89.0" text="Пароль*" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="10.0" layoutY="49.0" text="Логин*" AnchorPane.leftAnchor="10.0" />
+      <RadioButton fx:id="addGenderFemale" layoutX="100.0" layoutY="165.0" mnemonicParsing="false" text="жен" AnchorPane.topAnchor="165.0">
          <toggleGroup>
             <ToggleGroup fx:id="gender" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="addGenderMale" layoutX="220.0" layoutY="147.0" mnemonicParsing="false" text="муж" toggleGroup="$gender" />
-      <Label layoutX="96.0" layoutY="228.0" text="Секретный вопрос" />
-      <Label layoutX="14.0" layoutY="319.0" text="Ответ" />
-      <TextField fx:id="answer" layoutX="105.0" layoutY="315.0" prefHeight="25.0" prefWidth="160.0" text="Я атеист!" />
-      <TextField fx:id="SQ" layoutX="28.0" layoutY="267.0" prefHeight="25.0" prefWidth="239.0" text="Год крещения руси?" />
+      <RadioButton fx:id="addGenderMale" layoutX="224.0" layoutY="165.0" mnemonicParsing="false" text="муж" toggleGroup="$gender" AnchorPane.topAnchor="165.0" />
+      <Label layoutX="96.0" layoutY="239.0" text="Секретный вопрос" />
+      <Label layoutX="14.0" layoutY="319.0" text="Ответ" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="answer" layoutX="105.0" layoutY="315.0" prefHeight="25.0" prefWidth="195.0" text="Я атеист!" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="SQ" layoutX="28.0" layoutY="267.0" prefHeight="25.0" prefWidth="239.0" text="Год крещения руси?" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Label fx:id="LoginHelp" disable="true" layoutX="10.0" layoutY="27.0" onKeyReleased="#LoginKeyPress" opacity="0.0" text=" LoginHelp" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="PasswordHelp" disable="true" layoutX="10.0" layoutY="70.0" onKeyReleased="#PasswordKeyPress" opacity="0.0" text="PasswordHelp" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameHelp" disable="true" layoutX="11.0" layoutY="110.0" onKeyReleased="#NameKeyPress" opacity="0.0" text="NameHelp" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="GenderHelp" disable="true" layoutX="8.0" layoutY="150.0" opacity="0.0" text="GenderHelp" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="DateHelp" disable="true" layoutX="13.0" layoutY="182.0" onKeyReleased="#DateKeyPress" opacity="0.0" text="DateHelp" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
       
    </children>
 </AnchorPane>
