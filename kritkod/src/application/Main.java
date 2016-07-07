@@ -23,6 +23,7 @@ public class Main extends Application {
 	public static Stage primaryStage;
 	public static User mainUser;
 	public static LinkedHashSet<User> otherUsers;
+	public static String style = "../view/CSS_PurpureStyle.css";;
 
 	public static LinkedHashSet<FlowPane> ListFlowPane= new LinkedHashSet<FlowPane>();
 	public static LinkedHashSet<Target> TargetList = new LinkedHashSet<Target>();

@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.FlowPane;
@@ -47,6 +50,10 @@ public class Controller implements Initializable {
 	 
 	 @FXML
 	    private Label NameUser; //Переменная отображающая имя пользователя на главном экране
+	 @FXML
+	 	private ComboBox NameStyle;
+	 
+		ObservableList<String> styleList = FXCollections.observableArrayList("Черный", "Розовый", "Пурпурный");
 	 
 	 /**
 	  * Метод создания новой цели. Вызывается при нажатии на кнопку "Новая цель".
@@ -63,8 +70,11 @@ public class Controller implements Initializable {
 		 	Parent root = loader.load();
 		 	
 		 	Stage stage = new Stage();
+		 	Scene scene = new Scene(root);
+		 	scene.getStylesheets().clear();
+		 	scene.getStylesheets().add(Controller.class.getResource("CSS_PinkStyle.css").toString());
 		 	
-			stage.setScene(new Scene(root));
+			stage.setScene(scene);
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(Main.primaryStage);
 			stage.setTitle("Цель:");
@@ -91,6 +101,7 @@ public class Controller implements Initializable {
 		initializeTargetPane();	//Инициализация целей.
 		initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
 		initializeAchivePane();// Пусто // Инициализация Достижений
+		NameStyle.setItems(styleList); //Задали список вариантов в комбоБокс NameStyle
 	}
 	
 	@FXML
@@ -218,5 +229,21 @@ public class Controller implements Initializable {
 		stage.setTitle("Авторизация:");
 		stage.show();
 	}
+	 
+	 @FXML
+	 public void chooseStyle()
+	 {
+		 if(NameStyle.getValue().equals("Черный")) {
+			 Main.style = "view/CSS_BlackStyle.css";
+			 
+		 } else if(NameStyle.getValue().equals("Розовый")) {
+			 //Main.style = "view/CSS_PinkStyle.css";
+			 Main.style = Controller.class.getResource("CSS_PinkStyle.css").toString();
+		 } else {
+			 Main.style = "view/CSS_PurpurekStyle.css";
+		 }
+		 System.out.println(Main.style);
+		 
+	 }
 	
 }

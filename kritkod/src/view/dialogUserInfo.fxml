@@ -17,7 +17,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#ResetPerson" prefHeight="40.0" styleClass="btnOK" text="Редактировать пользователя" />
+            <Button fx:id="buttonResetPerson" mnemonicParsing="false" onAction="#ResetPerson" prefHeight="40.0" styleClass="btnOK" text="Редактировать пользователя" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

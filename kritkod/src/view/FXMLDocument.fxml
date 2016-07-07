@@ -195,7 +195,7 @@
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ComboBox prefHeight="30.0" prefWidth="150.0" promptText="Сменить дизайн" />
+                              <ComboBox fx:id="NameStyle" onAction="#chooseStyle" prefHeight="30.0" prefWidth="150.0" promptText="Сменить дизайн" />
                            </children>
                         </HBox>
                      </children>

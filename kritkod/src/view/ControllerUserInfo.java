@@ -33,6 +33,8 @@ public class ControllerUserInfo implements Initializable {
 	@FXML
 	private Button ButtonCancel;
 	@FXML
+	private Button buttonResetPerson;
+	@FXML
 	private AreaChart<String, Integer> StatisticsChart;
 	
 	Stage stage;
@@ -43,7 +45,7 @@ public class ControllerUserInfo implements Initializable {
 	
 	@FXML
     public void ResetPerson(ActionEvent actionEvent) {
-		if(user.getId() == 0){
+		if(newUser.getId()!=Main.mainUser.getId()||Main.mainUser.getId()!=1){
 		ButtonCancel.setVisible(true);
 		ButtonSave.setVisible(true);
 		birthDate.setDisable(false);
@@ -93,6 +95,12 @@ public class ControllerUserInfo implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		if(newUser.getId()!=Main.mainUser.getId()&&Main.mainUser.getId()!=1){
+			buttonResetPerson.setVisible(false);
+			buttonResetPerson.setDisable(false);
+		}
+		
 		userName.setText(newUser.getName());
 		birthDate.setValue(newUser.getBirthDate());
 		//gender.setText(value);
