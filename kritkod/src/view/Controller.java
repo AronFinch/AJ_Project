@@ -124,17 +124,18 @@ public class Controller implements Initializable {
 		 
 		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 			while (itr.hasNext()) {
-				ControllerTargetPane.target = itr.next();
+				ControllerTargetPane.newTarget = itr.next();
 					try {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 					 	Parent root = loader.load();
-					 	//ControllerTargetPane controller = loader.getController();
+					 	ControllerTargetPane controller = loader.getController();
 					 	//controller.target = itr.next();
+					 	controller.root = root;
+					 	controller.pane = ActiveTargetFlowPane;
 					 	
 					 	ActiveTargetFlowPane.getChildren().add(root);
-					 	ControllerTargetPane.root = root;
-					 	ControllerTargetPane.pane = ActiveTargetFlowPane;
+					 	
 					 	
 					 	/*
 					 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){

@@ -32,8 +32,8 @@ public class ControllerDialogNewTask implements Initializable {
 	@FXML
 	private TextArea Discription;
 	
-	private Stage dialogStage;
-	Target target = null;
+	private Stage dialogStage = null;
+	Target target = new Target();;
 	static Task task = new Task();
 	
     public void SetDialogStage(Stage dialogStage) {

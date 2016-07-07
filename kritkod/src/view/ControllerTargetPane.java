@@ -32,9 +32,10 @@ public class ControllerTargetPane implements Initializable {
 	@FXML
     private ProgressBar TargetProgressBar;
 
-	static Target target = null;
-	public static Parent root;
-	public static FlowPane pane;
+	public Target target = new Target();
+	public static Target newTarget = new Target();
+	public Parent root;
+	public FlowPane pane;
 	
 	/**
 	 * ћетод удал€ющий цель. —овсем.
@@ -59,17 +60,17 @@ public class ControllerTargetPane implements Initializable {
 		
 		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 		while (itr.hasNext()) {
-			ControllerTargetPane.target = itr.next();
+			ControllerTargetPane.newTarget = itr.next();
 				try {
 					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 				 	Parent root = loader.load();
-				 	//ControllerTargetPane controller = loader.getController();
-				 	//controller.target = itr.next();
+				 	ControllerTargetPane controller = loader.getController();
+				 	controller.root = root;
+				 	controller.pane = pane;
 				 	
 				 	pane.getChildren().add(root);
-				 	ControllerTargetPane.root = root;
-				 	ControllerTargetPane.pane = pane;
+
 				 	
 				 	/*
 				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
@@ -100,13 +101,13 @@ public class ControllerTargetPane implements Initializable {
 	@FXML
 	public void ShowTask () throws IOException{
 		
-		ControllerDialogTask.target = target; 
+		Stage stage = new Stage();
+		ControllerDialogTask.target = target;
+		ControllerDialogTask.dialogStage = stage;
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("taskList.fxml"));
 	 	Parent root = loader.load();
-	 	
-	 	Stage stage = new Stage();
 	 	
 		stage.setScene(new Scene(root));
 		stage.initModality(Modality.WINDOW_MODAL);
@@ -114,8 +115,8 @@ public class ControllerTargetPane implements Initializable {
 		stage.setTitle("«адачи цели " + target.getLabel());
 		
 	 	ControllerDialogTask controller = loader.getController();
-	 	controller.SetDialogStage(stage);
-        controller.SetTarget(target);
+	 	controller.dialogStage = stage;
+        controller.target = target;
         
 		stage.show();
 		
@@ -132,6 +133,7 @@ public class ControllerTargetPane implements Initializable {
 		
 		Target tempTarget = target;
 		ControllerDialogTarget.target = tempTarget;
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 	 	Parent root = loader.load();
@@ -153,17 +155,17 @@ public class ControllerTargetPane implements Initializable {
 		
 		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 		while (itr.hasNext()) {
-			ControllerTargetPane.target = itr.next();
+			ControllerTargetPane.newTarget = itr.next();
 				try {
 					loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 				 	root = loader.load();
-				 	//ControllerTargetPane controller = loader.getController();
-				 	//controller.target = itr.next();
+				 	ControllerTargetPane controller1 = loader.getController();
+				 	controller1.root = root;
+				 	controller1.pane = pane;
 				 	
 				 	pane.getChildren().add(root);
-				 	ControllerTargetPane.root = root;
-				 	ControllerTargetPane.pane = pane;
+
 				 	
 				 	/*
 				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
@@ -187,16 +189,16 @@ public class ControllerTargetPane implements Initializable {
 	@Override
     public void initialize(URL location, ResourceBundle resources){
         // TODO
-			LabelTargetName.setText(target.getLabel());
-			LabelTaskCount.setText("„исло задач = " + Integer.toString(target.numberDoneTasks()) 
-			+ "/" + Integer.toString(target.numberAllTasks()));
+			LabelTargetName.setText(newTarget.getLabel());
+			LabelTaskCount.setText("„исло задач = " + Integer.toString(newTarget.numberDoneTasks()) 
+			+ "/" + Integer.toString(newTarget.numberAllTasks()));
 			
-			int Month = target.getEndDate().getMonth().getValue() - target.getStartDate().getMonth().getValue();
-			int day = target.getEndDate().getDayOfMonth() - target.getEndDate().getDayOfMonth();
+			int Month = newTarget.getEndDate().getMonth().getValue() - newTarget.getStartDate().getMonth().getValue();
+			int day = newTarget.getEndDate().getDayOfMonth() - newTarget.getEndDate().getDayOfMonth();
 			//LocalDate day = target.getEndDate().minusDays(target.getStartDate().getDayOfMonth());
 			//LabelDayCount.setText("ћес€цев: " + Month + " ƒней: " + day);
-			LabelDayCount.setText("ќсталось времени: " + target.getStartDate().until(target.getEndDate()).toString());
-			
+			LabelDayCount.setText("ќсталось времени: " + newTarget.getStartDate().until(newTarget.getEndDate()).toString());
+			target = newTarget;
 		}
 		
  }

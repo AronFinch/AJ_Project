@@ -23,7 +23,7 @@ import model.Task;
 	@FXML
 	private FlowPane PaneMiniTask;
 	
-	private static Stage dialogStage;
+	static Stage dialogStage = null;
 	static Target target = null;
 	
 	@FXML
@@ -48,17 +48,6 @@ import model.Task;
 		Inic();
 	}
 
-	public void SetTarget(Target target) {
-		// TODO Auto-generated method stub
-		this.target = target;
-	}
-	
-    public void SetDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
-
-
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -71,19 +60,16 @@ import model.Task;
 		
 		PaneMiniTask.getChildren().clear();
 		
-		ControllerMiniTask.target = target;
-		ControllerMiniTask.dialogStage = dialogStage;
+		ControllerMiniTask.newTarget = target;
+		ControllerMiniTask.newDialogStage = dialogStage;
+		ControllerMiniTask.newPane = PaneMiniTask;
 		Iterator<Task> itr = target.TaskList.iterator();
 		while (itr.hasNext()) {
-			ControllerMiniTask.task = itr.next();
+			ControllerMiniTask.newTask = itr.next();
 					try {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
 					 	Parent root = loader.load();
-					 	
-					 	ControllerMiniTask controller = loader.getController();
-					 	controller.dialogStage = dialogStage;
-				        controller.target = target;
 					 	
 					 	PaneMiniTask.getChildren().add(root);
 					 	

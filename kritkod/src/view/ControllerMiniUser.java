@@ -15,12 +15,13 @@ public class ControllerMiniUser implements Initializable {
 	@FXML
     private Label Level;
 	
+	User thisUser = null;
 	static User user = null;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		thisUser = user;
 		Name.setText(user.getName());
 		Level.setText(Integer.toString(user.getRating()));
 		

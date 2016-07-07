@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Target;
@@ -26,28 +28,39 @@ public class ControllerMiniTask implements Initializable {
 	
 	@FXML
 	private Button ButtonOk;
+	
+	public static Stage newDialogStage = null;
+	public static Target newTarget = new Target();
+	public static Task newTask = new Task();
+	public  static FlowPane newPane;
 
-	public static Stage dialogStage;
-	public static Target target = new Target();
-	public static Task task = new Task();
+	public Stage dialogStage = null;
+	public Target target = new Target();
+	public Task task = new Task();
+	public FlowPane pane;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		Description.setText(task.getDescription());
-		if(task.getApproved()){
+		Description.setText(newTask.getDescription());
+		if(newTask.getApproved()){
 			ButtonOk.setDisable(true);
 		}
+		dialogStage = newDialogStage;
+		target = newTarget;
+		task = newTask;
+		pane = newPane;
 		
 	}
 	
 	@FXML
-    public void ActionClick(ActionEvent actionEvent) throws IOException {
+    public void ActionClick() throws IOException {
 
 		//dialogStage.close();
+		ControllerDialogNewTask.task = task;
 		
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(ControllerTargetPane.class.getResource("task.fxml"));
+		loader.setLocation(Controller.class.getResource("task.fxml"));
 	 	Parent root = loader.load();
 	 	
 	 	Stage stage = new Stage();
@@ -85,27 +98,25 @@ public class ControllerMiniTask implements Initializable {
 
 	private void InicDialog() throws IOException {
 		// TODO Auto-generated method stub
-		dialogStage.close();
 		
-		ControllerDialogTask.target = target; 
+		pane.getChildren().clear();
 		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(ControllerTargetPane.class.getResource("taskList.fxml"));
-	 	Parent root = loader.load();
-	 	
-	 	Stage stage = new Stage();
-	 	dialogStage = stage;
-	 	
-		stage.setScene(new Scene(root));
-		stage.initModality(Modality.WINDOW_MODAL);
-		stage.initOwner(Main.primaryStage);
-		stage.setTitle("Задачи цели " + target.getLabel());
-		
-	 	ControllerDialogTask controller = loader.getController();
-	 	controller.SetDialogStage(stage);
-        controller.SetTarget(target);
-        
-		stage.show();
+		Iterator<Task> itr = target.TaskList.iterator();
+		while (itr.hasNext()) {
+			ControllerMiniTask.newTask = itr.next();
+					try {
+						FXMLLoader loader = new FXMLLoader();
+						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
+					 	Parent root = loader.load();
+					 	
+					 	pane.getChildren().add(root);
+					 	
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}		 		 	
+
+		}
 	}
 
 }
