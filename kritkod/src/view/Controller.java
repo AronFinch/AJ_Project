@@ -73,7 +73,6 @@ public class Controller implements Initializable {
 		 	
 		 	Stage stage = new Stage();
 		 	Scene scene = new Scene(root);
-		 	//scene.getStylesheets().get(2);
 		 	
 			stage.setScene(scene);
 			stage.initModality(Modality.WINDOW_MODAL);
@@ -112,6 +111,8 @@ public class Controller implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogUserInfo.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 
 	 	Stage stage = new Stage();
 	 	
@@ -140,6 +141,8 @@ public class Controller implements Initializable {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 					 	Parent root = loader.load();
+					 	root.getStylesheets().clear();
+					 	root.getStylesheets().add(Main.style);
 					 	ControllerTargetPane controller = loader.getController();
 					 	//controller.target = itr.next();
 					 	controller.root = root;
@@ -182,6 +185,8 @@ public class Controller implements Initializable {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniUser.fxml"));
 					 	Parent root = loader.load();
+					 	root.getStylesheets().clear();
+					 	root.getStylesheets().add(Main.style);
 					 	ListTopUser.getChildren().add(root);
 					 	
 					 	
@@ -227,13 +232,15 @@ public class Controller implements Initializable {
 		Stage stage = new Stage();
 		Main.primaryStage = stage;
 	 	Parent root = FXMLLoader.load(getClass().getResource("../application/dialogLogin.fxml"));
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 		stage.setScene(new Scene(root));
 		stage.setTitle("Авторизация:");
 		stage.show();
 	}
 	 
 	 @FXML
-	 public void chooseStyle()
+	 public void chooseStyle() throws IOException
 	 {
 		 if(NameStyle.getValue().equals("Черный")) {
 			 Main.style = this.getClass().getResource("CSS_BlackStyle.css").toString();
@@ -241,9 +248,20 @@ public class Controller implements Initializable {
 		 } else if(NameStyle.getValue().equals("Розовый")) {
 			 Main.style = this.getClass().getResource("CSS_PinkStyle.css").toString();
 		 } else {
-			 Main.style = this.getClass().getResource("CSS_PurpurekStyle.css").toString();
+			 Main.style = this.getClass().getResource("CSS_PurpureStyle.css").toString();
 		 }
 		 
+		 Main.primaryStage.close();
+			
+			Stage stage = new Stage();
+			Main.primaryStage = stage;
+	 		Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+	 		root.getStylesheets().clear();
+		 	root.getStylesheets().add(Main.style);
+	 		stage.setScene(new Scene(root));
+			stage.setTitle("Главный экран:");
+			stage.show();
+			
 	 }
 	
 }

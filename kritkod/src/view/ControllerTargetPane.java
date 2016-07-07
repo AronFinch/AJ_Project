@@ -65,6 +65,8 @@ public class ControllerTargetPane implements Initializable {
 					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 				 	Parent root = loader.load();
+				 	root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
 				 	ControllerTargetPane controller = loader.getController();
 				 	controller.root = root;
 				 	controller.pane = pane;
@@ -108,6 +110,8 @@ public class ControllerTargetPane implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("taskList.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 	 	
 		stage.setScene(new Scene(root));
 		stage.initModality(Modality.WINDOW_MODAL);
@@ -137,6 +141,8 @@ public class ControllerTargetPane implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogTarget.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 	 	
 	 	Stage stage = new Stage();
 	 	
@@ -160,6 +166,8 @@ public class ControllerTargetPane implements Initializable {
 					loader = new FXMLLoader();
 					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
 				 	root = loader.load();
+				 	root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
 				 	ControllerTargetPane controller1 = loader.getController();
 				 	controller1.root = root;
 				 	controller1.pane = pane;

@@ -48,6 +48,8 @@ public class ControllerDialogLoginNewPassword {
 				Stage stage = new Stage();
 				Main.primaryStage = stage;
 			 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+			 	root.getStylesheets().clear();
+			 	root.getStylesheets().add(Main.style);
 				stage.setScene(new Scene(root));
 				stage.setTitle("Главный экран:");
 				stage.show();

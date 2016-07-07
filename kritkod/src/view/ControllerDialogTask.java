@@ -32,6 +32,8 @@ import model.Task;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerTargetPane.class.getResource("task.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 	 	
 	 	Stage stage = new Stage();
 	 	
@@ -70,6 +72,8 @@ import model.Task;
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
 					 	Parent root = loader.load();
+					 	root.getStylesheets().clear();
+					 	root.getStylesheets().add(Main.style);
 					 	
 					 	PaneMiniTask.getChildren().add(root);
 					 	

@@ -44,6 +44,8 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		
 	 	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Авторизация");

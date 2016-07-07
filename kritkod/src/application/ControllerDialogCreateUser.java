@@ -270,6 +270,8 @@ public class ControllerDialogCreateUser {
 					Stage stage = new Stage();
 					Main.primaryStage = stage;
 				 	Parent root = FXMLLoader.load(Controller.class.getResource("FXMLDocument.fxml"));
+				 	root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
 					stage.setScene(new Scene(root));
 					stage.setTitle("Главный экран:");
 					stage.show();
@@ -289,6 +291,8 @@ public class ControllerDialogCreateUser {
     private void handleCancel() throws IOException {
 		Stage stage = Main.primaryStage;
     	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
+    	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 		stage.setScene(new Scene(root));
 		stage.setTitle("Авторизация");	
     }

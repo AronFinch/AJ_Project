@@ -62,6 +62,8 @@ public class ControllerMiniTask implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Controller.class.getResource("task.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 	 	
 	 	Stage stage = new Stage();
 	 	
@@ -108,6 +110,8 @@ public class ControllerMiniTask implements Initializable {
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(Controller.class.getResource("miniTask.fxml"));
 					 	Parent root = loader.load();
+					 	root.getStylesheets().clear();
+					 	root.getStylesheets().add(Main.style);
 					 	
 					 	pane.getChildren().add(root);
 					 	

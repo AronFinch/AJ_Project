@@ -75,6 +75,8 @@ public class ControllerDialogLoginReset implements Initializable {
 				if(Main.mainUser.loadUser(Login.getText())) {
 					Stage stage = Main.primaryStage;
 					Parent root = FXMLLoader.load(getClass().getResource("dialogLoginNewPassword.fxml"));
+					root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
 					stage.setScene(new Scene(root));
 					stage.setTitle("Введите новый пароль:");
 				} else {
@@ -107,6 +109,8 @@ public class ControllerDialogLoginReset implements Initializable {
     private void handleCancel() throws IOException {
     	Stage stage = Main.primaryStage;
     	Parent root = FXMLLoader.load(Main.class.getResource("dialogLogin.fxml"));
+    	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 		stage.setScene(new Scene(root));
 		stage.setTitle("Авторизация");	
     }

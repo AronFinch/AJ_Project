@@ -42,6 +42,8 @@ public class ControllerMiniUser implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ControllerDialogTarget.class.getResource("dialogUserInfo.fxml"));
 	 	Parent root = loader.load();
+	 	root.getStylesheets().clear();
+	 	root.getStylesheets().add(Main.style);
 
 	 	Stage stage = new Stage();
 	 	
