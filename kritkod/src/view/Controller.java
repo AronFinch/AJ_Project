@@ -144,25 +144,22 @@ public class Controller implements Initializable {
 					 	root.getStylesheets().clear();
 					 	root.getStylesheets().add(Main.style);
 					 	ControllerTargetPane controller = loader.getController();
-					 	//controller.target = itr.next();
 					 	controller.root = root;
 					 	controller.pane = ActiveTargetFlowPane;
+					 	controller.pane1 = ActiveTargetFlowPane1;
+					 	controller.pane2 = ActiveTargetFlowPane2;
 					 	
-					 	ActiveTargetFlowPane.getChildren().add(root);
-					 	
-					 	
-					 	/*
-					 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
-					 		ActiveTargetFlowPane.getChildren().add(root);
-					 	}else if(false){
-					 		
+					 	if(ControllerTargetPane.newTarget.getApproved()){
 					 		ActiveTargetFlowPane1.getChildren().add(root);
+					 	}else if(ControllerTargetPane.newTarget.getEndDate().isAfter(LocalDate.now())){
+					 		
+					 		ActiveTargetFlowPane.getChildren().add(root);
 					 	}
 					 	else{
 					 		
 					 		ActiveTargetFlowPane2.getChildren().add(root);
 					 	}
-					 	*/
+					 	
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

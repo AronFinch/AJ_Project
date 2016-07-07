@@ -36,6 +36,8 @@ public class ControllerTargetPane implements Initializable {
 	public static Target newTarget = new Target();
 	public Parent root;
 	public FlowPane pane;
+	public FlowPane pane1;
+	public FlowPane pane2;
 	
 	/**
 	 * ћетод удал€ющий цель. —овсем.
@@ -70,22 +72,19 @@ public class ControllerTargetPane implements Initializable {
 				 	ControllerTargetPane controller = loader.getController();
 				 	controller.root = root;
 				 	controller.pane = pane;
+				 	controller.pane1 = pane1;
+				 	controller.pane2 = pane2;
 				 	
-				 	pane.getChildren().add(root);
-
-				 	
-				 	/*
-				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
-				 		ActiveTargetFlowPane.getChildren().add(root);
-				 	}else if(false){
+				 	if(ControllerTargetPane.newTarget.getApproved()){
+				 		pane1.getChildren().add(root);
+				 	}else if(ControllerTargetPane.newTarget.getEndDate().isAfter(LocalDate.now())){
 				 		
-				 		ActiveTargetFlowPane1.getChildren().add(root);
+				 		pane.getChildren().add(root);
 				 	}
 				 	else{
 				 		
-				 		ActiveTargetFlowPane2.getChildren().add(root);
+				 		pane2.getChildren().add(root);
 				 	}
-				 	*/
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

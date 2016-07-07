@@ -31,8 +31,8 @@ public class Target {
 		id = 0;
 		label = "название";
 		IMG = "путь к изображениею";
-		startDate = LocalDate.of(1000, 1, 1);
-		endDate = LocalDate.of(1000, 1, 1);
+		startDate = LocalDate.now();
+		endDate = LocalDate.now();
 		reward = "награда";
 		approved = false;
 		TaskList.clear();
