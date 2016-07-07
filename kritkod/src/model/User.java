@@ -203,8 +203,8 @@ public class User {
 		return statistics;
 	}
 	//
-	public ArrayList getNearTasks() {
-		ArrayList<Task> tasks = new ArrayList();
+	public ArrayList<Task> getNearTasks() {
+		ArrayList<Task> tasks = new ArrayList<Task>();
 		Iterator<Target> itar;
 		Iterator<Task> itas;
 		
