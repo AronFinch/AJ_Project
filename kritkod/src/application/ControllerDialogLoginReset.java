@@ -80,7 +80,7 @@ public class ControllerDialogLoginReset implements Initializable {
 				} else {
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		    		alert.setTitle("Information");
-		    	    alert.setHeaderText("Удивительно, ав правильно ответили, но пользователь не загрузился!");
+		    	    alert.setHeaderText("Удивительно, вы правильно ответили, но пользователь не загрузился!");
 		    	    alert.showAndWait();
 				}
 			} else {
