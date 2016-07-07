@@ -20,6 +20,11 @@
             <VBox prefWidth="230.0" spacing="5.0">
                <children>
                   <Label text="Логин" />
+                  <Label disable="true" text="LoginHelp">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
                   <HBox alignment="CENTER_LEFT">
                      <children>
                         <TextField fx:id="Login" />
@@ -42,7 +47,10 @@
             <VBox prefWidth="230.0" spacing="5.0">
                <children>
                   <Label text="Секретный вопрос:" />
-                  <Label fx:id="labelDisable" disable="true" text="Есть ли бог?" />
+                  <Label fx:id="labelDisable" disable="true" opacity="0.0" text="Есть ли бог?">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
                   <TextField fx:id="answer" disable="true" />
                </children>
                <padding>

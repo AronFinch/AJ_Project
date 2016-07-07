@@ -35,9 +35,9 @@ public class ControllerDialogLoginReset implements Initializable {
     
     @FXML
     public void btnChek(){
-        
+        String login = Login.getText();
     	// загрузка из логина
-    	if(!Login.getText().equals("")) {
+    	if(!login.equals("")) {
     		try {
 				if(Main.mainUser.userIsExist(Login.getText())) {
 					buttonNewPassword.setDisable(false);
