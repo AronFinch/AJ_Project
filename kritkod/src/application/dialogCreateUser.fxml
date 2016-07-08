@@ -27,7 +27,7 @@
       <RadioButton fx:id="addGenderMale" layoutX="224.0" layoutY="165.0" mnemonicParsing="false" text="муж" toggleGroup="$gender" AnchorPane.topAnchor="165.0" />
       <Label layoutX="96.0" layoutY="239.0" text="Секретный вопрос" />
       <Label layoutX="14.0" layoutY="319.0" text="Ответ" AnchorPane.leftAnchor="10.0" />
-      <TextField fx:id="answer" layoutX="105.0" layoutY="315.0" prefHeight="25.0" prefWidth="195.0" text="Я атеист!" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="answer" layoutX="105.0" layoutY="315.0" prefHeight="25.0" prefWidth="195.0" text="988" AnchorPane.rightAnchor="20.0" />
       <TextField fx:id="SQ" layoutX="28.0" layoutY="267.0" prefHeight="25.0" prefWidth="239.0" text="Год крещения руси?" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
       <Label fx:id="LoginHelp" disable="true" layoutX="10.0" layoutY="27.0" onKeyReleased="#LoginKeyPress" opacity="0.0" text=" LoginHelp" AnchorPane.leftAnchor="10.0">
          <font>

@@ -19,21 +19,21 @@ public class Target {
 	
 	public Target() {
 		id = 0;
-		label = "название";
-		IMG = "путь к изображениею";
+		label = "";
+		IMG = "";
 		startDate = LocalDate.now();
 		endDate = LocalDate.now();
-		reward = "награда";
+		reward = "";
 		approved = false;
 		TaskList = new LinkedHashSet<Task>();
 	}
 	public void clear() {
 		id = 0;
-		label = "название";
-		IMG = "путь к изображениею";
+		label = "";
+		IMG = "";
 		startDate = LocalDate.now();
 		endDate = LocalDate.now();
-		reward = "награда";
+		reward = "";
 		approved = false;
 		TaskList.clear();
 	}

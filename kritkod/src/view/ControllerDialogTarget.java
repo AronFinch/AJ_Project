@@ -49,9 +49,7 @@ public class ControllerDialogTarget implements Initializable {
     public void SetDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
-    
-    public void SetTarget(Target target) {
-    	
+    public void SetTarget(Target target) {	
         this.target = target;
     }
 	
