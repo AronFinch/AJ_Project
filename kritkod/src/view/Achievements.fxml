@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="275.0" style="-fx-border-color: #000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControllerAchievementsPane">
+   <children>
+      <ImageView fx:id="Image" fitHeight="253.0" fitWidth="239.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="22.0" layoutY="293.0" text="Дата выполнения" />
+      <Label fx:id="Name" layoutX="22.0" layoutY="324.0" prefHeight="17.0" prefWidth="230.0" text="Название" />
+      <Label fx:id="Bonus" layoutX="22.0" layoutY="354.0" prefHeight="17.0" prefWidth="230.0" text="Награда: " />
+      <DatePicker fx:id="Date" disable="true" layoutX="138.0" layoutY="289.0" prefHeight="25.0" prefWidth="113.0" />
+   </children>
+</Pane>

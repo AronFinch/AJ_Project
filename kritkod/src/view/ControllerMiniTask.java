@@ -82,9 +82,10 @@ public class ControllerMiniTask implements Initializable {
 	}
 	
 	@FXML
-    public void ActionOk(ActionEvent actionEvent) throws IOException{
+    public void ActionOk(ActionEvent actionEvent) throws IOException, SQLException{
 		
 		task.setApproved(true);
+		task.SaveTask(target.getId());
 		InicDialog();
 
 	}
