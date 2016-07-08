@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
@@ -27,6 +28,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Notice;
 import model.Target;
+import model.Task;
 import model.User;
 
 public class Controller implements Initializable {
@@ -46,7 +48,7 @@ public class Controller implements Initializable {
 	 	private FlowPane ListTopUser; // Лист для отображения фабрикой Всех пользователей по рейтингу.
 	 
 	 @FXML
-	 	private FlowPane ActiveAchivePane; //Панель для отображения фабрикой Достижений.
+	 	private FlowPane ActiveAchievePane; //Панель для отображения фабрикой Достижений.
 	 @FXML
 	 	private FlowPane ActiveClosestTaskPane; //Панель для отображения фабрикой ближайших задач.
 	 
@@ -104,8 +106,8 @@ public class Controller implements Initializable {
 		initializeListTopUser();  // Инициализация топа
 		initializeStatisticPane();// Пусто //Метод инициализации Статистики
 		initializeTargetPane();	//Инициализация целей.
-		initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
-		initializeAchivePane();// Пусто // Инициализация Достижений
+		//initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
+		//initializeAchivePane();// Пусто // Инициализация Достижений
 		NameStyle.setItems(styleList); //Задали список вариантов в комбоБокс NameStyle
 	}
 	
@@ -205,7 +207,55 @@ public class Controller implements Initializable {
 	  */
 	private void initializeClosestTaskPane() {
 		// TODO Auto-generated method stub
+		
+ActiveClosestTaskPane.getChildren().clear();
+		
+/*
+		ArrayList<Task> list = Main.mainUser.getNearTasks();
+		Iterator<Task> itr = list.iterator();
+		while (itr.hasNext()) {
+			ControllerAchievementsPane.task = itr.next();
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(Controller.class.getResource("miniTask.fxml"));
+				 	Parent root = loader.load();
+				 	root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
+				 	ActiveAchievePane.getChildren().add(root);
+				} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		*/
+
+			ActiveAchievePane.getChildren().clear();
+
+			ArrayList<Task> list = Main.mainUser.getNearTasks();
+			Iterator<Task> itr = list.iterator();
 			
+			ControllerMiniTask.newTarget = new Target();
+			ControllerMiniTask.newDialogStage = Main.primaryStage;
+			ControllerMiniTask.newPane = ActiveAchievePane;
+			while (itr.hasNext()) {
+				System.out.println(1);
+				ControllerMiniTask.newTask = itr.next();
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(Controller.class.getResource("miniTask.fxml"));
+			 	Parent root = loader.load();
+			 	root.getStylesheets().clear();
+			 	root.getStylesheets().add(Main.style);
+			 	
+			 	ActiveAchievePane.getChildren().add(root);
+			 	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		 		 	
+
+			}
+
 	}
 	
 	/**
@@ -213,6 +263,28 @@ public class Controller implements Initializable {
 	 */
 	private void initializeAchivePane() {
 		// TODO Auto-generated method stub
+		
+		ActiveAchievePane.getChildren().clear();
+		
+		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
+		while (itr.hasNext()) {
+			ControllerAchievementsPane.target = itr.next();
+			System.out.println(1);
+			if(ControllerAchievementsPane.target.getApproved()){
+				System.out.println(2);
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(Controller.class.getResource("Achievements.fxml"));
+				 	Parent root = loader.load();
+				 	root.getStylesheets().clear();
+				 	root.getStylesheets().add(Main.style);
+				 	ActiveAchievePane.getChildren().add(root);
+				} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		}
 		
 	}
 	
