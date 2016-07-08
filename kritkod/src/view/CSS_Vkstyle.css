@@ -1,0 +1,160 @@
+.header{
+    -fx-text-fill: white;
+}
+.background{
+    -fx-background-color:#ffffff;
+}
+
+.label{
+    -fx-text-fill: #45688e;
+}
+
+.button{
+    -fx-text-fill:white;
+    -fx-cursor: hand;
+    -fx-background-color:#597da3;
+    -fx-background-radius: 5;
+    /*-fx-effect:dropshadow(three-pass-box,#00000088,10,0,0,0);*/
+}
+
+.button .label{
+    -fx-text-fill:#fff
+}
+
+.button:hover{
+    -fx-background-color: #4a6b8f;
+    /*-fx-effect:dropshadow(three-pass-box,#FFFFFF,10,0,0,0);*/
+}
+
+
+.text-field{
+    -fx-background-color:#FFFFFF;
+    -fx-prompt-text-fill:#000;
+    -fx-text-fill:#000;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1;
+    -fx-border-color: #597da3;
+}
+
+.head{
+    -fx-background-color:#597da3;
+}
+
+.head .label{
+    -fx-text-fill:#fff;
+    -fx-font-family: "Segoe UI";
+}
+
+.tab-pane {
+    -fx-background-color: #FFF;
+}
+
+.tab-content-area{
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane .tab {
+    -fx-text-fill: #FFF;
+    -fx-background-color: #597da3;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.tab *.tab-label{
+    -fx-text-fill: #fff;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #45688e;
+}
+.tab:hover{
+    -fx-cursor: hand;
+}
+
+.split-menu-button .label{
+    -fx-text-fill: #45688e;
+}
+
+.split-menu-button .arrow{
+    -fx-background-color: #45688e;
+}
+
+.combo-box-base{
+    -fx-background-color: #597da3;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+.combo-box-base:hover{
+    -fx-background-color: #3366ff;
+    -fx-cursor:hand;
+}
+
+
+.lowPane{
+    -fx-background-color: #EEE;
+    -fx-effect: innershadow(two-pass-box,#00000077,10,0,0,0); 
+}
+.lowPane .label{
+    -fx-text-fill:#45688e;
+}
+
+.btnOK{
+}
+.btnOK .label{
+    -fx-text-fill: #000;
+}
+.btnOK:hover{
+    -fx-background-color:greenyellow;
+}
+
+.progress-bar{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 3;
+}
+.progress-bar .bar{
+    -fx-background-radius: 3;
+    -fx-background-color: #4a6b8f;
+    -fx-background-insets: 3;
+}
+.progress-bar .track{
+    -fx-background-color: #fff;
+    -fx-effect: innershadow(two-pass-box,#00000077,10,0,0,0);
+    -fx-background-radius: 3;
+}
+.btnCancel:hover{
+    -fx-background-color: #ff0000;
+}
+.btnCancel .label{
+    -fx-text-fill: #000;
+}
+.radio-button{
+    -fx-text-fill: #FFF;
+}
+
+.titled-pane{
+    -fx-animated: true;
+    -fx-text-fill: #FFFFFF;
+}
+
+.titled-pane > .title {
+    -fx-body-color: #597da3;
+    -fx-focus-color:#333;
+    -fx-color: -fx-focus-color;
+    -fx-background-color: -fx-box-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 1, 0.2, 1;
+}
+
+.titled-pane > .title .arrow-button .arrow {
+    -fx-background-color: #fff;
+}
+
+.titled-pane:focused > .title 
+{
+    -fx-focus-color: #999;
+    -fx-color: -fx-focus-color;
+}
+
+.button:armed{
+    -fx-effect:innershadow(one-pass-box,#00000077,10,0,0,0);
+}
