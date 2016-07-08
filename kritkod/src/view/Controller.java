@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -52,8 +54,11 @@ public class Controller implements Initializable {
 	    private Label NameUser; //Переменная отображающая имя пользователя на главном экране
 	 @FXML
 	 	private ComboBox NameStyle;
+	 @FXML
+		private BarChart<String, Integer> mainStat; //Статистика
+
 	 
-		ObservableList<String> styleList = FXCollections.observableArrayList("Черный", "Розовый", "Пурпурный");
+		ObservableList<String> styleList = FXCollections.observableArrayList("Черный", "Розовый", "Пурпурный", "Синий");
 	 
 	 /**
 	  * Метод создания новой цели. Вызывается при нажатии на кнопку "Новая цель".
@@ -217,6 +222,16 @@ public class Controller implements Initializable {
 	private void initializeStatisticPane() {
 		// TODO Auto-generated method stub
 		
+		XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+		series.setName("Моя статистика");
+		series.getData().add(new XYChart.Data<>("Целей всего", Main.mainUser.TargetList.size())); //Целей всего
+		series.getData().add(new XYChart.Data<>("Выполнено", Main.mainUser.getStatistics().getNumberDoneTarget())); //Целей выполнено
+		series.getData().add(new XYChart.Data<>("Просрочено", Main.mainUser.getStatistics().getNumberFaildTarget())); //Целей просрочено
+		series.getData().add(new XYChart.Data<>("Баллы", Main.mainUser.getStatistics().getAllBalls())); //Баллы
+		series.getData().add(new XYChart.Data<>("Место в топе", Main.mainUser.getRating())); //Место в топе
+		
+		mainStat.getData().add(series);
+		
 	}
 	
 	 @FXML
@@ -244,7 +259,10 @@ public class Controller implements Initializable {
 			 
 		 } else if(NameStyle.getValue().equals("Розовый")) {
 			 Main.style = this.getClass().getResource("CSS_PinkStyle.css").toString();
-		 } else {
+		 } else if(NameStyle.getValue().equals("Синий")){
+			 Main.style = this.getClass().getResource("CSS_Vkstyle.css").toString();
+		 }
+		 else{
 			 Main.style = this.getClass().getResource("CSS_PurpureStyle.css").toString();
 		 }
 		 
