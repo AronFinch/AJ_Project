@@ -33,7 +33,7 @@
             <Label layoutX="57.0" layoutY="32.0" prefHeight="25.0" text="Имя" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
             <Label layoutX="57.0" layoutY="74.0" prefHeight="25.0" text="Пол" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="55.0" />
             <Label layoutX="57.0" layoutY="114.0" prefHeight="25.0" text="Дата рождения" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
-            <SplitMenuButton fx:id="gender" layoutX="120.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Мужской" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="55.0">
+            <SplitMenuButton fx:id="gender" disable="true" layoutX="120.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="Мужской" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="55.0">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#SetMan" text="Мужской" />
                 <MenuItem mnemonicParsing="false" onAction="#SetWoman" text="Женский" />

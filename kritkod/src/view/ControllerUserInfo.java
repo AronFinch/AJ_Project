@@ -45,11 +45,12 @@ public class ControllerUserInfo implements Initializable {
 	
 	@FXML
     public void ResetPerson(ActionEvent actionEvent) {
-		if(newUser.getId()!=Main.mainUser.getId()||Main.mainUser.getId()!=1){
+		if(user.getId()==Main.mainUser.getId()||Main.mainUser.getId()==1){
 		ButtonCancel.setVisible(true);
 		ButtonSave.setVisible(true);
 		birthDate.setDisable(false);
 		userName.setDisable(false);
+		gender.setDisable(false);
 		}
 		
 	}
@@ -62,6 +63,7 @@ public class ControllerUserInfo implements Initializable {
 		ButtonSave.setVisible(false);
 		birthDate.setDisable(true);
 		userName.setDisable(true);
+		gender.setDisable(true);
 		
 	}
 	
@@ -83,6 +85,7 @@ public class ControllerUserInfo implements Initializable {
 		ButtonSave.setVisible(false);
 		birthDate.setDisable(true);
 		userName.setDisable(true);
+		gender.setDisable(true);
 		
 	}
 	

@@ -26,8 +26,11 @@ public class ControllerAchievementsPane implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(3);
-		Image.setImage(new javafx.scene.image.Image(target.getIMG()));;
+		/*
+		if(target.getIMG()!=null){
+			Image.setImage(new javafx.scene.image.Image(target.getIMG()));
+		}
+		*/
 		Name.setText(target.getLabel());
 		Bonus.setText(target.getReward());
 		Date.setValue(target.getEndDate());

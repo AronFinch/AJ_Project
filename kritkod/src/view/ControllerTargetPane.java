@@ -58,41 +58,7 @@ public class ControllerTargetPane implements Initializable {
     	    alert.showAndWait();
 		}
 		
-		pane.getChildren().clear();
-		
-		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
-		while (itr.hasNext()) {
-			ControllerTargetPane.newTarget = itr.next();
-				try {
-					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
-				 	Parent root = loader.load();
-				 	root.getStylesheets().clear();
-				 	root.getStylesheets().add(Main.style);
-				 	ControllerTargetPane controller = loader.getController();
-				 	controller.root = root;
-				 	controller.pane = pane;
-				 	controller.pane1 = pane1;
-				 	controller.pane2 = pane2;
-				 	
-				 	if(ControllerTargetPane.newTarget.getApproved()){
-				 		pane1.getChildren().add(root);
-				 	}else if(ControllerTargetPane.newTarget.getEndDate().isAfter(LocalDate.now())){
-				 		
-				 		pane.getChildren().add(root);
-				 	}
-				 	else{
-				 		
-				 		pane2.getChildren().add(root);
-				 	}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
-	 
-		
-		
+		Main.MiniTargetInic();	
 	}
 	
 	/**
@@ -128,7 +94,7 @@ public class ControllerTargetPane implements Initializable {
 	}
 	
 	/**
-	 * Метод открывающий окно с просмотром цели. Переделать.
+	 * Метод открывающий окно с просмотром цели.
 	 * @throws IOException 
 	 */
 	@FXML
@@ -156,41 +122,7 @@ public class ControllerTargetPane implements Initializable {
         
 		stage.showAndWait();
 		
-		pane.getChildren().clear();
-		
-		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
-		while (itr.hasNext()) {
-			ControllerTargetPane.newTarget = itr.next();
-				try {
-					loader = new FXMLLoader();
-					loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
-				 	root = loader.load();
-				 	root.getStylesheets().clear();
-				 	root.getStylesheets().add(Main.style);
-				 	ControllerTargetPane controller1 = loader.getController();
-				 	controller1.root = root;
-				 	controller1.pane = pane;
-				 	
-				 	pane.getChildren().add(root);
-
-				 	
-				 	/*
-				 	if(itr.next().TaskList.getEndDate().isAfter(LocalDate.now())&& itr.next().){
-				 		ActiveTargetFlowPane.getChildren().add(root);
-				 	}else if(false){
-				 		
-				 		ActiveTargetFlowPane1.getChildren().add(root);
-				 	}
-				 	else{
-				 		
-				 		ActiveTargetFlowPane2.getChildren().add(root);
-				 	}
-				 	*/
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
+		Main.MiniTargetInic();
 	}
 	
 	@Override

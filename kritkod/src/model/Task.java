@@ -73,6 +73,7 @@ public class Task {
 	}
 	public void setApproved(boolean Approved) {
 		approved = Approved;
+		Done(Approved);
 	}
 	//Получить айди задачи
 	public int getId() {	

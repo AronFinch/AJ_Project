@@ -26,6 +26,10 @@ import model.Task;
 	static Stage dialogStage = null;
 	static Target target = null;
 	
+	static FlowPane pane;
+	static FlowPane pane1;
+	static FlowPane pane2;
+	
 	@FXML
     public void NewTask(ActionEvent actionEvent) throws IOException{
 		
@@ -60,6 +64,7 @@ import model.Task;
 	
 	public void Inic(){
 		
+		Main.MiniTargetInic();
 		PaneMiniTask.getChildren().clear();
 		
 		ControllerMiniTask.newTarget = target;

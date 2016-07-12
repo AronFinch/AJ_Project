@@ -102,12 +102,16 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
 		// TODO Auto-generated method stub
+		Main.pane = ActiveTargetFlowPane;
+		Main.pane1 = ActiveTargetFlowPane1;
+		Main.pane2 = ActiveTargetFlowPane2;
+		
 		NameUser.setText(Main.mainUser.getName()); // Задали имя пользователя
 		initializeListTopUser();  // Инициализация топа
-		initializeStatisticPane();// Пусто //Метод инициализации Статистики
+		initializeStatisticPane(); //Метод инициализации Статистики
 		initializeTargetPane();	//Инициализация целей.
-		//initializeClosestTaskPane();// Пусто //Инициализация Ближайших целей
-		//initializeAchivePane();// Пусто // Инициализация Достижений
+		initializeClosestTaskPane(); //Инициализация Ближайших целей
+		initializeAchivePane();// Инициализация Достижений
 		NameStyle.setItems(styleList); //Задали список вариантов в комбоБокс NameStyle
 	}
 	
@@ -137,41 +141,8 @@ public class Controller implements Initializable {
 	  * Инициализация вкладок с целями. Фабрика с условиями.
 	  */
 	 public void initializeTargetPane(){
-		 ActiveTargetFlowPane.getChildren().clear();
-		 ActiveTargetFlowPane1.getChildren().clear();
-		 ActiveTargetFlowPane2.getChildren().clear();
 		 
-		 Iterator<Target> itr = Main.mainUser.TargetList.iterator();
-			while (itr.hasNext()) {
-				ControllerTargetPane.newTarget = itr.next();
-					try {
-						FXMLLoader loader = new FXMLLoader();
-						loader.setLocation(Controller.class.getResource("miniTarget.fxml"));
-					 	Parent root = loader.load();
-					 	root.getStylesheets().clear();
-					 	root.getStylesheets().add(Main.style);
-					 	ControllerTargetPane controller = loader.getController();
-					 	controller.root = root;
-					 	controller.pane = ActiveTargetFlowPane;
-					 	controller.pane1 = ActiveTargetFlowPane1;
-					 	controller.pane2 = ActiveTargetFlowPane2;
-					 	
-					 	if(ControllerTargetPane.newTarget.getApproved()){
-					 		ActiveTargetFlowPane1.getChildren().add(root);
-					 	}else if(ControllerTargetPane.newTarget.getEndDate().isAfter(LocalDate.now())){
-					 		
-					 		ActiveTargetFlowPane.getChildren().add(root);
-					 	}
-					 	else{
-					 		
-					 		ActiveTargetFlowPane2.getChildren().add(root);
-					 	}
-					 	
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-			}
+			Main.MiniTargetInic();
 		 
 	 }
 	 
@@ -208,37 +179,15 @@ public class Controller implements Initializable {
 	private void initializeClosestTaskPane() {
 		// TODO Auto-generated method stub
 		
-ActiveClosestTaskPane.getChildren().clear();
-		
-/*
-		ArrayList<Task> list = Main.mainUser.getNearTasks();
-		Iterator<Task> itr = list.iterator();
-		while (itr.hasNext()) {
-			ControllerAchievementsPane.task = itr.next();
-				try {
-					FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(Controller.class.getResource("miniTask.fxml"));
-				 	Parent root = loader.load();
-				 	root.getStylesheets().clear();
-				 	root.getStylesheets().add(Main.style);
-				 	ActiveAchievePane.getChildren().add(root);
-				} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-		*/
-
-			ActiveAchievePane.getChildren().clear();
+			ActiveClosestTaskPane.getChildren().clear();	 	
 
 			ArrayList<Task> list = Main.mainUser.getNearTasks();
 			Iterator<Task> itr = list.iterator();
 			
 			ControllerMiniTask.newTarget = new Target();
 			ControllerMiniTask.newDialogStage = Main.primaryStage;
-			ControllerMiniTask.newPane = ActiveAchievePane;
+			ControllerMiniTask.newPane = ActiveClosestTaskPane;
 			while (itr.hasNext()) {
-				System.out.println(1);
 				ControllerMiniTask.newTask = itr.next();
 			try {
 				FXMLLoader loader = new FXMLLoader();
@@ -247,7 +196,7 @@ ActiveClosestTaskPane.getChildren().clear();
 			 	root.getStylesheets().clear();
 			 	root.getStylesheets().add(Main.style);
 			 	
-			 	ActiveAchievePane.getChildren().add(root);
+			 	ActiveClosestTaskPane.getChildren().add(root);
 			 	
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -265,6 +214,24 @@ ActiveClosestTaskPane.getChildren().clear();
 		// TODO Auto-generated method stub
 		
 		ActiveAchievePane.getChildren().clear();
+		
+		try {
+			
+			Target target = new Target();
+			target.setLabel("Вы зарегистрировались!");
+			target.setReward("+ к Карме!");
+			ControllerAchievementsPane.target = target;
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Controller.class.getResource("Achievements.fxml"));
+		 	Parent root = loader.load();
+		 	root.getStylesheets().clear();
+		 	root.getStylesheets().add(Main.style);
+		 	ActiveAchievePane.getChildren().add(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Iterator<Target> itr = Main.mainUser.TargetList.iterator();
 		while (itr.hasNext()) {
